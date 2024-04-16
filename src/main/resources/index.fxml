@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.IndexController">
+   <children>
+      <Label fx:id="lblTitulo" layoutX="386.0" layoutY="37.0" text="Título" />
+      <Label layoutX="14.0" layoutY="97.0" text="Nombre" />
+      <Label layoutX="15.0" layoutY="188.0" text="Apellido" />
+      <Label layoutX="14.0" layoutY="282.0" text="Telefono" />
+      <TextField fx:id="txtNombre" layoutX="15.0" layoutY="132.0" />
+      <TextField fx:id="txtApellido" layoutX="15.0" layoutY="225.0" />
+      <TextField fx:id="txtTelefono" layoutX="15.0" layoutY="323.0" />
+      <Button fx:id="btnGuardar" layoutX="15.0" layoutY="400.0" mnemonicParsing="false" onAction="#onSave" prefHeight="25.0" prefWidth="149.0" text="Guardar" />
+      <ComboBox fx:id="comboCliente" layoutX="259.0" layoutY="132.0" prefHeight="25.0" prefWidth="503.0" />
+   </children>
+</AnchorPane>
