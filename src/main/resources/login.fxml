@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.LoginController">
+    <!-- VBox para organizar los elementos verticalmente -->
+    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <!-- Título "Inicio de Sesión" -->
+        <Label prefHeight="35.0" prefWidth="358.0" style="-fx-font-size: 24px;" text="Aplicación Reporte de Incidencias">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Label>
+        <!-- Imagen del logo -->
+        <ImageView fitHeight="117.0" fitWidth="118.0">
+            <image>
+                <!-- Ruta de la imagen -->
+                <Image url="@/images/logoAyuntamiento.png" />
+            </image>
+        </ImageView>
+        <!-- GridPane para organizar los campos de usuario y contraseña -->
+        <GridPane alignment="CENTER" hgap="10" vgap="10">
+            <!-- Etiqueta y campo de usuario -->
+            <Label prefWidth="58.0" text="Usuario:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField prefHeight="18.0" prefWidth="296.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <!-- Etiqueta y campo de contraseña -->
+            <Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <PasswordField prefHeight="23.0" prefWidth="296.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <!-- Restricciones de columnas y filas -->
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+        <!-- Botón para iniciar sesión -->
+        <Button alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="129.0" text="Iniciar Sesión" />
+    </VBox>
+</AnchorPane>
