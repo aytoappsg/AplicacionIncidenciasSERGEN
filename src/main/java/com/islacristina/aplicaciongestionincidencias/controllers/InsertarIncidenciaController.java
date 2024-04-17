@@ -8,7 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import org.springframework.stereotype.Component;
 
+@Component
 public class InsertarIncidenciaController {
 
     @FXML

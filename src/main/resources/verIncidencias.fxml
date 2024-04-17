@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="401.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.VerIncidenciasController">
+    <children>
+        <ScrollPane prefHeight="434.0" prefWidth="934.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TableView prefHeight="430.0" prefWidth="930.0">
+                            <columns>
+                                <TableColumn prefWidth="65.0" text="Nº Orden" />
+                                <TableColumn prefWidth="92.0" text="Referencia" />
+                                <TableColumn prefWidth="68.0" text="Tipo" />
+                                <TableColumn prefWidth="75.0" text="Aplicado A" />
+                                <TableColumn prefWidth="75.0" text="Fecha Notif." />
+                                <TableColumn prefWidth="107.0" text="Fecha Serv.Gral." />
+                                <TableColumn prefWidth="75.0" text="Descripción" />
+                                <TableColumn prefWidth="75.0" text="Creada por" />
+                                <TableColumn prefWidth="109.0" text="Coord. Asignado" />
+                                <TableColumn prefWidth="75.0" text="Estado" />
+                                <TableColumn prefWidth="111.0" text="Observaciones" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
