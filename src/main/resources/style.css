@@ -16,3 +16,13 @@
     -fx-border-style: solid;
     -fx-border-color: #748CF1;
 }
+
+.combo-box-no-procede {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+}
+
+.blue-button {
+    -fx-background-color: blue;
+    -fx-text-fill: white; /* Color del texto en blanco para mejor contraste */
+}

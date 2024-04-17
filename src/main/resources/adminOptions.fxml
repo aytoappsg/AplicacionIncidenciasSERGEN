@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.OpcionesAdminController">
+
+    <TableView fx:id="usersTable" layoutX="20" layoutY="20" prefHeight="400.0" prefWidth="312.0">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Nombre" />
+            <TableColumn fx:id="roleColumn" text="Rol" />
+        </columns>
+    </TableView>
+    <Button fx:id="addUserButton" layoutX="401.0" layoutY="276.0" text="Añadir usuario" />
+    <Button fx:id="deleteUserButton" layoutX="402.0" layoutY="319.0" text="Borrar usuario" />
+    <Button fx:id="modifyUserButton" layoutX="393.0" layoutY="363.0" text="Modificar usuario" />
+
+</AnchorPane>
