@@ -1,98 +1,123 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
+import com.islacristina.aplicaciongestionincidencias.model.Procedencia;
+import com.islacristina.aplicaciongestionincidencias.repositories.ProcedenciaRepository;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 @Component
-public class InsertarIncidenciaController {
+public class InsertarIncidenciaController implements Initializable {
 
     @FXML
-    private AnchorPane anchorPane;
+    private GridPane gridPane;
 
     @FXML
-    private TitledPane titledPaneTercero;
+    private ComboBox<String> cbProcedencia;
 
     @FXML
-    private ComboBox<String> comboBoxMedioRecepcion;
+    private TextField txtNumRegAyto;
 
     @FXML
-    private Label lblDni;
+    private DatePicker dpNotificacion;
 
     @FXML
-    private TextField txtDni;
+    private TextField txtSiglasProcedencia;
 
     @FXML
-    private Label lblCorreo;
+    private TextField txtReferencia;
 
     @FXML
-    private TextField txtCorreo;
+    private TextField txtNumExpAyto;
 
     @FXML
-    private Label lblNombre;
+    private DatePicker dpServiciosGenerales;
 
     @FXML
-    private TextField txtNombre;
+    private TextField txtDniTercero;
 
     @FXML
-    private Label lblTlf;
+    private TextField txtNombreTercero;
 
     @FXML
-    private TextField txtTlf;
+    private TextField txtCorreoTercero;
 
     @FXML
-    private TitledPane titledPaneTercero1;
+    private TextField txtTelefonoTercero;
 
     @FXML
-    private GridPane gridPaneTercero1;
+    private ComboBox<String> cbTipoUbicacion1;
 
     @FXML
-    private Label lblMedioRecepcion;
+    private ComboBox<String> cbTipoUbicacion2;
 
     @FXML
-    private Label lblNumReferencia;
+    private ComboBox<String> cbTipoUbicacion3;
 
     @FXML
-    private Label lblNumRegistroAyto;
+    private ComboBox<String> cbUbicadoAplicado1;
 
     @FXML
-    private TextField txtNumRegistroAyto;
+    private ComboBox<String> cbUbicadoAplicado2;
 
     @FXML
-    private Label lblNumExpedienteAyto;
+    private ComboBox<String> cbUbicadoAplicado3;
 
     @FXML
-    private TextField txtNumExpedienteAyto;
+    private Button btnAnadir1;
 
     @FXML
-    private TitledPane titledPaneFechas;
+    private Button btnEliminar1;
 
     @FXML
-    private DatePicker datePickerFechaNotif;
+    private Button btnAnadir2;
 
     @FXML
-    private DatePicker datePickerServGral;
+    private Button btnEliminar2;
 
     @FXML
-    private TitledPane titledPaneUbicacion;
+    private TextArea txtDescripcion;
 
     @FXML
-    private ComboBox<String> comboBoxTipo;
+    private Button btnEnviar;
+
+    private ProcedenciaRepository procedenciaRepository;
 
     @FXML
-    private ComboBox<String> comboBoxUbicadoA;
+    public void enviarIncidencia() {
+        // Lógica para enviar la incidencia
+    }
 
-    @FXML
-    private TextField txtUbicadoA;
+    @Autowired
+    public InsertarIncidenciaController(ProcedenciaRepository procedenciaRepository){
+        this.procedenciaRepository = procedenciaRepository;
+    }
 
-    @FXML
-    private void initialize() {
-        // Código de inicialización
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        establecerDatosPrevios();
+    }
+
+    private void establecerDatosPrevios() {
+        List<Procedencia> lista = procedenciaRepository.findAll();
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        for (Procedencia elemento : lista){
+            observableList.add(elemento.getTipoProcedencia());
+        }
+        cbProcedencia.setItems(observableList);
     }
 }
