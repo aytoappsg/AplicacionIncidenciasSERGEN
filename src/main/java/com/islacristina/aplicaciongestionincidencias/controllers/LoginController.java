@@ -5,12 +5,18 @@ import com.islacristina.aplicaciongestionincidencias.exceptions.UserNotFoundExce
 import com.islacristina.aplicaciongestionincidencias.model.User;
 import com.islacristina.aplicaciongestionincidencias.services.UserService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -64,18 +70,36 @@ public class LoginController implements Initializable {
                 return;
             }
 
-            User user = userService.findByName(usuario);
-            if (user == null) {
-                showAlert("Error de inicio de sesión", "El usuario no existe");
-                return;
-            }
+            // Realizar la autenticación
+            User user = userService.login(usuario, contrasena);
 
-            if (!user.getContrasena().equals(contrasena)) {
-                showAlert("Error de inicio de sesión", "Contraseña incorrecta");
-                return;
-            }
+            // Cargar el dashboard
+            FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
+            BorderPane dashboardPane = dashboardLoader.load();
 
-            System.out.println("Usuario autenticado: ");
+            // Obtener el controlador del dashboard
+            DashboardController dashboardController = dashboardLoader.getController();
+
+            // Configurar el usuario en el controlador del dashboard
+            dashboardController.setUsuario(user);
+
+            // Mostrar la pantalla de bienvenida en el dashboard
+            dashboardController.mostrarPantallaBienvenida();
+
+            // Configurar y mostrar la escena del dashboard
+            Scene scene = new Scene(dashboardPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+            // Cerrar la ventana de inicio de sesión
+            Stage loginStage = (Stage) iniciarSesionButton.getScene().getWindow();
+            loginStage.close();
+
+        } catch (UserNotFoundException e) {
+            showAlert("Error de inicio de sesión", "El usuario no existe");
+        } catch (InvalidCredentialsException e) {
+            showAlert("Error de inicio de sesión", "Contraseña incorrecta");
         } catch (Exception e) {
             showAlert("Error", "Ocurrió un error desconocido: " + e.getMessage());
             e.printStackTrace();

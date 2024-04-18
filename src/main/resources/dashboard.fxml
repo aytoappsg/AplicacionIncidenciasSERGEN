@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tu.paquete.MainController"
-            minHeight="0.0" minWidth="0.0"
-            AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+<BorderPane fx:id="rootPane" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.DashboardController">
+   <!-- Botones en la parte superior -->
+   <top>
+      <HBox alignment="CENTER" spacing="10">
+         <!-- Aquí se incluyen los botones del primer FXML -->
+         <Button fx:id="btn1" onAction="#cambiarContenido" styleClass="nice-button" text="Insertar Incidencia" />
+         <Button fx:id="btn2" onAction="#cambiarContenido" styleClass="nice-button" text="Ver Incidencias" />
+         <Button fx:id="btn4" onAction="#cambiarContenido" styleClass="nice-button" text="Administrador" />
+         <Button fx:id="btn3" onAction="#cambiarContenido" styleClass="nice-button" text="Estadísticas" />
+      </HBox>
+   </top>
 
-   <!-- ButtonBar con cuatro botones -->
-   <ButtonBar fx:id="buttonBar" layoutX="0.0" layoutY="0.0" AnchorPane.leftAnchor="0.0"
-              AnchorPane.rightAnchor="0.0">
-      <buttons>
-         <Button text="Botón 1"/>
-         <Button text="Botón 2"/>
-         <Button text="Botón 3"/>
-         <Button text="Botón 4"/>
-      </buttons>
-   </ButtonBar>
+   <!-- Área central para el contenido dinámico -->
+   <center>
+      <!-- Aquí se mostrará el contenido cambiante -->
+      <!-- Por defecto, puedes mostrar algún contenido inicial -->
+      <!-- Por ejemplo, un archivo FXML con un AnchorPane -->
+      <fx:include source="bienvenida.fxml" />
+   </center>
 
-</AnchorPane>
-
-
+   <!-- Estilos -->
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+</BorderPane>

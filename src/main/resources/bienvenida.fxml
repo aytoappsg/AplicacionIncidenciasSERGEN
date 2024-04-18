@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.BienvenidaController"
+            prefHeight="400.0" prefWidth="600.0"
+            styleClass="main-pane">
+
+    <Label fx:id="welcomeLabel" layoutX="10.0" layoutY="10.0" styleClass="welcome-label" />
+
+</AnchorPane>
