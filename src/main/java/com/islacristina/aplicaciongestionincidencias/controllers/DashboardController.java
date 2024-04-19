@@ -1,6 +1,7 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.model.User;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -55,7 +57,7 @@ public class DashboardController implements Initializable {
 
             switch (idContenido) {
                 case "btn1":
-                    fxmlPath = "/insertarIncidencia.fxml";
+                    fxmlPath = "/insertar_incidencia.fxml";
                     break;
                 case "btn2":
                     fxmlPath = "/verIncidencias.fxml";
@@ -105,6 +107,12 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cargarPantallaBienvenida();
+
+        // Configurar el tamaño de la ventana
+        Platform.runLater(() -> {
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.setMaximized(true); // Maximizar la ventana al iniciar
+        });
     }
 
     public void mostrarPantallaBienvenida() {

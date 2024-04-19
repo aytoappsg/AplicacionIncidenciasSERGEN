@@ -23,11 +23,12 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		applicationContext = SpringApplication.run(AplicacionGestionIncidenciasApplication.class);
-		FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource("/insertar_incidencia.fxml"));
+		FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource("/login.fxml"));
 		loader.setControllerFactory(applicationContext::getBean);
 		Scene scene = new Scene(loader.load(), 800, 800, false, SceneAntialiasing.BALANCED);
 
 		primaryStage.setScene(scene);
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 }

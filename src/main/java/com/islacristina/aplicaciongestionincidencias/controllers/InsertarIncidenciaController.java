@@ -95,27 +95,28 @@ public class InsertarIncidenciaController implements Initializable {
     @FXML
     private Button btnEnviar;
 
+    @Autowired
     private ProcedenciaRepository procedenciaRepository;
+
+
+    public InsertarIncidenciaController() {
+    }
 
     @FXML
     public void enviarIncidencia() {
         // Lógica para enviar la incidencia
     }
 
-    @Autowired
-    public InsertarIncidenciaController(ProcedenciaRepository procedenciaRepository){
-        this.procedenciaRepository = procedenciaRepository;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        establecerDatosPrevios();
+        //establecerDatosPrevios();
     }
 
     private void establecerDatosPrevios() {
         List<Procedencia> lista = procedenciaRepository.findAll();
         ObservableList<String> observableList = FXCollections.observableArrayList();
-        for (Procedencia elemento : lista){
+        for (Procedencia elemento : lista) {
             observableList.add(elemento.getTipoProcedencia());
         }
         cbProcedencia.setItems(observableList);

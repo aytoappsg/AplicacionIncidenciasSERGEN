@@ -101,7 +101,7 @@ public class LoginController implements Initializable {
         } catch (InvalidCredentialsException e) {
             showAlert("Error de inicio de sesión", "Contraseña incorrecta");
         } catch (Exception e) {
-            showAlert("Error", "Ocurrió un error desconocido: " + e.getMessage());
+            System.out.println( (e.getMessage()));
             e.printStackTrace();
         }
     }
