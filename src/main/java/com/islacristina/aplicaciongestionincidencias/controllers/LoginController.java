@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -75,16 +76,14 @@ public class LoginController implements Initializable {
 
             // Cargar el dashboard
             FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
-            BorderPane dashboardPane = dashboardLoader.load();
+            VBox dashboardPane = dashboardLoader.load();
 
             // Obtener el controlador del dashboard
             DashboardController dashboardController = dashboardLoader.getController();
 
             // Configurar el usuario en el controlador del dashboard
-            dashboardController.setUsuario(user);
+            dashboardController.setUser(user);
 
-            // Mostrar la pantalla de bienvenida en el dashboard
-            dashboardController.mostrarPantallaBienvenida();
 
             // Configurar y mostrar la escena del dashboard
             Scene scene = new Scene(dashboardPane);
