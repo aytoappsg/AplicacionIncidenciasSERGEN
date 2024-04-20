@@ -1,11 +1,16 @@
 package com.islacristina.aplicaciongestionincidencias;
 
+import com.islacristina.aplicaciongestionincidencias.controllers.DashboardController;
+import com.islacristina.aplicaciongestionincidencias.controllers.LoginController;
+import com.islacristina.aplicaciongestionincidencias.controllers.MainController;
+import com.islacristina.aplicaciongestionincidencias.repositories.ProcedenciaRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
-import org.hibernate.annotations.Parent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -25,10 +30,17 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 		applicationContext = SpringApplication.run(AplicacionGestionIncidenciasApplication.class);
 		FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource("/login.fxml"));
 		loader.setControllerFactory(applicationContext::getBean);
-		Scene scene = new Scene(loader.load(), 800, 800, false, SceneAntialiasing.BALANCED);
+		Parent root = loader.load();
+
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
 
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
 		primaryStage.show();
+
+		LoginController loginController = loader.getController();
+		loginController.setPrimaryStage(primaryStage);
 	}
 }

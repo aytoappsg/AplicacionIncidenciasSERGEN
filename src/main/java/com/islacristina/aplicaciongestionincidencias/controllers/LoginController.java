@@ -7,7 +7,6 @@ import com.islacristina.aplicaciongestionincidencias.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -19,12 +18,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@Component
+import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication.applicationContext;
+
+@Controller
 public class LoginController implements Initializable {
 
     @FXML
@@ -35,6 +36,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button iniciarSesionButton;
+
+    private Stage primaryStage;
 
     private final UserService userService;
 
@@ -54,13 +57,16 @@ public class LoginController implements Initializable {
         });
     }
 
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
     @FXML
     private void iniciarSesion() {
         try {
             String usuario = usuarioField.getText();
             String contrasena = contrasenhaField.getText();
 
-            // Verificar si los campos de usuario y contraseña están vacíos
             if (usuario == null || usuario.isEmpty()) {
                 showAlert("Error de inicio de sesión", "El campo de usuario está vacío");
                 return;
@@ -75,25 +81,17 @@ public class LoginController implements Initializable {
             User user = userService.login(usuario, contrasena);
 
             // Cargar el dashboard
-            FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
-            VBox dashboardPane = dashboardLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
+            loader.setControllerFactory(applicationContext::getBean);
+            AnchorPane dashboardPane = loader.load();
 
-            // Obtener el controlador del dashboard
-            DashboardController dashboardController = dashboardLoader.getController();
-
-            // Configurar el usuario en el controlador del dashboard
+            DashboardController dashboardController = loader.getController();
             dashboardController.setUser(user);
 
-
-            // Configurar y mostrar la escena del dashboard
             Scene scene = new Scene(dashboardPane);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-
-            // Cerrar la ventana de inicio de sesión
-            Stage loginStage = (Stage) iniciarSesionButton.getScene().getWindow();
-            loginStage.close();
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.show();
 
         } catch (UserNotFoundException e) {
             showAlert("Error de inicio de sesión", "El usuario no existe");

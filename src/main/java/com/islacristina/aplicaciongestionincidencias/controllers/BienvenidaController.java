@@ -16,14 +16,22 @@ public class BienvenidaController implements Initializable {
     private Label welcomeLabel;
     private User user;
 
-    public void setUsuario(User usuario) {
-        user = usuario;
+    public void mostrarInformacionUsuario() {
+        if (user != null) {
+            String nombreUsuario = user.getName();
+            String rolUsuario = user.getRole();
+            welcomeLabel.setText("Bienvenido " + nombreUsuario + ", estás usando el rol " + rolUsuario);
+        } else {
+            welcomeLabel.setText("No se ha proporcionado información de usuario");
+        }
     }
 
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        mostrarInformacionUsuario();
     }
 }

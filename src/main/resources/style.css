@@ -22,8 +22,7 @@
     -fx-font-size: 14px; /* Tamaño de la fuente */
     -fx-padding: 5px 10px; /* Padding */
     -fx-border-radius: 5px; /* Radio de borde */
-    -fx-background-radius: 5px; /* Radio de fondo */
-    -fx-min-width: -Infinity; /* Ancho mínimo */
+    -fx-background-radius: 5px;
 }
 
 .nice-button:hover {
