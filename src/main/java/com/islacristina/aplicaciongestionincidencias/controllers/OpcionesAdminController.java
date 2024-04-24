@@ -1,4 +1,2 @@
-package com.islacristina.aplicaciongestionincidencias.controllers;
-
-public class OpcionesAdminController {
+package com.islacristina.aplicaciongestionincidencias.controllers;public class OpcionesAdminController {
 }

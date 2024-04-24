@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.LoginController">
     <!-- VBox para organizar los elementos verticalmente -->
     <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
@@ -40,6 +41,13 @@
             </rowConstraints>
         </GridPane>
         <!-- Botón para iniciar sesión -->
-        <Button fx:id="iniciarSesionButton" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="129.0" text="Iniciar Sesión" />
+        <Button fx:id="iniciarSesionButton" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="129.0" text="Iniciar Sesión" styleClass="nice-button"/>
     </VBox>
+
+
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
 </AnchorPane>

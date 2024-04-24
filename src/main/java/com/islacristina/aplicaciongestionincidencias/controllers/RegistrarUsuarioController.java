@@ -1,4 +1,2 @@
-package com.islacristina.aplicaciongestionincidencias.controllers;
-
-public class RegistrarUsuarioController {
+package com.islacristina.aplicaciongestionincidencias.controllers;public class RegistrarUsuarioController {
 }

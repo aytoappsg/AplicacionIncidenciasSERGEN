@@ -1,7 +1,9 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
+import com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication;
 import com.islacristina.aplicaciongestionincidencias.model.Procedencia;
 import com.islacristina.aplicaciongestionincidencias.repositories.ProcedenciaRepository;
+import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,12 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-@Component
+@Controller
 public class InsertarIncidenciaController implements Initializable {
 
     @FXML
@@ -95,27 +98,27 @@ public class InsertarIncidenciaController implements Initializable {
     @FXML
     private Button btnEnviar;
 
-    private ProcedenciaRepository procedenciaRepository;
+    @Autowired
+    private IncidenciaService incidenciaService;
+
+    public InsertarIncidenciaController(){}
 
     @FXML
     public void enviarIncidencia() {
         // Lógica para enviar la incidencia
     }
 
-    @Autowired
-    public InsertarIncidenciaController(ProcedenciaRepository procedenciaRepository){
-        this.procedenciaRepository = procedenciaRepository;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        establecerDatosPrevios();
+            establecerDatosPrevios();
+
     }
 
     private void establecerDatosPrevios() {
-        List<Procedencia> lista = procedenciaRepository.findAll();
+        List<Procedencia> lista = incidenciaService.getAllProcedencia();
         ObservableList<String> observableList = FXCollections.observableArrayList();
-        for (Procedencia elemento : lista){
+        for (Procedencia elemento : lista) {
             observableList.add(elemento.getTipoProcedencia());
         }
         cbProcedencia.setItems(observableList);

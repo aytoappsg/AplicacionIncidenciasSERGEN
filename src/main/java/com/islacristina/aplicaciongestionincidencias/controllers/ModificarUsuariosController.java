@@ -1,4 +1,2 @@
-package com.islacristina.aplicaciongestionincidencias.controllers;
-
-public class ModificarUsuariosController {
+package com.islacristina.aplicaciongestionincidencias.controllers;public class ModificarUsuariosController {
 }
