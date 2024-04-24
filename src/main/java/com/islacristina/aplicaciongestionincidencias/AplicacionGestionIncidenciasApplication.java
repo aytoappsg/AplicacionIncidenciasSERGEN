@@ -36,9 +36,8 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		primaryStage.setScene(scene);
+		// Ahora que la ventana se ha mostrado, podemos maximizarla
 		primaryStage.setMaximized(true);
-		primaryStage.show();
 
 		LoginController loginController = loader.getController();
 		loginController.setPrimaryStage(primaryStage);

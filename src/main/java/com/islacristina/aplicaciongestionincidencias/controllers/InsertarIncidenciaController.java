@@ -1,31 +1,33 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication;
+import com.islacristina.aplicaciongestionincidencias.model.Lugar;
 import com.islacristina.aplicaciongestionincidencias.model.Procedencia;
-import com.islacristina.aplicaciongestionincidencias.repositories.ProcedenciaRepository;
+import com.islacristina.aplicaciongestionincidencias.model.TipoUbicacion;
 import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
+import javax.swing.event.ChangeEvent;
+import javafx.beans.value.ChangeListener;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 @Controller
 public class InsertarIncidenciaController implements Initializable {
-
+    /*
+     * LOS ELEMENTOS CON LA ETIQUETA @FXML SON LOS PRESENTES EN LA PLANTILLA insertar_incidencia.fxml
+     */
     @FXML
     private GridPane gridPane;
 
@@ -33,22 +35,24 @@ public class InsertarIncidenciaController implements Initializable {
     private ComboBox<String> cbProcedencia;
 
     @FXML
-    private TextField txtNumRegAyto;
+    private TextField tfNumRegAyto;
 
     @FXML
-    private DatePicker dpNotificacion;
+    private TextField tfPrefijoNumRef;
+
+    private String numReferenciaConcat;
 
     @FXML
-    private TextField txtSiglasProcedencia;
+    private TextField tfNumReferencia;
 
     @FXML
-    private TextField txtReferencia;
+    private TextField tfNumExpAyto;
 
     @FXML
-    private TextField txtNumExpAyto;
+    private DatePicker dpFechaServGen;
 
     @FXML
-    private DatePicker dpServiciosGenerales;
+    private DatePicker dpFechaNotificacion;
 
     @FXML
     private TextField txtDniTercero;
@@ -63,7 +67,7 @@ public class InsertarIncidenciaController implements Initializable {
     private TextField txtTelefonoTercero;
 
     @FXML
-    private ComboBox<String> cbTipoUbicacion1;
+    private ComboBox<String> cbTipoUbicacion;
 
     @FXML
     private ComboBox<String> cbTipoUbicacion2;
@@ -72,22 +76,22 @@ public class InsertarIncidenciaController implements Initializable {
     private ComboBox<String> cbTipoUbicacion3;
 
     @FXML
-    private ComboBox<String> cbUbicadoAplicado1;
+    private ComboBox<String> cbUbicado;
 
     @FXML
-    private ComboBox<String> cbUbicadoAplicado2;
+    private ComboBox<String> cbUbicado2;
 
     @FXML
-    private ComboBox<String> cbUbicadoAplicado3;
+    private ComboBox<String> cbUbicado3;
 
     @FXML
-    private Button btnAnadir1;
+    private Button btnAdd;
 
     @FXML
-    private Button btnEliminar1;
+    private Button btnEliminar;
 
     @FXML
-    private Button btnAnadir2;
+    private Button btnAdd2;
 
     @FXML
     private Button btnEliminar2;
@@ -101,26 +105,195 @@ public class InsertarIncidenciaController implements Initializable {
     @Autowired
     private IncidenciaService incidenciaService;
 
-    public InsertarIncidenciaController(){}
+    public InsertarIncidenciaController() {
+    }
 
     @FXML
     public void enviarIncidencia() {
-        // Lógica para enviar la incidencia
+        if (validarFechas()) {
+            System.out.println("incidencia enviada");
+        }
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            establecerDatosPrevios();
 
+        establecerDatosPrevios();
+
+        cbProcedencia.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                // Verificar la procedencia seleccionada y rellenar los campos correspondientes
+                switch (newValue) {
+                    case "TELÉFONO":
+                        rellenarCamposTelefono();
+                        break;
+                    case "CORREO ELECTRÓNICO":
+                        rellenarCamposCorreo();
+                        break;
+                    case "GESTIONA":
+                        rellenarCamposGestiona();
+                        break;
+                    case "APP":
+                        rellenarCamposApp();
+                        break;
+                    case "PRESENCIAL":
+                        rellenarCamposPresencial();
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+        });
     }
 
     private void establecerDatosPrevios() {
+        cargarTipoProcedencia();
+        cargarTiposUbicacion(cbTipoUbicacion);
+        cargarLugar(cbUbicado);
+
+
+
+    }
+
+    //Método que carga el tipo de ubicación de la BBDD en el programa.
+    private void cargarTiposUbicacion(ComboBox<String> comboBox) {
+        List<TipoUbicacion> listaTipoUbicacion = incidenciaService.getAllTipoUbicacion();
+        ObservableList<String> observableListTipoUbicacion = FXCollections.observableArrayList();
+
+
+        for (TipoUbicacion tipoUbicacion : listaTipoUbicacion) {
+            observableListTipoUbicacion.add(tipoUbicacion.getTipoProcedencia());
+        }
+
+
+        comboBox.setItems(observableListTipoUbicacion);
+    }
+    //Método que carga el tipo de procedencia de la BBDD en el desplegable del programa
+    private void cargarTipoProcedencia() {
         List<Procedencia> lista = incidenciaService.getAllProcedencia();
         ObservableList<String> observableList = FXCollections.observableArrayList();
+
         for (Procedencia elemento : lista) {
             observableList.add(elemento.getTipoProcedencia());
         }
+
+
         cbProcedencia.setItems(observableList);
     }
+
+    //Método que carga los lugares de la BBDD en el desplegable del programa.
+    private void cargarLugar(ComboBox<String> comboBox) {
+        List<Lugar> lista = incidenciaService.getAllLugar();
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+
+        for (Lugar lugar : lista) {
+            observableList.add(lugar.getNombreLugar());
+        }
+
+        comboBox.setItems(observableList);
+    }
+
+    private void activarUbicacionesExtra(boolean focusable){
+        cbTipoUbicacion2.setDisable(!focusable);
+        cbUbicado2.setDisable(!focusable);
+        btnAdd.setDisable(focusable);
+        btnEliminar.setDisable(!focusable);
+        cargarTiposUbicacion(cbTipoUbicacion2);
+        cargarLugar(cbUbicado2);
+
+    }
+
+    private void activarUbicacionesExtra2(boolean focusable){
+        cbTipoUbicacion3.setDisable(!focusable);
+        cbUbicado3.setDisable(!focusable);
+        btnAdd2.setDisable(focusable);
+        btnEliminar2.setDisable(!focusable);
+        cargarTiposUbicacion(cbTipoUbicacion3);
+        cargarLugar(cbUbicado3);
+    }
+
+    @FXML
+    private void handleBtnAddAction(){
+        activarUbicacionesExtra(true);
+        cbTipoUbicacion2.requestFocus();
+    }
+
+    @FXML
+    private void handleBtnAdd2Action(){
+        activarUbicacionesExtra2(true);
+        cbTipoUbicacion3.requestFocus();
+    }
+
+    @FXML
+    private void handleBtnEliminarAction(){
+        activarUbicacionesExtra(false);
+        cbUbicado2.setValue(null);
+        cbTipoUbicacion2.setValue(null);
+    }
+
+    @FXML
+    private void handleBtnEliminar2Action(){
+        activarUbicacionesExtra2(false);
+        cbUbicado3.setValue(null);
+        cbTipoUbicacion3.setValue(null);
+    }
+
+
+
+    private boolean validarFechas() {
+        if (dpFechaNotificacion.getValue() != null && dpFechaServGen.getValue() != null) {
+            if (dpFechaNotificacion.getValue().isAfter(dpFechaServGen.getValue())) {
+                mostrarAlerta("Error", "La fecha de notificación no puede ser posterior a la fecha de servicios generales.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    private void rellenarCamposTelefono() {
+        tfPrefijoNumRef.setText("TLF-"); // Rellenar el campo prefijo del número de referencia
+        desactivarCampos();
+    }
+
+    private void rellenarCamposCorreo() {
+        tfPrefijoNumRef.setText("EM-"); // Rellenar el campo prefijo del número de referencia
+        desactivarCampos();
+    }
+
+    private void rellenarCamposApp() {
+        tfPrefijoNumRef.setText("APP-"); // Rellenar el campo prefijo del número de referencia
+        desactivarCampos();
+    }
+    private void rellenarCamposPresencial() {
+        tfPrefijoNumRef.setText("PRE-"); // Rellenar el campo prefijo del número de referencia
+        desactivarCampos();
+
+    }
+
+    private void rellenarCamposGestiona() {
+        tfPrefijoNumRef.setText(null);
+        tfPrefijoNumRef.setDisable(false);
+        tfNumRegAyto.setDisable(false);
+        tfNumExpAyto.setDisable(false);
+    }
+
+    private void desactivarCampos(){
+        tfPrefijoNumRef.setDisable(true);
+        tfNumRegAyto.setDisable(true);
+        tfNumExpAyto.setDisable(true);
+    }
+
 }
+

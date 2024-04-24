@@ -40,11 +40,11 @@
                               <Label text="Medio de recepción:" />
                               <Label text="Num. Registro del Ayto:" GridPane.rowIndex="1" />
                               <Label text="Fecha de notificación:" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="cbProcedencia" GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbProcedencia" prefHeight="25.0" prefWidth="338.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="tfNumRegAyto" GridPane.columnIndex="1" GridPane.rowIndex="1" disable="true"/>
+                              <TextField fx:id="tfNumExpAyto" GridPane.columnIndex="3" GridPane.rowIndex="1" disable="true"/>
+                              <DatePicker fx:id="dpFechaNotificacion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="dpFechaServGen" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text="Num. Referencia" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
@@ -60,12 +60,12 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="3">
+                              <TextField fx:id="tfPrefijoNumRef" GridPane.columnIndex="3" disable="true">
                                  <GridPane.margin>
                                     <Insets right="261.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField GridPane.columnIndex="3">
+                              <TextField fx:id="tfNumReferencia" GridPane.columnIndex="3">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
                                  </GridPane.margin>
@@ -97,8 +97,8 @@
                            <children>
                               <Label text="DNI / CIF:" />
                               <Label text="Nombre:" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="tfNombreTercero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="tfNumTelfTercero" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <Label text="Correo electrónico:" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
@@ -109,12 +109,12 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="3">
+                              <TextField fx:id="tfCorreoElectronicoTercero" GridPane.columnIndex="3">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="tfDniCifTercero" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </children>
@@ -145,14 +145,14 @@
                               <Label text="Tipo de Ubicación:" />
                               <Label text="Tipo de Ubicación:" GridPane.rowIndex="1" />
                               <Label text="Tipo de Ubicación:" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="cbFechaNotificacion1" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="cbTipoUbicacion" GridPane.columnIndex="1" />
                               <Label text="Ubicado / Aplicado a:" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox fx:id="cbFechaNotificacion3" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="cbFechaNotificacion2" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cbTipoUbicacion3" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbTipoUbicacion2" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label text="Ubicado / Aplicado a:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
@@ -163,25 +163,25 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox disable="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <ComboBox disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ComboBox GridPane.columnIndex="3" />
-                              <Button mnemonicParsing="false" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <ComboBox fx:id="cbUbicado3" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbUbicado2" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cbUbicado" GridPane.columnIndex="3" />
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleBtnAddAction" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="green-button">
                                  <GridPane.margin>
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <Button fx:id="btnEliminar" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#handleBtnEliminarAction" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="red-button">
                                  <GridPane.margin>
                                     <Insets left="70.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                              <Button fx:id="btnAdd2" mnemonicParsing="false" onAction="#handleBtnAdd2Action" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="2" styleClass="green-button">
                                  <GridPane.margin>
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                              <Button fx:id="btnEliminar2" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#handleBtnEliminar2Action" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="2" styleClass="red-button">
                                  <GridPane.margin>
                                     <Insets left="70.0" />
                                  </GridPane.margin>

@@ -81,14 +81,18 @@ public class LoginController implements Initializable {
             User user = userService.login(usuario, contrasena);
 
             // Cargar el dashboard
+            // Cargar el dashboard
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
             loader.setControllerFactory(applicationContext::getBean);
             AnchorPane dashboardPane = loader.load();
 
+            // Envolver el AnchorPane en un BorderPane
+            BorderPane borderPane = new BorderPane(dashboardPane);
+
             DashboardController dashboardController = loader.getController();
             dashboardController.setUser(user);
 
-            Scene scene = new Scene(dashboardPane);
+            Scene scene = new Scene(borderPane);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.show();
