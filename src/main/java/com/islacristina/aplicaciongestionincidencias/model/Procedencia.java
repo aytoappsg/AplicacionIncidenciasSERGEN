@@ -14,6 +14,8 @@ import lombok.Setter;
 @Entity
 public class Procedencia {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_procedencia")
     private int idProcedencia;
 
     @Column(name = "tipo_procedencia")

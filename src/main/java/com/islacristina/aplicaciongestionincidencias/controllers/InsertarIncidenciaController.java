@@ -1,17 +1,21 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.model.Lugar;
-import com.islacristina.aplicaciongestionincidencias.model.Procedencia;
-import com.islacristina.aplicaciongestionincidencias.model.TipoUbicacion;
+import com.islacristina.aplicaciongestionincidencias.model.*;
 import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +59,7 @@ public class InsertarIncidenciaController implements Initializable {
     private DatePicker dpFechaNotificacion;
 
     @FXML
-    private TextField txtDniTercero;
+    private TextField tfDniCifTercero;
 
     @FXML
     private TextField txtNombreTercero;
@@ -110,7 +114,8 @@ public class InsertarIncidenciaController implements Initializable {
 
     @FXML
     public void enviarIncidencia() {
-        if (validarFechas()) {
+        if (validarFechas() && validarCorreo() && validarTelefono() && validarDniCif()) {
+            crearIncidencia();
             System.out.println("incidencia enviada");
         }
     }
@@ -155,7 +160,6 @@ public class InsertarIncidenciaController implements Initializable {
         cargarLugar(cbUbicado);
 
 
-
     }
 
     //Método que carga el tipo de ubicación de la BBDD en el programa.
@@ -171,6 +175,7 @@ public class InsertarIncidenciaController implements Initializable {
 
         comboBox.setItems(observableListTipoUbicacion);
     }
+
     //Método que carga el tipo de procedencia de la BBDD en el desplegable del programa
     private void cargarTipoProcedencia() {
         List<Procedencia> lista = incidenciaService.getAllProcedencia();
@@ -196,7 +201,7 @@ public class InsertarIncidenciaController implements Initializable {
         comboBox.setItems(observableList);
     }
 
-    private void activarUbicacionesExtra(boolean focusable){
+    private void activarUbicacionesExtra(boolean focusable) {
         cbTipoUbicacion2.setDisable(!focusable);
         cbUbicado2.setDisable(!focusable);
         btnAdd.setDisable(focusable);
@@ -206,7 +211,7 @@ public class InsertarIncidenciaController implements Initializable {
 
     }
 
-    private void activarUbicacionesExtra2(boolean focusable){
+    private void activarUbicacionesExtra2(boolean focusable) {
         cbTipoUbicacion3.setDisable(!focusable);
         cbUbicado3.setDisable(!focusable);
         btnAdd2.setDisable(focusable);
@@ -216,31 +221,30 @@ public class InsertarIncidenciaController implements Initializable {
     }
 
     @FXML
-    private void handleBtnAddAction(){
+    private void handleBtnAddAction() {
         activarUbicacionesExtra(true);
         cbTipoUbicacion2.requestFocus();
     }
 
     @FXML
-    private void handleBtnAdd2Action(){
+    private void handleBtnAdd2Action() {
         activarUbicacionesExtra2(true);
         cbTipoUbicacion3.requestFocus();
     }
 
     @FXML
-    private void handleBtnEliminarAction(){
+    private void handleBtnEliminarAction() {
         activarUbicacionesExtra(false);
         cbUbicado2.setValue(null);
         cbTipoUbicacion2.setValue(null);
     }
 
     @FXML
-    private void handleBtnEliminar2Action(){
+    private void handleBtnEliminar2Action() {
         activarUbicacionesExtra2(false);
         cbUbicado3.setValue(null);
         cbTipoUbicacion3.setValue(null);
     }
-
 
 
     private boolean validarFechas() {
@@ -276,6 +280,7 @@ public class InsertarIncidenciaController implements Initializable {
         tfPrefijoNumRef.setText("APP-"); // Rellenar el campo prefijo del número de referencia
         desactivarCampos();
     }
+
     private void rellenarCamposPresencial() {
         tfPrefijoNumRef.setText("PRE-"); // Rellenar el campo prefijo del número de referencia
         desactivarCampos();
@@ -289,10 +294,84 @@ public class InsertarIncidenciaController implements Initializable {
         tfNumExpAyto.setDisable(false);
     }
 
-    private void desactivarCampos(){
+    private void desactivarCampos() {
         tfPrefijoNumRef.setDisable(true);
         tfNumRegAyto.setDisable(true);
         tfNumExpAyto.setDisable(true);
+    }
+
+    private void crearIncidencia() {
+        /*
+        Incidencia incidencia = new Incidencia();
+        //DATOS DE LA INCIDENCIA
+        Procedencia procedencia = new Procedencia();
+        procedencia.setTipoProcedencia(cbProcedencia.getValue());
+        incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
+        System.out.println(procedencia.getIdProcedencia());
+
+        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
+        System.out.println(tfNumRegAyto.getText());
+        incidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
+        System.out.println(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
+        incidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
+        System.out.println(tfNumExpAyto.getText());
+        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
+        System.out.println(tfNumRegAyto.getText());
+        //cambiar tipo de la fecha o castearla
+            //incidencia.setFechaNotificacion(dpFechaNotificacion.getValue());
+            //incidencia.setFechaServiciosGenerales(dpFechaServGen.getValue());
+        //DATOS DEL TERCERO
+        Tercero tercero = new Tercero();
+        tercero.setDniCif(txtDniTercero.getText());
+        tercero.setEmail(txtCorreoTercero.getText());
+        tercero.setNombre(txtNombreTercero.getText());
+        tercero.setTelefono(txtTelefonoTercero.getText());
+        incidencia.setTercero(tercero.getId());
+        System.out.println(tercero.getDniCif());
+        //DATOS DE LA UBICACIÓN
+        Lugar lugar = new Lugar();
+        lugar.setNombreLugar(cbUbicado.getValue());
+
+        //DATOS DE LA DESCRIPCION
+        incidencia.setDescripcionIncidencia(txtDescripcion.getText());
+
+         */
+    }
+
+    private boolean validarCorreo() {
+        String correo = txtCorreoTercero.getText();
+        String regex = "^[\\w-]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]{2,})$";
+
+        if (!correo.matches(regex)) {
+            mostrarAlerta("Error", "El formato del correo electrónico no es correcto.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validarTelefono() {
+        String telefono = txtTelefonoTercero.getText();
+
+        if (telefono.length() != 9) {
+            mostrarAlerta("Error", "El número de teléfono debe contener exactamente 9 caracteres.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validarDniCif() {
+        String dniCif = tfDniCifTercero.getText();
+        String regexDni = "\\d{8}[A-HJ-NP-TV-Z]";
+        String regexCif = "[ABCDEFGHJNPQRSUVW]{1}\\d{7}[0-9,A-J]";
+
+        if (!dniCif.matches(regexDni) && !dniCif.matches(regexCif)) {
+            mostrarAlerta("Error", "El formato del DNI/CIF no es correcto.");
+            return false;
+        }
+
+        return true;
     }
 
 }
