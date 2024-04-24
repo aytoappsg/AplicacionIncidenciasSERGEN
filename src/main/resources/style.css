@@ -86,3 +86,28 @@
     -fx-text-fill: #333333; /* color del texto */
     -fx-alignment: center; /* alineación centrada */
 }
+
+.green-button {
+    -fx-background-color: #4CAF50; /* Color de fondo verde */
+    -fx-text-fill: white; /* Color del texto */
+}
+
+.green-button:hover {
+    -fx-background-color: #388E3C; /* Color de fondo al pasar el ratón */
+    -fx-text-fill: white; /* Color del texto (mantenido igual) */
+}
+
+.red-button {
+    -fx-background-color: #F44336; /* Color de fondo rojo */
+    -fx-text-fill: white; /* Color del texto */
+}
+
+.red-button:hover {
+    -fx-background-color: #D32F2F; /* Color de fondo al pasar el ratón */
+    -fx-text-fill: white; /* Color del texto (mantenido igual) */
+}
+
+#tfPrefijoNumRef {
+    -fx-font-weight: bold; /* Establece el texto en negrita */
+    -fx-alignment: center; /* Centra el texto horizontalmente */
+}

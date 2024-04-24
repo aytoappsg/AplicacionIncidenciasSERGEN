@@ -33,10 +33,6 @@ public class DashboardController implements Initializable {
     @FXML
     private User user;
 
-    public DashboardController(User user) {
-        this.user = user;
-    }
-
     public DashboardController(){}
 
     @FXML
@@ -58,23 +54,31 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FXMLLoader bienvenidaLoader = new FXMLLoader(getClass().getResource("/bienvenida.fxml"));
-        bienvenidaLoader.setControllerFactory(applicationContext::getBean);
+        loadBienvenida();
+
+    }
+
+    private void loadBienvenida() {
+
         try {
+            FXMLLoader bienvenidaLoader = new FXMLLoader(getClass().getResource("/bienvenida.fxml"));
+            bienvenidaLoader.setControllerFactory(applicationContext::getBean);
             AnchorPane dashboardPane = bienvenidaLoader.load();
+
+            BienvenidaController bienvenidaController = bienvenidaLoader.getController();
+            bienvenidaController.setUser(user);
+
             stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
             stackPane.getChildren().add(dashboardPane);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        BienvenidaController bienvenidaController = bienvenidaLoader.getController();
-
-        // Configurar el usuario en el controlador del dashboard
-        bienvenidaController.setUser(user);
     }
 
     public void setUser(User user) {
         this.user = user;
+        if (stackPane != null) {
+            loadBienvenida();
+        }
     }
 }

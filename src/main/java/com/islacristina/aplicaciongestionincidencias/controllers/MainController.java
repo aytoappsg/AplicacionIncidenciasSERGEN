@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -40,8 +41,16 @@ public class MainController implements Initializable {
             FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource(fxmlFile));
             loader.setControllerFactory(applicationContext::getBean);
             Parent root = loader.load();
+
+            // Envolver el contenido en un AnchorPane para permitir el redimensionamiento
+            AnchorPane anchorPane = new AnchorPane(root);
+            AnchorPane.setTopAnchor(root, 0.0);
+            AnchorPane.setRightAnchor(root, 0.0);
+            AnchorPane.setBottomAnchor(root, 0.0);
+            AnchorPane.setLeftAnchor(root, 0.0);
+
             stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
-            stackPane.getChildren().add(root); // Agregar el nuevo contenido
+            stackPane.getChildren().add(anchorPane); // Agregar el nuevo contenido
         } catch (Exception e) {
             e.printStackTrace();
         }
