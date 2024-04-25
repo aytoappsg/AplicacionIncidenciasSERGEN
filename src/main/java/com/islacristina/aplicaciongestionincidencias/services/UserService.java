@@ -36,8 +36,8 @@ public class UserService {
         return userRepository.findByName(username);
     }
 
-    public void updateUser(User user) {
-        userRepository.save(user);
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
 
     public void deleteUser(User user) {
@@ -46,5 +46,9 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 }

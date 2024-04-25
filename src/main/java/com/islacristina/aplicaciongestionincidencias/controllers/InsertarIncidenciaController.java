@@ -1,7 +1,9 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.model.*;
+import com.islacristina.aplicaciongestionincidencias.services.EstadoIncidenciaService;
 import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
+import com.islacristina.aplicaciongestionincidencias.services.UserService;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -108,6 +110,12 @@ public class InsertarIncidenciaController implements Initializable {
 
     @Autowired
     private IncidenciaService incidenciaService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private EstadoIncidenciaService estadoIncidenciaService;
 
     public InsertarIncidenciaController() {
     }
@@ -283,43 +291,40 @@ public class InsertarIncidenciaController implements Initializable {
     }
 
     private void crearIncidencia() {
-        /*
-        Incidencia incidencia = new Incidencia();
-        //DATOS DE LA INCIDENCIA
+        // Crear los objetos necesarios
         Procedencia procedencia = new Procedencia();
         procedencia.setTipoProcedencia(cbProcedencia.getValue());
-        incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
-        System.out.println(procedencia.getIdProcedencia());
 
-        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
-        System.out.println(tfNumRegAyto.getText());
-        incidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
-        System.out.println(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
-        incidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
-        System.out.println(tfNumExpAyto.getText());
-        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
-        System.out.println(tfNumRegAyto.getText());
-        //cambiar tipo de la fecha o castearla
-            //incidencia.setFechaNotificacion(dpFechaNotificacion.getValue());
-            //incidencia.setFechaServiciosGenerales(dpFechaServGen.getValue());
-        //DATOS DEL TERCERO
         Tercero tercero = new Tercero();
-        tercero.setDniCif(txtDniTercero.getText().toUpperCase());
+        tercero.setDniCif(tfDniCifTercero.getText().toUpperCase());
         tercero.setEmail(txtCorreoTercero.getText());
         tercero.setNombre(txtNombreTercero.getText());
         tercero.setTelefono(txtTelefonoTercero.getText());
-        incidencia.setTercero(tercero.getId());
-        System.out.println(tercero.getDniCif());
-        //DATOS DE LA UBICACIÓN
-        Lugar lugar = new Lugar();
-        lugar.setNombreLugar(cbUbicado.getValue());
 
-        //DATOS DE LA DESCRIPCION
+        // Guardar los objetos en la base de datos
+        procedencia = incidenciaService.saveProcedencia(procedencia);
+        tercero = incidenciaService.saveTercero(tercero);
+
+        // Crear la incidencia
+        Incidencia incidencia = new Incidencia();
+        incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
+        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
+        incidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
+        incidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
+        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
+        incidencia.setTercero(tercero.getId());
         incidencia.setDescripcionIncidencia(txtDescripcion.getText());
 
-         */
-    }
+        // Establecer el estado de la incidencia
+        EstadoIncidencia estadoIncidencia = estadoIncidenciaService.findByNombre("PENDIENTE");
+        incidencia.setEstadoIncidencia(estadoIncidencia.getId());
 
+        //TODO: ACCEDER AL USUARIO QUE METE LA INCIDENCIA
+
+
+        // Guardar la incidencia en la base de datos
+        incidencia = incidenciaService.saveIncidencia(incidencia);
+    }
     private boolean validarFechas() {
         if (dpFechaNotificacion.getValue() == null || dpFechaServGen.getValue() == null) {
             mostrarAlerta("Error", "LAS FECHAS DE NOTIFICACIÓN Y DE SERVICIOS GENERALES SON CAMPOS OBLIGATORIOS.");

@@ -97,7 +97,7 @@
                            <children>
                               <Label text="DNI / CIF:" />
                               <Label text="Nombre:" GridPane.rowIndex="1" />
-                              <TextField fx:id="tfNombreTercero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNombreTercero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="txtTelefonoTercero" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <Label text="Correo electrónico:" GridPane.columnIndex="2">
                                  <GridPane.margin>
