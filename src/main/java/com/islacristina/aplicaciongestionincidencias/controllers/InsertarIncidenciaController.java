@@ -114,9 +114,11 @@ public class InsertarIncidenciaController implements Initializable {
 
     @FXML
     public void enviarIncidencia() {
-        if (validarFechas() && validarCorreo() && validarTelefono() && validarDniCif()) {
-            crearIncidencia();
-            System.out.println("incidencia enviada");
+        if (validacion()) {
+            if (confirmarNoDuplicado()) {
+                crearIncidencia();
+                System.out.println("incidencia enviada");
+            }
         }
     }
 
@@ -246,26 +248,6 @@ public class InsertarIncidenciaController implements Initializable {
         cbTipoUbicacion3.setValue(null);
     }
 
-
-    private boolean validarFechas() {
-        if (dpFechaNotificacion.getValue() != null && dpFechaServGen.getValue() != null) {
-            if (dpFechaNotificacion.getValue().isAfter(dpFechaServGen.getValue())) {
-                mostrarAlerta("Error", "La fecha de notificación no puede ser posterior a la fecha de servicios generales.");
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.initStyle(StageStyle.UTILITY);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-
     private void rellenarCamposTelefono() {
         tfPrefijoNumRef.setText("TLF-"); // Rellenar el campo prefijo del número de referencia
         desactivarCampos();
@@ -322,7 +304,7 @@ public class InsertarIncidenciaController implements Initializable {
             //incidencia.setFechaServiciosGenerales(dpFechaServGen.getValue());
         //DATOS DEL TERCERO
         Tercero tercero = new Tercero();
-        tercero.setDniCif(txtDniTercero.getText());
+        tercero.setDniCif(txtDniTercero.getText().toUpperCase());
         tercero.setEmail(txtCorreoTercero.getText());
         tercero.setNombre(txtNombreTercero.getText());
         tercero.setTelefono(txtTelefonoTercero.getText());
@@ -338,40 +320,170 @@ public class InsertarIncidenciaController implements Initializable {
          */
     }
 
+    private boolean validarFechas() {
+        if (dpFechaNotificacion.getValue() == null || dpFechaServGen.getValue() == null) {
+            mostrarAlerta("Error", "LAS FECHAS DE NOTIFICACIÓN Y DE SERVICIOS GENERALES SON CAMPOS OBLIGATORIOS.");
+            return false;
+        } else if (dpFechaNotificacion.getValue().isAfter(dpFechaServGen.getValue())) {
+            mostrarAlerta("Error", "LA FECHA DE NOTIFICACIÓN NO PUEDE SER POSTERIOR A LA DE SERVICIOS GENERALES.");
+            return false;
+        }
+        return true;
+    }
+
     private boolean validarCorreo() {
         String correo = txtCorreoTercero.getText();
         String regex = "^[\\w-]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]{2,})$";
 
-        if (!correo.matches(regex)) {
-            mostrarAlerta("Error", "El formato del correo electrónico no es correcto.");
+        if ((correo == null || correo.trim().isEmpty()) || correo.matches(regex)) {
+            return true;
+        } else {
+            mostrarAlerta("Error", "EL FORMATO DEL CORREO INTRODUCIDO NO ES CORRECTO");
             return false;
         }
-
-        return true;
     }
 
     private boolean validarTelefono() {
         String telefono = txtTelefonoTercero.getText();
 
-        if (telefono.length() != 9) {
-            mostrarAlerta("Error", "El número de teléfono debe contener exactamente 9 caracteres.");
+        if ((telefono == null || telefono.trim().isEmpty()) || telefono.length() == 9) {
+            return true;
+        } else {
+            mostrarAlerta("Error", "EL NÚMERO DE TELÉFONO INTRODUCIDO NO ES VÁLIDO");
+            return false;
+        }
+    }
+
+    private boolean validarDniCif() {
+        String dniCif = tfDniCifTercero.getText().toUpperCase();
+        String regexDni = "\\d{8}[A-HJ-NP-TV-Z]";
+        String regexCif = "[ABCDEFGHJNPQRSUVW]{1}\\d{7}[0-9,A-J]";
+
+        if ((dniCif == null || dniCif.trim().isEmpty()) || dniCif.matches(regexDni) || dniCif.matches(regexCif)) {
+            return true;
+        } else {
+            mostrarAlerta("Error", "EL FORMATO DEL DNI/CIF INTRODUCIDO NO ES CORRECTO");
+            return false;
+        }
+    }
+
+    private boolean validarDescripcion() {
+        String descripcion = txtDescripcion.getText();
+
+        if (descripcion.length() > 250) {
+            mostrarAlerta("Error", "LA DESCRIPCIÓN NO PUEDE OCUPAR MÁS DE 250 CARACTERES.");
             return false;
         }
 
         return true;
     }
 
-    private boolean validarDniCif() {
-        String dniCif = tfDniCifTercero.getText();
-        String regexDni = "\\d{8}[A-HJ-NP-TV-Z]";
-        String regexCif = "[ABCDEFGHJNPQRSUVW]{1}\\d{7}[0-9,A-J]";
+    private boolean validarProcedencia() {
+        if (cbProcedencia.getValue() == null || cbProcedencia.getValue().trim().isEmpty()) {
+            mostrarAlerta("Error", "EL CAMPO 'MEDIO DE RECEPCIÓN' ES OBLIGATORIO.");
+            return false;
+        }
 
-        if (!dniCif.matches(regexDni) && !dniCif.matches(regexCif)) {
-            mostrarAlerta("Error", "El formato del DNI/CIF no es correcto.");
+        if ("GESTIONA".equals(cbProcedencia.getValue())) {
+            if (tfNumRegAyto.getText() == null || tfNumRegAyto.getText().trim().isEmpty() ||
+                    tfNumExpAyto.getText() == null || tfNumExpAyto.getText().trim().isEmpty()) {
+                mostrarAlerta("Error", "SI SELECCIONA GESTIONA, LOS CAMPOS NÚMERO DE REGISTRO Y NÚMERO DE EXPEDIENTE SON OBLIGATORIOS.");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean validarDniCorreo() {
+        String dni = tfDniCifTercero.getText();
+        String correo = txtCorreoTercero.getText();
+
+        if ((dni == null || dni.trim().isEmpty()) && (correo == null || correo.trim().isEmpty())) {
+            mostrarAlerta("Error", "DEBE RELLENAR AL MENOS UNO DE LOS CAMPOS DNI O CORREO ELECTRÓNICO.");
             return false;
         }
 
         return true;
+    }
+
+
+    private boolean validarSiglasNumRef() {
+        String siglasNumRef = tfPrefijoNumRef.getText();
+
+        if (siglasNumRef == null || siglasNumRef.trim().isEmpty()) {
+            mostrarAlerta("Error", "SI SELECCIONA GESTIONA, DEBE INTRODUCIR USTED MISMO LAS SIGLAS DEL NÚMERO DE REFERENCIA.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validarNumReferencia() {
+        String numReferencia = tfNumReferencia.getText();
+
+        if (numReferencia == null || numReferencia.trim().isEmpty()) {
+            mostrarAlerta("Error", "EL CAMPO DEL NÚMERO DE REFERENCIA NO PUEDE ESTAR VACÍO.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validarUbicacion() {
+        // Verificar la primera ubicación
+        if (cbTipoUbicacion.getValue() == null && cbUbicado.getValue() != null) {
+            mostrarAlerta("Error", "EL CAMPO 'TIPO DE UBICACIÓN' NO PUEDE ESTAR VACÍO");
+            return false;
+        } else if (cbTipoUbicacion.getValue() != null && cbUbicado.getValue() == null) {
+            mostrarAlerta("Error", "EL CAMPO 'UBICADO' NO PUEDE ESTAR VACÍO.");
+            return false;
+        } else if (cbTipoUbicacion.getValue() == null && cbUbicado.getValue() == null) {
+            mostrarAlerta("Error", "LOS CAMPOS DE 'LOCALIZACION/ES DE LA INCIDENCIA SON OBLIGATORIOS'");
+            return false;
+        }
+
+        // Verificar la segunda ubicación si se ha añadido
+        if (!cbTipoUbicacion2.isDisabled() && (cbTipoUbicacion2.getValue() == null || cbUbicado2.getValue() == null)) {
+            mostrarAlerta("Error", "HA AÑADIDO UNA SEGUNDA UBICACIÓN PERO NO LA HA RELLENADO, ELIMÍNELA.");
+            return false;
+        }
+
+        // Verificar la tercera ubicación si se ha añadido
+        if (!cbTipoUbicacion3.isDisabled() && (cbTipoUbicacion3.getValue() == null || cbUbicado3.getValue() == null)) {
+            mostrarAlerta("Error", "HA AÑADIDO UNA TERCERA UBICACIÓN PERO NO LA HA RELLENADO, ELIMÍNELA.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validacion() {
+        return  validarDniCorreo() && validarCorreo() && validarTelefono() && validarDniCif()  && validarDescripcion() && validarProcedencia() && validarSiglasNumRef() && validarNumReferencia() && validarFechas() && validarUbicacion();
+    }
+
+    private boolean confirmarNoDuplicado() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("CONFIRMACIÓN");
+        alert.setHeaderText("¿Ha comprobado que esta incidencia no está duplicada?");
+        alert.setContentText("Por favor, asegúrese de que esta incidencia no existe antes de enviarla.");
+
+        ButtonType buttonTypeYes = new ButtonType("Sí", ButtonBar.ButtonData.YES);
+        ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        java.util.Optional<ButtonType> result = alert.showAndWait();
+        return result.get() == buttonTypeYes;
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
 }

@@ -37,7 +37,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void cambiarContenido() {
-        loadFXML("/adminOptions.fxml");
+        loadFXML("/insertar_incidencia.fxml");
     }
 
     private void loadFXML(String fxmlFile) {
