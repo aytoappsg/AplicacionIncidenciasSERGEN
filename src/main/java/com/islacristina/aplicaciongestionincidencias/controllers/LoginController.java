@@ -7,6 +7,7 @@ import com.islacristina.aplicaciongestionincidencias.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -28,6 +29,9 @@ import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionInc
 @Controller
 public class LoginController implements Initializable {
 
+    @Autowired
+    private MainController mainController;
+
     @FXML
     private TextField usuarioField;
 
@@ -36,8 +40,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button iniciarSesionButton;
-
-    private Stage primaryStage;
 
     private final UserService userService;
 
@@ -57,10 +59,6 @@ public class LoginController implements Initializable {
         });
     }
 
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
     @FXML
     private void iniciarSesion() {
         try {
@@ -77,25 +75,17 @@ public class LoginController implements Initializable {
                 return;
             }
 
-            // Realizar la autenticación
             User user = userService.login(usuario, contrasena);
 
-            // Cargar el dashboard
-            // Cargar el dashboard
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
             loader.setControllerFactory(applicationContext::getBean);
-            AnchorPane dashboardPane = loader.load();
+            Parent root = loader.load();
+            mainController.addStackPaneChildren(root);
 
-            // Envolver el AnchorPane en un BorderPane
-            BorderPane borderPane = new BorderPane(dashboardPane);
 
             DashboardController dashboardController = loader.getController();
             dashboardController.setUser(user);
 
-            Scene scene = new Scene(borderPane);
-            primaryStage.setScene(scene);
-            primaryStage.setMaximized(true);
-            primaryStage.show();
 
         } catch (UserNotFoundException e) {
             showAlert("Error de inicio de sesión", "El usuario no existe");

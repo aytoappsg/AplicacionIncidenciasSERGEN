@@ -28,9 +28,9 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		applicationContext = SpringApplication.run(AplicacionGestionIncidenciasApplication.class);
-		FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource("/login.fxml"));
-		loader.setControllerFactory(applicationContext::getBean);
-		Parent root = loader.load();
+		FXMLLoader mainLoader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource("/main.fxml"));
+		mainLoader.setControllerFactory(applicationContext::getBean);
+		Parent root = mainLoader.load();
 
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
@@ -38,8 +38,5 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 
 		// Ahora que la ventana se ha mostrado, podemos maximizarla
 		primaryStage.setMaximized(true);
-
-		LoginController loginController = loader.getController();
-		loginController.setPrimaryStage(primaryStage);
 	}
 }
