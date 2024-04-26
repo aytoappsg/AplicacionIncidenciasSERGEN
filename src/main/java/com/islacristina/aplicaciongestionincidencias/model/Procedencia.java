@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -20,4 +22,8 @@ public class Procedencia {
 
     @Column(name = "tipo_procedencia")
     private String tipoProcedencia;
+
+    @OneToMany(mappedBy = "procedencia")
+    private List<Incidencia> incidencias;
+
 }

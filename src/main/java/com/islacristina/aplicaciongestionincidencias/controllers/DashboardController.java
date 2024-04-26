@@ -1,21 +1,13 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication;
-import com.islacristina.aplicaciongestionincidencias.model.User;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -31,7 +23,7 @@ public class DashboardController implements Initializable {
     private StackPane stackPane;
 
     @FXML
-    private User user;
+    private Usuario usuario;
 
     public DashboardController(){}
 
@@ -66,7 +58,7 @@ public class DashboardController implements Initializable {
             AnchorPane dashboardPane = bienvenidaLoader.load();
 
             BienvenidaController bienvenidaController = bienvenidaLoader.getController();
-            bienvenidaController.setUser(user);
+            bienvenidaController.setUser(usuario);
 
             stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
             stackPane.getChildren().add(dashboardPane);
@@ -75,8 +67,8 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Usuario usuario) {
+        this.usuario = usuario;
         if (stackPane != null) {
             loadBienvenida();
         }

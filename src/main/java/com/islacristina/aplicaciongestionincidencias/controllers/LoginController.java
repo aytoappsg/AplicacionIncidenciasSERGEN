@@ -2,22 +2,17 @@ package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.exceptions.InvalidCredentialsException;
 import com.islacristina.aplicaciongestionincidencias.exceptions.UserNotFoundException;
-import com.islacristina.aplicaciongestionincidencias.model.User;
-import com.islacristina.aplicaciongestionincidencias.services.UserService;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
+import com.islacristina.aplicaciongestionincidencias.services.UsuarioService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -41,11 +36,11 @@ public class LoginController implements Initializable {
     @FXML
     private Button iniciarSesionButton;
 
-    private final UserService userService;
+    private final UsuarioService usuarioService;
 
     @Autowired
-    public LoginController(UserService userService) {
-        this.userService = userService;
+    public LoginController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
     @Override
@@ -75,7 +70,7 @@ public class LoginController implements Initializable {
                 return;
             }
 
-            User user = userService.login(usuario, contrasena);
+            Usuario user = usuarioService.login(usuario, contrasena);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
             loader.setControllerFactory(applicationContext::getBean);

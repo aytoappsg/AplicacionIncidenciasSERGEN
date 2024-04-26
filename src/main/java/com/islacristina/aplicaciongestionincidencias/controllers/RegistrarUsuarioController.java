@@ -1,10 +1,8 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.model.User;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import com.islacristina.aplicaciongestionincidencias.enums.Rol; // Asegúrate de importar tu Enum de roles
-import com.islacristina.aplicaciongestionincidencias.repositories.UserRepository;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.islacristina.aplicaciongestionincidencias.repositories.UsuarioRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,8 +12,6 @@ import javafx.scene.control.ButtonType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +20,7 @@ import java.util.List;
 public class RegistrarUsuarioController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository usuarioRepository;
 
     @FXML
     private TextField nameField;
@@ -71,7 +67,7 @@ public class RegistrarUsuarioController {
                 }
             }
 
-            if (userRepository.findByName(name) != null) {
+            if (usuarioRepository.findByName(name) != null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
                 alert.setHeaderText("El nombre de usuario ya existe");
@@ -88,11 +84,11 @@ public class RegistrarUsuarioController {
                 alert.showAndWait();
 
             } else {
-                User user = new User();
-                user.setName(name);
-                user.setContrasena(password);
-                user.setRole(role);
-                userRepository.save(user);
+                Usuario usuario = new Usuario();
+                usuario.setName(name);
+                usuario.setContrasena(password);
+                usuario.setRole(role);
+                usuarioRepository.save(usuario);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText("Usuario registrado con éxito");

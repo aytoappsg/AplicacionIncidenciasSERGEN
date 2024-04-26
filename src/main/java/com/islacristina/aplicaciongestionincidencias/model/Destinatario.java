@@ -12,27 +12,24 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "tercero")
-public class Tercero {
-
+@Entity
+@Table(name = "destinatario")
+public class Destinatario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tercero")
+    @Column(name = "id_destinatario")
     private int id;
 
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "email")
-    private String email;
+    @ManyToMany(mappedBy = "destinatario")
+    @JoinTable(
+            name = "destinatarios_derivada",
+            joinColumns = @JoinColumn(name = "id_destinatario"),
+            inverseJoinColumns = @JoinColumn(name = "id_historico_derivada")
+    )
+    private List<HistoricoDerivada> historicoDerivadas;
 
-    @Column(name = "dni_cif")
-    private String dniCif;
-
-    @Column(name = "telefono")
-    private String telefono;
-
-    @OneToMany(mappedBy = "tercero")
-    private List<Incidencia> incidencias;
 
 }

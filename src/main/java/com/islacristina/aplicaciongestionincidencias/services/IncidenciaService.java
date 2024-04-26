@@ -14,7 +14,7 @@ public class IncidenciaService {
     private final ProcedenciaRepository procedenciaRepository;
 
     @Autowired
-    private final TipoUbicacionRepository tipoUbicacionRepository;
+    private final TipoLugarRepository tipoLugarRepository;
 
     @Autowired
     private final LugarRepository lugarRepository;
@@ -26,9 +26,9 @@ public class IncidenciaService {
     private final TerceroRepository terceroRepository;
 
 
-    public IncidenciaService(ProcedenciaRepository procedenciaRepository, TipoUbicacionRepository tipoUbicacionRepository, LugarRepository lugarRepository, IncidenciaRepository incidenciaRepository, TerceroRepository terceroRepository){
+    public IncidenciaService(ProcedenciaRepository procedenciaRepository, TipoLugarRepository tipoLugarRepository, LugarRepository lugarRepository, IncidenciaRepository incidenciaRepository, TerceroRepository terceroRepository){
         this.procedenciaRepository = procedenciaRepository;
-        this.tipoUbicacionRepository = tipoUbicacionRepository;
+        this.tipoLugarRepository = tipoLugarRepository;
         this.lugarRepository = lugarRepository;
         this.incidenciaRepository = incidenciaRepository;
         this.terceroRepository = terceroRepository;
@@ -38,8 +38,8 @@ public class IncidenciaService {
         return procedenciaRepository.findAll();
     }
 
-    public List<TipoUbicacion> getAllTipoUbicacion(){
-        return tipoUbicacionRepository.findAll();
+    public List<TipoLugar> getAllTipoUbicacion(){
+        return tipoLugarRepository.findAll();
     }
 
     public List<Lugar> getAllLugar(){

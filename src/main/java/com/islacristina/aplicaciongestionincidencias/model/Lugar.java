@@ -1,12 +1,12 @@
 package com.islacristina.aplicaciongestionincidencias.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +21,8 @@ public class Lugar {
 
     @Column(name = "nombre_lugar")
     private String nombreLugar;
+
+    @OneToMany(mappedBy = "ubicacion")
+    private List<Ubicacion> ubicaciones;
 
 }

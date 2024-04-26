@@ -1,12 +1,12 @@
 package com.islacristina.aplicaciongestionincidencias.repositories;
 
-import com.islacristina.aplicaciongestionincidencias.model.User;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    User findByName(String name);
+    Usuario findByName(String name);
 
 }

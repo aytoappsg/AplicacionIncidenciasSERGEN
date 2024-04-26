@@ -7,12 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "usuario")
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +27,15 @@ public class User {
     private String contrasena;
     @Column(name = "rol")
     private String role;
+
+    @OneToMany(mappedBy = "historico_cambios")
+    private List<HistoricoCambios> historicoCambios;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Incidencia> incidencias;
+
+    @OneToMany(mappedBy = "coordinador")
+    private List<Incidencia> incidenciasCoordinadores;
+
 
 }

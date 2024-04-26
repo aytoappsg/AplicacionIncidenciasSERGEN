@@ -1,7 +1,7 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.model.User;
-import com.islacristina.aplicaciongestionincidencias.services.UserService;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
+import com.islacristina.aplicaciongestionincidencias.services.UsuarioService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,11 +25,11 @@ import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionInc
 public class OpcionesAdminController implements Initializable {
 
     @FXML
-    private TableView<User> usersTable;
+    private TableView<Usuario> usersTable;
     @FXML
-    private TableColumn<User, String> nameColumn;
+    private TableColumn<Usuario, String> nameColumn;
     @FXML
-    private TableColumn<User, String> roleColumn;
+    private TableColumn<Usuario, String> roleColumn;
     @FXML
     private Button addUserButton;
     @FXML
@@ -37,10 +37,10 @@ public class OpcionesAdminController implements Initializable {
     @FXML
     private Button modifyUserButton;
 
-    private ObservableList<User> users;
+    private ObservableList<Usuario> usuarios;
 
     @Autowired
-    private UserService userService;
+    private UsuarioService usuarioService;
 
     @FXML
     private void addUser() {
@@ -49,9 +49,9 @@ public class OpcionesAdminController implements Initializable {
 
     @FXML
     private void modifyUser() {
-        User selectedUser = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUsuario = usersTable.getSelectionModel().getSelectedItem();
 
-        if (selectedUser == null) {
+        if (selectedUsuario == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("No se seleccionó ningún usuario");
@@ -64,17 +64,17 @@ public class OpcionesAdminController implements Initializable {
             Parent root = loader.load();
 
             ModificarUsuariosController controller = loader.getController();
-            controller.setUser(selectedUser);
+            controller.setUser(selectedUsuario);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
             if (controller.isModified()) {
-                userService.updateUser(selectedUser);
+                usuarioService.updateUser(selectedUsuario);
             }
 
-            users.setAll(userService.getAllUsers());
+            usuarios.setAll(usuarioService.getAllUsers());
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
@@ -93,7 +93,7 @@ public class OpcionesAdminController implements Initializable {
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
-            users.setAll(userService.getAllUsers());
+            usuarios.setAll(usuarioService.getAllUsers());
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
@@ -105,9 +105,9 @@ public class OpcionesAdminController implements Initializable {
 
     @FXML
     private void deleteUser() {
-        User selectedUser = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUsuario = usersTable.getSelectionModel().getSelectedItem();
 
-        if (selectedUser == null) {
+        if (selectedUsuario == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("No se seleccionó ningún usuario");
@@ -117,23 +117,23 @@ public class OpcionesAdminController implements Initializable {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Estás a punto de eliminar el usuario " + selectedUser.getName());
+        alert.setHeaderText("Estás a punto de eliminar el usuario " + selectedUsuario.getName());
         alert.setContentText("¿Estás seguro de que quieres continuar?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            userService.deleteUser(selectedUser);
-            users.remove(selectedUser);
+            usuarioService.deleteUser(selectedUsuario);
+            usuarios.remove(selectedUsuario);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        users = FXCollections.observableArrayList(userService.getAllUsers());
+        usuarios = FXCollections.observableArrayList(usuarioService.getAllUsers());
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
-        usersTable.setItems(users);
+        usersTable.setItems(usuarios);
 
         addUserButton.setOnAction(event -> addUser());
         deleteUserButton.setOnAction(event -> deleteUser());

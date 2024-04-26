@@ -3,27 +3,18 @@ package com.islacristina.aplicaciongestionincidencias.controllers;
 import com.islacristina.aplicaciongestionincidencias.model.*;
 import com.islacristina.aplicaciongestionincidencias.services.EstadoIncidenciaService;
 import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
-import com.islacristina.aplicaciongestionincidencias.services.UserService;
+import com.islacristina.aplicaciongestionincidencias.services.UsuarioService;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.VPos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import javax.swing.event.ChangeEvent;
 import javafx.beans.value.ChangeListener;
 import java.net.URL;
 import java.util.List;
@@ -112,7 +103,7 @@ public class InsertarIncidenciaController implements Initializable {
     private IncidenciaService incidenciaService;
 
     @Autowired
-    private UserService userService;
+    private UsuarioService usuarioService;
 
     @Autowired
     private EstadoIncidenciaService estadoIncidenciaService;
@@ -174,12 +165,12 @@ public class InsertarIncidenciaController implements Initializable {
 
     //Método que carga el tipo de ubicación de la BBDD en el programa.
     private void cargarTiposUbicacion(ComboBox<String> comboBox) {
-        List<TipoUbicacion> listaTipoUbicacion = incidenciaService.getAllTipoUbicacion();
+        List<TipoLugar> listaTipoLugar = incidenciaService.getAllTipoUbicacion();
         ObservableList<String> observableListTipoUbicacion = FXCollections.observableArrayList();
 
 
-        for (TipoUbicacion tipoUbicacion : listaTipoUbicacion) {
-            observableListTipoUbicacion.add(tipoUbicacion.getTipoProcedencia());
+        for (TipoLugar tipoLugar : listaTipoLugar) {
+            observableListTipoUbicacion.add(tipoLugar.getTipoProcedencia());
         }
 
 
@@ -307,17 +298,17 @@ public class InsertarIncidenciaController implements Initializable {
 
         // Crear la incidencia
         Incidencia incidencia = new Incidencia();
-        incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
+        //incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
         incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
         incidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
         incidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
         incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
-        incidencia.setTercero(tercero.getId());
+       // incidencia.setTercero(tercero.getId());
         incidencia.setDescripcionIncidencia(txtDescripcion.getText());
 
         // Establecer el estado de la incidencia
         EstadoIncidencia estadoIncidencia = estadoIncidenciaService.findByNombre("PENDIENTE");
-        incidencia.setEstadoIncidencia(estadoIncidencia.getId());
+       // incidencia.setEstadoIncidencia(estadoIncidencia.getId());
 
         //TODO: ACCEDER AL USUARIO QUE METE LA INCIDENCIA
 
