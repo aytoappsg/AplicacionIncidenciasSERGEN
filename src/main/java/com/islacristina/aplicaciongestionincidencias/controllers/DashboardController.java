@@ -7,13 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -29,6 +28,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private StackPane stackPane;
+
+    @FXML
+    private Button btnInicio;
+
+    @FXML
+    private Button btnInsertar;
 
     @FXML
     private User user;
@@ -55,7 +60,9 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBienvenida();
-
+        btnInicio.getStyleClass().clear();
+        btnInicio.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        btnInicio.setTextFill(Color.web("#748CF1"));
     }
 
     private void loadBienvenida() {
@@ -64,6 +71,7 @@ public class DashboardController implements Initializable {
             FXMLLoader bienvenidaLoader = new FXMLLoader(getClass().getResource("/bienvenida.fxml"));
             bienvenidaLoader.setControllerFactory(applicationContext::getBean);
             AnchorPane dashboardPane = bienvenidaLoader.load();
+
 
             BienvenidaController bienvenidaController = bienvenidaLoader.getController();
             bienvenidaController.setUser(user);
