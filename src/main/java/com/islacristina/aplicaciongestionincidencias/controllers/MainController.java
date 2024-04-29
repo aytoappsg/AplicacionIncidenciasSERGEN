@@ -47,4 +47,9 @@ public class MainController implements Initializable {
         stackPane.getChildren().clear();
         stackPane.getChildren().add(root);
     }
+
+    public void setMainScene(Parent scene) {
+        stackPane.getChildren().clear();
+        stackPane.getChildren().add(scene);
+    }
 }

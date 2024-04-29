@@ -52,5 +52,15 @@ public class Incidencia {
     @Column(name = "coordinador")
     private Integer coordinador;
 
+
+    @Override
+    public String toString() {
+        return "Incidencia{" +
+                "numOrden=" + numOrden +
+                ", estadoIncidencia=" + estadoIncidencia +
+                // Aquí debes agregar los demás campos de incidencia
+                // Por ejemplo: ", otroCampo=" + otroCampo
+                '}';
+    }
     // getters and setters...
 }

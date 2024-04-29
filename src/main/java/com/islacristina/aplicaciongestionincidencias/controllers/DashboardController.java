@@ -42,7 +42,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void cambiarContenido() {
-        loadFXML("/verIncidencias.fxml");
+        loadFXML("/noProcedeIncidencia.fxml");
     }
 
     private void loadFXML(String fxmlFile) {

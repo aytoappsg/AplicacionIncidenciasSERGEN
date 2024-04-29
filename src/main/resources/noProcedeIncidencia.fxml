@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="727.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.ResumenIncidenciaController">
+<?import java.net.URL?>
+<AnchorPane prefHeight="727.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.NoProcedeIncidenciaController">
     <children>
         <AnchorPane layoutX="22.0" layoutY="14.0" prefHeight="311.0" prefWidth="981.0">
             <children>
@@ -26,24 +27,28 @@
                     </font>
                 </Label>
                 <Label layoutX="454.0" layoutY="176.0" text="Observaciones Generales:" />
-                <DatePicker id="DateFechaNoti" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
-                <DatePicker id="DateFechaServGral" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
-                <ComboBox id="ComboBoxAplicado" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
-                <ComboBox id="ComboBoxTipo" layoutX="447.0" layoutY="45.0" prefWidth="150.0" />
-                <TextArea id="TextAreaDescripcion" layoutX="56.0" layoutY="193.0" prefHeight="108.0" prefWidth="339.0" />
-                <TextArea id="TextAreaObservaciones" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
-                <TextField layoutX="89.0" layoutY="41.0" />
-                <TextField layoutX="89.0" layoutY="83.0" />
+                <DatePicker fx:id="DateFechaNoti" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
+                <DatePicker fx:id="DateFechaServGral" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
+                <ComboBox fx:id="ComboBoxAplicado" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
+                <ComboBox fx:id="ComboBoxTipo" layoutX="447.0" layoutY="45.0" prefWidth="150.0" />
+                <TextArea fx:id="TextAreaDescripcion" layoutX="56.0" layoutY="193.0" prefHeight="108.0" prefWidth="339.0" />
+                <TextArea fx:id="TextAreaObservaciones" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
+                <TextField fx:id="tfNumReferencia" layoutX="89.0" layoutY="41.0" />
+                <TextField fx:id="tfPrefijoNumRef" layoutX="89.0" layoutY="83.0" />
                 <TextField layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" text="48" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="17.0" layoutY="423.0" prefHeight="207.0" prefWidth="991.0">
             <children>
-                <TextArea id="TextAreaMotivo" layoutX="8.0" layoutY="7.0" prefHeight="200.0" prefWidth="970.0" />
+                <TextArea fx:id="TextAreaMotivo" layoutX="8.0" layoutY="7.0" prefHeight="200.0" prefWidth="970.0" />
             </children></AnchorPane>
         <Label layoutX="23.0" layoutY="360.0" text="Estado:" />
-        <ComboBox id="ComboBoxEstado" layoutX="76.0" layoutY="356.0" prefWidth="150.0" promptText="NO PROCEDE" styleClass="combo-box-no-procede" />
-        <Button id="ButtonVolver" layoutX="940.0" layoutY="679.0" mnemonicParsing="false" styleClass="blue-button" text="Volver" />
-      <Label layoutX="29.0" layoutY="399.0" text="Motivo de Improcedencia:" />
+        <ComboBox fx:id="ComboBoxEstado" layoutX="76.0" layoutY="356.0" prefWidth="150.0" promptText="NO PROCEDE" styleClass="combo-box-no-procede" />
+        <Button fx:id="ButtonVolver" layoutX="940.0" layoutY="679.0" mnemonicParsing="false" styleClass="blue-button" text="Volver" onAction="#handleButtonVolverAction" />
+        <Label layoutX="29.0" layoutY="399.0" text="Motivo de Improcedencia:" />
     </children>
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 </AnchorPane>
