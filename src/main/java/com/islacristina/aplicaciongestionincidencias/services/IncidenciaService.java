@@ -63,5 +63,8 @@ public class IncidenciaService {
     public void insertIncidencia(Incidencia incidencia) {
         incidenciaRepository.save(incidencia);
     }
+    public List<Incidencia> getAllIncidencias() {
+        return incidenciaRepository.findAll();
+    }
 
 }

@@ -36,6 +36,8 @@ public class OpcionesAdminController implements Initializable {
     private Button deleteUserButton;
     @FXML
     private Button modifyUserButton;
+    @FXML
+    private Button addPlaceButton; // Nueva referencia al botón "Lugar"
 
     private ObservableList<User> users;
 
@@ -45,6 +47,11 @@ public class OpcionesAdminController implements Initializable {
     @FXML
     private void addUser() {
         loadFXML("/register_user.fxml");
+    }
+
+    @FXML
+    private void addPlace() { // Nuevo método para manejar el clic en el botón "Lugar"
+        loadFXML("/lugares_view.fxml");
     }
 
     @FXML
@@ -138,6 +145,7 @@ public class OpcionesAdminController implements Initializable {
         addUserButton.setOnAction(event -> addUser());
         deleteUserButton.setOnAction(event -> deleteUser());
         modifyUserButton.setOnAction(event -> modifyUser());
+        addPlaceButton.setOnAction(event -> addPlace()); // Nuevo manejador de eventos para el botón "Lugar"
 
         // Hacer el botón de Modificar Usuario invisible
         modifyUserButton.setVisible(false);
