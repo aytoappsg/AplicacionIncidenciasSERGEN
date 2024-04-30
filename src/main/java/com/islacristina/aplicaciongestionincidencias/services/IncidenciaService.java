@@ -5,6 +5,7 @@ import com.islacristina.aplicaciongestionincidencias.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,13 +26,21 @@ public class IncidenciaService {
     @Autowired
     private final TerceroRepository terceroRepository;
 
+    @Autowired
+    private final UbicacionRepository ubicacionRepository;
 
-    public IncidenciaService(ProcedenciaRepository procedenciaRepository, TipoLugarRepository tipoLugarRepository, LugarRepository lugarRepository, IncidenciaRepository incidenciaRepository, TerceroRepository terceroRepository){
+    @Autowired
+    private final UbicacionIncidenciaRepository ubicacionIncidenciaRepository;
+
+
+    public IncidenciaService(ProcedenciaRepository procedenciaRepository, TipoLugarRepository tipoLugarRepository, LugarRepository lugarRepository, IncidenciaRepository incidenciaRepository, TerceroRepository terceroRepository, UbicacionRepository ubicacionRepository, UbicacionIncidenciaRepository ubicacionIncidenciaRepository){
         this.procedenciaRepository = procedenciaRepository;
         this.tipoLugarRepository = tipoLugarRepository;
         this.lugarRepository = lugarRepository;
         this.incidenciaRepository = incidenciaRepository;
         this.terceroRepository = terceroRepository;
+        this.ubicacionRepository = ubicacionRepository;
+        this.ubicacionIncidenciaRepository = ubicacionIncidenciaRepository;
     }
 
     public List<Procedencia> getAllProcedencia(){
@@ -42,12 +51,13 @@ public class IncidenciaService {
         return tipoLugarRepository.findAll();
     }
 
-    public List<Lugar> getAllLugar(){
-        return lugarRepository.findAll();
-    }
-
-    public Procedencia saveProcedencia(Procedencia procedencia) {
-        return procedenciaRepository.save(procedencia);
+    public List<Lugar> getLugaresTipoProcedencia(int idTipoLugar){
+        List<Lugar> lugares = new ArrayList<>();
+        List<Ubicacion> ubicaciones = ubicacionRepository.findByTipoLugar(idTipoLugar);
+        for (Ubicacion u : ubicaciones){
+            lugares.add(this.lugarRepository.findById(u.getLugar().getIdLugar()).get());
+        }
+        return lugares;
     }
 
     public Tercero saveTercero(Tercero tercero) {
@@ -59,8 +69,6 @@ public class IncidenciaService {
     public Incidencia saveIncidencia(Incidencia incidencia) {
         return incidenciaRepository.save(incidencia);
     }
-
-
 
     public void insertIncidencia(Incidencia incidencia) {
         incidenciaRepository.save(incidencia);
