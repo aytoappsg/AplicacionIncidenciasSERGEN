@@ -166,6 +166,17 @@ public class VerIncidenciasController implements Initializable {
                                     FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                                     loader.setControllerFactory(applicationContext::getBean);
                                     Parent root = loader.load();
+
+                                    // Obtén la incidencia seleccionada
+                                    Incidencia selectedIncidencia = getTableView().getSelectionModel().getSelectedItem();
+
+                                    // Obtén el controlador de la nueva ventana y pasa la incidencia seleccionada
+                                    Object controller = loader.getController();
+                                    if (controller instanceof DerivaIncidenciaController) {
+                                        ((DerivaIncidenciaController) controller).setIncidencia(selectedIncidencia);
+                                    }
+                                    // Haz esto para cada tipo de controlador de incidencia
+
                                     dashboardController.setMainContent(root);
                                 } catch (IOException ex) {
                                     ex.printStackTrace();

@@ -51,6 +51,10 @@ public class Incidencia {
     private String motivoPendiente;
     @Column(name = "coordinador")
     private Integer coordinador;
+    @Column(name= "autor")
+    private String autor;
+    @Column(name = "resumen")
+    private String resumen;
 
 
     @Override
@@ -58,8 +62,8 @@ public class Incidencia {
         return "Incidencia{" +
                 "numOrden=" + numOrden +
                 ", estadoIncidencia=" + estadoIncidencia +
-                // Aquí debes agregar los demás campos de incidencia
-                // Por ejemplo: ", otroCampo=" + otroCampo
+                ", autor='" + autor + '\'' +
+                ", resumen='" + resumen + '\'' +
                 '}';
     }
     // getters and setters...
