@@ -33,7 +33,16 @@ public class DashboardController implements Initializable {
     private Button btnInicio;
 
     @FXML
-    private Button btnInsertar;
+    private Button btnInsertarIncidenciaButton;
+
+    @FXML
+    private Button verIncidenciasButton;
+
+    @FXML
+    private Button estadisticasButton;
+
+    @FXML
+    private Button opcionesAdminButton;
 
     @FXML
     private User user;
@@ -41,8 +50,27 @@ public class DashboardController implements Initializable {
     public DashboardController(){}
 
     @FXML
+    private void handleInsertarIncidenciaButtonAction() {
+        loadFXML("/insertar_incidencia.fxml");
+    }
+    @FXML
+    private void handleVerIncidenciasButtonAction() {
+        loadFXML("/verIncidencias.fxml");
+    }
+
+    @FXML
+    private void handleEstadisticasButtonAction() {
+        //loadFXML("/estadisticas.fxml"); TODAVIA NO SE HA ACTIVADO ESTA VISTA, POR ESO ESTÁ COMENTADA.
+    }
+
+    @FXML
+    private void handleOpcionesAdminButtonAction() {
+        loadFXML("/adminOptions.fxml");
+    }
+
+    @FXML
     private void cambiarContenido() {
-        loadFXML("/noProcedeIncidencia.fxml");
+        loadFXML("/bienvenida.fxml");
     }
 
     private void loadFXML(String fxmlFile) {
@@ -88,5 +116,10 @@ public class DashboardController implements Initializable {
         if (stackPane != null) {
             loadBienvenida();
         }
+    }
+
+    public void setMainContent(Parent content) {
+        stackPane.getChildren().clear();
+        stackPane.getChildren().add(content);
     }
 }

@@ -19,9 +19,9 @@
                                 <TableColumn fx:id="fechaServiciosGeneralesColumn" prefWidth="109.0" text="Fecha Serv.Gral." />
                                 <TableColumn fx:id="descripcionIncidenciaColumn" prefWidth="149.0" text="Descripción" />
                                 <TableColumn fx:id="usuarioColumn" prefWidth="199.0" text="Creada por" />
-                                <TableColumn fx:id="estadoIncidenciaColumn" prefWidth="148.0" text="Coord. Asignado" />
-                                <TableColumn fx:id="observacionColumn" prefWidth="153.0" text="Estado" />
-                                <TableColumn fx:id="motivoNoProcedeColumn" prefWidth="158.0" text="Observaciones" />
+                                <TableColumn fx:id="coordinadorAsignadoColumn" prefWidth="150.0" text="Coordinador Asignado" />
+                                <TableColumn fx:id="estadoIncidenciaColumn" prefWidth="150.0" text="Estado Incidencia" />
+                                <TableColumn fx:id="observacionColumn" prefWidth="150.0" text="Observaciones" />
                             </columns>
                         </TableView>
                     </children>
