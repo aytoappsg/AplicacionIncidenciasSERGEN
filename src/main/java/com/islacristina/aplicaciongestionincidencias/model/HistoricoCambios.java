@@ -29,9 +29,11 @@ public class HistoricoCambios {
     private Date fechaCambio;
 
     @ManyToOne
+    @JoinColumn(name = "usuario")
     private Usuario usuario;
 
     @ManyToOne
+    @JoinColumn(name = "historico_procede")
     private HistoricoProcede historicoProcede;
 
     //atributo

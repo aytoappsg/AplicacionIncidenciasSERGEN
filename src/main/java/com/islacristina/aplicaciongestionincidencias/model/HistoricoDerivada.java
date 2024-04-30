@@ -23,11 +23,11 @@ public class HistoricoDerivada {
     @Column(name = "fecha_derivacion")
     private Date fechaDerivacion;
 
-    @ManyToMany(mappedBy = "historicoDerivadas")
-    private List<Destinatario> destinatarios;
-
     @ManyToOne
     private MedioDerivacion medioDerivacion;
+
+    @OneToMany(mappedBy = "historicoDerivada")
+    private List<DestinatarioDerivada> destinatariosDerivadas;
 
 
 }

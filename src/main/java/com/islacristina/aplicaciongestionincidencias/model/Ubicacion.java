@@ -20,16 +20,15 @@ public class Ubicacion {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "id_lugar")
     private Lugar lugar;
 
     @ManyToOne
+    @JoinColumn(name = "id_tipo_lugar")
     private TipoLugar tipoLugar;
 
-    @ManyToMany(mappedBy = "ubicaciones")
-    @JoinTable(
-            name = "ubicacion_incidencia",
-            joinColumns = @JoinColumn(name = "incidencia"),
-            inverseJoinColumns = @JoinColumn(name = "ubicacion")
-    )
-    private List<Incidencia> incidencias;
+    //LISTA DE UBICACION_INCIDENCIA
+    @OneToMany(mappedBy = "ubicacion")
+    private List<UbicacionIncidencia> ubicacionesIncidencias;
+
 }

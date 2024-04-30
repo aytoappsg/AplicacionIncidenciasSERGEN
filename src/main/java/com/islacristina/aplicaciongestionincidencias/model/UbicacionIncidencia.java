@@ -6,27 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "destinatario")
-public class Destinatario {
+@Table(name = "ubicacion_incidencia")
+public class UbicacionIncidencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_destinatario")
+    @Column(name = "id_ubicacion_incidencia")
     private int id;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @ManyToOne
+    @JoinColumn(name = "incidencia")
+    private Incidencia incidencia;
 
-    @OneToMany(mappedBy = "destinatario")
-    private List<DestinatarioDerivada> destinatariosDerivadas;
-
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "ubicacion")
+    private Ubicacion ubicacion;
 }

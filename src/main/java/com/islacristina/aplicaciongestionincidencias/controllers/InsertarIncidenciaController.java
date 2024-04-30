@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 
 import javafx.beans.value.ChangeListener;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -99,6 +100,8 @@ public class InsertarIncidenciaController implements Initializable {
     @FXML
     private Button btnEnviar;
 
+    private Usuario usuarioActual;
+
     @Autowired
     private IncidenciaService incidenciaService;
 
@@ -107,6 +110,10 @@ public class InsertarIncidenciaController implements Initializable {
 
     @Autowired
     private EstadoIncidenciaService estadoIncidenciaService;
+
+    public void setUsuarioActual(Usuario usuarioActual) {
+        this.usuarioActual = usuarioActual;
+    }
 
     public InsertarIncidenciaController() {
     }
@@ -170,7 +177,7 @@ public class InsertarIncidenciaController implements Initializable {
 
 
         for (TipoLugar tipoLugar : listaTipoLugar) {
-            observableListTipoUbicacion.add(tipoLugar.getTipoProcedencia());
+            observableListTipoUbicacion.add(tipoLugar.getTipoLugar());
         }
 
 
@@ -282,39 +289,66 @@ public class InsertarIncidenciaController implements Initializable {
     }
 
     private void crearIncidencia() {
-        // Crear los objetos necesarios
-        Procedencia procedencia = new Procedencia();
-        procedencia.setTipoProcedencia(cbProcedencia.getValue());
+        // Crear una nueva instancia de Incidencia
+        Incidencia nuevaIncidencia = new Incidencia();
 
+        // Establecer los valores de las propiedades de la nueva incidencia
+        nuevaIncidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
+        nuevaIncidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
+        nuevaIncidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
+        nuevaIncidencia.setFechaNotificacion(java.sql.Date.valueOf(dpFechaNotificacion.getValue()));
+        nuevaIncidencia.setFechaServiciosGenerales(java.sql.Date.valueOf(dpFechaServGen.getValue()));
+        nuevaIncidencia.setDescripcionIncidencia(txtDescripcion.getText());
+
+        String tipoProcedenciaSeleccionado = cbProcedencia.getValue();
+
+        //Crear Procedencia
+        Procedencia procedencia = incidenciaService.getAllProcedencia().stream()
+                .filter(p -> p.getTipoProcedencia().equals(tipoProcedenciaSeleccionado))
+                .findFirst()
+                .orElse(null);
+
+        nuevaIncidencia.setProcedencia(procedencia);
+
+        //Crear un tercero
         Tercero tercero = new Tercero();
-        tercero.setDniCif(tfDniCifTercero.getText().toUpperCase());
+        tercero.setDniCif(tfDniCifTercero.getText());
         tercero.setEmail(txtCorreoTercero.getText());
-        tercero.setNombre(txtNombreTercero.getText());
         tercero.setTelefono(txtTelefonoTercero.getText());
+        tercero.setNombre(txtNombreTercero.getText());
 
-        // Guardar los objetos en la base de datos
-        procedencia = incidenciaService.saveProcedencia(procedencia);
         tercero = incidenciaService.saveTercero(tercero);
 
-        // Crear la incidencia
-        Incidencia incidencia = new Incidencia();
-        //incidencia.setProcedenciaIncidencia(procedencia.getIdProcedencia());
-        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
-        incidencia.setNuestraIncidencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
-        incidencia.setNumExpedienteAyuntamiento(tfNumExpAyto.getText());
-        incidencia.setNumRegistroAyuntamiento(tfNumRegAyto.getText());
-       // incidencia.setTercero(tercero.getId());
-        incidencia.setDescripcionIncidencia(txtDescripcion.getText());
+        nuevaIncidencia.setTercero(tercero);
 
-        // Establecer el estado de la incidencia
-        EstadoIncidencia estadoIncidencia = estadoIncidenciaService.findByNombre("PENDIENTE");
-       // incidencia.setEstadoIncidencia(estadoIncidencia.getId());
+        //Crear un usuario
+        nuevaIncidencia.setUsuario(usuarioActual);
 
-        //TODO: ACCEDER AL USUARIO QUE METE LA INCIDENCIA
-
+        incidenciaService.saveIncidencia(nuevaIncidencia);
 
         // Guardar la incidencia en la base de datos
-        incidencia = incidenciaService.saveIncidencia(incidencia);
+
+
+        //coge los valores de los combobox y los guarda en variables
+        String tipoLugarSeleccionado = cbTipoUbicacion.getValue();
+        String lugarSeleccionado = cbUbicado.getValue();
+
+        //Se obtiene el objeto asociado al nombre seleccionado en el comboBox
+       TipoLugar tipoLugar = incidenciaService.findByNombreTipoLugar(tipoLugarSeleccionado);
+        Lugar lugar = incidenciaService.findByNombreLugar(lugarSeleccionado);
+
+        //Se obtiene la ubicación que tienen ese idTipoLugar y idLugar
+       List<Ubicacion> ubicaciones = incidenciaService.findByTipoLugarAndLugar(tipoLugar, lugar);
+        //Se añade la ubicacion a la ubicacionIncidencia que une las tablas incidencia y ubicacion
+       //  Ubicacion ubicacion = ubicaciones.get(0);
+
+        //UbicacionIncidencia ubicacionIncidencia = new UbicacionIncidencia();
+       // ubicacionIncidencia.setIncidencia(incidenciaService.saveIncidencia(nuevaIncidencia));
+        //ubicacionIncidencia.setUbicacion(ubicacion);
+
+        // Guardar la UbicacionIncidencia en la base de datos
+       // incidenciaService.saveUbicacionIncidencia(ubicacionIncidencia);
+
     }
     private boolean validarFechas() {
         if (dpFechaNotificacion.getValue() == null || dpFechaServGen.getValue() == null) {

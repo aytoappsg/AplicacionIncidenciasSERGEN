@@ -36,7 +36,7 @@ public class Encargado {
     @ManyToOne
     private GrupoTrabajo grupoTrabajo;
 
-    @OneToMany(mappedBy = "historicosProcede")
+    @OneToMany(mappedBy = "encargado")
     private List<HistoricoProcede> historicosProcede;
 }
 

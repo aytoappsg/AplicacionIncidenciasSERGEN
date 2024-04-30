@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "incidencia")
 public class Incidencia {
 
     @Id
@@ -50,7 +50,8 @@ public class Incidencia {
     private EstadoIncidencia estado;
 
     @ManyToOne
-    private Tercero terceroa;
+    @JoinColumn(name = "tercero")
+    private Tercero tercero;
 
     @ManyToOne
     private Usuario usuario;
@@ -58,8 +59,7 @@ public class Incidencia {
     @ManyToOne
     private Usuario coordinador;
 
-    @ManyToMany(mappedBy = "ubicacion")
-    private List<Ubicacion> ubicaciones;
 
-
+    @OneToMany(mappedBy = "incidencia")
+    private List<UbicacionIncidencia> ubicacionesIncidencias;
 }

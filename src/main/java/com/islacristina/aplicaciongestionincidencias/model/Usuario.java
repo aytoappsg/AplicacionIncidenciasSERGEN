@@ -28,7 +28,7 @@ public class Usuario {
     @Column(name = "rol")
     private String role;
 
-    @OneToMany(mappedBy = "historico_cambios")
+    @OneToMany(mappedBy = "usuario")
     private List<HistoricoCambios> historicoCambios;
 
     @OneToMany(mappedBy = "usuario")

@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name="lugar")
 public class Lugar {
 
     @Id
@@ -22,7 +22,7 @@ public class Lugar {
     @Column(name = "nombre_lugar")
     private String nombreLugar;
 
-    @OneToMany(mappedBy = "ubicacion")
+    @OneToMany(mappedBy = "lugar")
     private List<Ubicacion> ubicaciones;
 
 }

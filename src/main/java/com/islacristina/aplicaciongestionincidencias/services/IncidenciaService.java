@@ -54,6 +54,8 @@ public class IncidenciaService {
         return terceroRepository.save(tercero);
     }
 
+
+
     public Incidencia saveIncidencia(Incidencia incidencia) {
         return incidenciaRepository.save(incidencia);
     }

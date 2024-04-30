@@ -56,7 +56,7 @@ public class HistoricoProcede {
     //RELACION CON ENCARGADO E INCIDENCIA
 
 
-    @OneToMany(mappedBy = "tercero")
+    @OneToMany(mappedBy = "historicoProcede")
     private List<HistoricoCambios> historicoCambios;
 
     @ManyToOne

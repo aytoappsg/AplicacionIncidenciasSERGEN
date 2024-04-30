@@ -22,9 +22,9 @@ public class TipoLugar {
     private int idTipoLugar;
 
     @Column(name = "tipo_lugar")
-    private String tipoProcedencia;
+    private String tipoLugar;
 
-    @OneToMany(mappedBy = "lugar")
+    @OneToMany(mappedBy = "tipoLugar")
     private List<Ubicacion> ubicaciones;
 
 }

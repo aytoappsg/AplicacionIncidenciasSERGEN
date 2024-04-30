@@ -22,7 +22,7 @@ public class EstadoIncidencia {
     @Column(name = "estado_incidencia")
     private String nombre;
 
-    @OneToMany(mappedBy = "estadoIncidencia")
+    @OneToMany(mappedBy = "estado")
     private List<Incidencia> incidencias;
 
 
