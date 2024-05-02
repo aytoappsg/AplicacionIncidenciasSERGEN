@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -65,7 +66,16 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void handleOpcionesAdminButtonAction() {
-        loadFXML("/adminOptions.fxml");
+        // Verificar el rol del usuario
+        if (user != null && (user.getRole().equals("Administrador") || user.getRole().equals("SuperAdministrador"))) {
+            loadFXML("/adminOptions.fxml");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No eres administrador y no puedes acceder porque no tienes los permisos suficientes");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -99,7 +109,6 @@ public class DashboardController implements Initializable {
             FXMLLoader bienvenidaLoader = new FXMLLoader(getClass().getResource("/bienvenida.fxml"));
             bienvenidaLoader.setControllerFactory(applicationContext::getBean);
             AnchorPane dashboardPane = bienvenidaLoader.load();
-
 
             BienvenidaController bienvenidaController = bienvenidaLoader.getController();
             bienvenidaController.setUser(user);

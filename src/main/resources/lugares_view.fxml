@@ -11,10 +11,10 @@
             <TableColumn fx:id="placeColumn" text="Lugar" />
         </columns>
     </TableView>
+    <TextField fx:id="filterField" layoutX="345.0" layoutY="20.0" prefWidth="200.0" promptText="Buscar lugar"/>
     <Button fx:id="addPlaceButton" layoutX="345.0" layoutY="280.0" text="Insertar lugar" styleClass="green-button" />
     <Button fx:id="deletePlaceButton" layoutX="452.0" layoutY="280.0" text="Borrar lugar" styleClass="red-button"/>
     <Button fx:id="exitButton" layoutX="345.0" layoutY="374.0" text="Salir" styleClass="blue-button"/>
-
 
     <stylesheets>
         <URL value="@style.css" />

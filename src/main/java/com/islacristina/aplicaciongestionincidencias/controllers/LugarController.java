@@ -4,6 +4,8 @@ import com.islacristina.aplicaciongestionincidencias.model.Lugar;
 import com.islacristina.aplicaciongestionincidencias.services.LugarService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +39,8 @@ public class LugarController implements Initializable {
     private Button deletePlaceButton;
     @FXML
     private Button exitButton;
+    @FXML
+    private TextField filterField;
 
     private ObservableList<Lugar> lugares;
 
@@ -59,12 +63,12 @@ public class LugarController implements Initializable {
         Lugar selectedPlace = placesTable.getSelectionModel().getSelectedItem();
 
         if (selectedPlace == null) {
-            showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún lugar");
+            showAlert(Alert.AlertType.WARNING, "Diálogo de advertencia", "No se seleccionó ningún lugar");
             return;
         }
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
+        alert.setTitle("Diálogo de confirmación");
         alert.setHeaderText("Estás a punto de eliminar el lugar " + selectedPlace.getNombreLugar());
         alert.setContentText("¿Estás seguro de que quieres continuar?");
 
@@ -99,7 +103,7 @@ public class LugarController implements Initializable {
 
             lugares.setAll(lugarService.getAllLugares());
         } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Error Dialog", "Error al cargar la vista", e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Diálogo de error", "Error al cargar la vista", e.getMessage());
         }
     }
 
@@ -113,7 +117,37 @@ public class LugarController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         placeColumn.setCellValueFactory(new PropertyValueFactory<>("nombreLugar"));
         lugares = FXCollections.observableArrayList(lugarService.getAllLugares());
-        placesTable.setItems(lugares);
+
+        // 1. Envolver la ObservableList en una FilteredList (inicialmente mostrar todos los datos).
+        FilteredList<Lugar> filteredData = new FilteredList<>(lugares, b -> true);
+
+        // 2. Establecer el predicado del filtro cada vez que cambia el filtro.
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(lugar -> {
+                // Si el texto del filtro está vacío, mostrar todas las personas.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Comparar el nombre del lugar con el texto del filtro.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (lugar.getNombreLugar().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // El filtro coincide con el nombre del lugar.
+                } else {
+                    return false; // No coincide.
+                }
+            });
+        });
+
+        // 3. Envolver la FilteredList en una SortedList.
+        SortedList<Lugar> sortedData = new SortedList<>(filteredData);
+
+        // 4. Vincular el comparador de SortedList al comparador de TableView.
+        sortedData.comparatorProperty().bind(placesTable.comparatorProperty());
+
+        // 5. Agregar datos ordenados (y filtrados) a la tabla.
+        placesTable.setItems(sortedData);
 
         exitButton.setOnAction(event -> exit());
         deletePlaceButton.setOnAction(event -> deletePlace());
