@@ -14,6 +14,9 @@ import org.springframework.stereotype.Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador para la vista de una incidencia que no procede.
+ */
 @Controller
 public class NoProcedeIncidenciaController implements Initializable {
     @FXML
@@ -30,14 +33,22 @@ public class NoProcedeIncidenciaController implements Initializable {
 
     @FXML
     private Button ButtonVolverNoProcede;
+
+    // Controladores principales
     @Autowired
     private MainController mainController;
     @Autowired
     private VerIncidenciasController verIncidenciasController;
 
+    /**
+     * Inicializa el controlador después de que se haya cargado su elemento raíz.
+     *
+     * @param url            La ubicación para resolver rutas relativas de recursos.
+     * @param resourceBundle Los recursos localizados.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Disable all controls
+        // Deshabilitar todos los controles
         ComboBoxAplicadoNoProcede.setDisable(true);
         ComboBoxTipoNoProcede.setDisable(true);
         DateFechaNotiNoProcede.setDisable(true);
@@ -47,22 +58,22 @@ public class NoProcedeIncidenciaController implements Initializable {
         tfNumReferenciaNoProcede.setDisable(true);
         tfPrefijoNumRefNoProcede.setDisable(true);
 
-        // Enable TextAreaMotivo
+        // Habilitar TextAreaMotivo
         TextAreaMotivoNoProcede.setDisable(false);
         ButtonVolverNoProcede.setDisable(false);
 
-        // Inicializa los campos de texto
+        // Inicializar los campos de texto
         tfNumReferenciaNoProcede.setText("");
         tfPrefijoNumRefNoProcede.setText("");
         TextAreaDescripcionNoProcede.setText("");
 
-        // Inicializa los ComboBox
+        // Inicializar los ComboBox
         comboBoxEstado.setItems(FXCollections.observableArrayList("PROCEDE", "NO PROCEDE", "SUSPENDIDA", "PENDIENTE", "DERIVA"));
 
-        // Configura los manejadores de eventos de los botones
+        // Configurar los manejadores de eventos de los botones
         ButtonVolverNoProcede.setOnAction(this::buttonVolverClicked);
 
-        // Agrega un listener para cambiar la clase CSS basado en el estado seleccionado
+        // Agregar un listener para cambiar la clase CSS basado en el estado seleccionado
         comboBoxEstado.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             comboBoxEstado.getStyleClass().removeAll("combo-box-procede", "combo-box-no-procede", "combo-box-suspendido", "combo-box-pendiente", "combo-box-deriva");
             String fxmlFile;
@@ -78,10 +89,20 @@ public class NoProcedeIncidenciaController implements Initializable {
         });
     }
 
+    /**
+     * Establece el controlador principal.
+     *
+     * @param mainController El controlador principal.
+     */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     * Maneja la acción del botón "Volver".
+     *
+     * @param actionEvent El evento de acción.
+     */
     public void handleButtonVolverAction(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("bienvenida.fxml"));
@@ -91,6 +112,12 @@ public class NoProcedeIncidenciaController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Maneja el clic en el botón "Volver".
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
         verIncidenciasController.updateView("/verIncidencias.fxml");

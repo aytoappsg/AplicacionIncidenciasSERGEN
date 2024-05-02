@@ -6197,3 +6197,1018 @@ java.lang.IllegalStateException: Cannot read from unreadable property coordinado
 	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
 	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
 
+2024-05-02T12:00:53.490+02:00  INFO 17172 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:00:53.494+02:00  INFO 17172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:00:53.500+02:00  INFO 17172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:00:56.587+02:00  INFO 17588 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 17588 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:00:56.589+02:00  INFO 17588 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:00:56.998+02:00  INFO 17588 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:00:57.072+02:00  INFO 17588 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:00:57.421+02:00  INFO 17588 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:00:57.477+02:00  INFO 17588 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:00:57.512+02:00  INFO 17588 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:00:57.769+02:00  INFO 17588 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:00:57.796+02:00  INFO 17588 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:00:57.800+02:00  WARN 17588 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:00:58.185+02:00  INFO 17588 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1850ca5e
+2024-05-02T12:00:58.187+02:00  INFO 17588 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:00:58.273+02:00  WARN 17588 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:00:58.966+02:00  INFO 17588 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:00:59.074+02:00  INFO 17588 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:00:59.565+02:00  INFO 17588 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.325 seconds (process running for 3.835)
+2024-05-02T12:01:00.036+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:00.042+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:05.904+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:05.905+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:06.248+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:06.248+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:06.736+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:01:06.737+02:00  WARN 17588 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:04:58.900+02:00  INFO 17588 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:04:58.905+02:00  INFO 17588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:04:58.911+02:00  INFO 17588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:05:02.750+02:00  INFO 24368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 24368 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:05:02.753+02:00  INFO 24368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:05:03.154+02:00  INFO 24368 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:05:03.232+02:00  INFO 24368 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:05:03.583+02:00  INFO 24368 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:05:03.729+02:00  INFO 24368 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:05:03.779+02:00  INFO 24368 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:05:04.050+02:00  INFO 24368 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:05:04.073+02:00  INFO 24368 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:05:04.076+02:00  WARN 24368 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:05:04.456+02:00  INFO 24368 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ca790ec
+2024-05-02T12:05:04.458+02:00  INFO 24368 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:05:04.543+02:00  WARN 24368 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:05:05.355+02:00  INFO 24368 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:05:05.470+02:00  INFO 24368 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:05:06.509+02:00  INFO 24368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 4.272 seconds (process running for 4.968)
+2024-05-02T12:05:07.205+02:00  WARN 24368 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:05:07.215+02:00  WARN 24368 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:05:34.452+02:00  INFO 24368 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:05:34.455+02:00  INFO 24368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:05:34.460+02:00  INFO 24368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:05:37.527+02:00  INFO 19600 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 19600 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:05:37.529+02:00  INFO 19600 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:05:37.934+02:00  INFO 19600 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:05:38.013+02:00  INFO 19600 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:05:38.353+02:00  INFO 19600 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:05:38.406+02:00  INFO 19600 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:05:38.440+02:00  INFO 19600 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:05:38.728+02:00  INFO 19600 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:05:38.758+02:00  INFO 19600 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:05:38.763+02:00  WARN 19600 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:05:39.133+02:00  INFO 19600 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1850ca5e
+2024-05-02T12:05:39.135+02:00  INFO 19600 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:05:39.233+02:00  WARN 19600 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:05:39.923+02:00  INFO 19600 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:05:40.051+02:00  INFO 19600 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:05:40.584+02:00  INFO 19600 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.393 seconds (process running for 3.9)
+2024-05-02T12:05:41.053+02:00  WARN 19600 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:05:41.058+02:00  WARN 19600 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:05:41.602+02:00  WARN 19600 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:08:05.587+02:00  INFO 19600 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:08:05.591+02:00  INFO 19600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:08:05.598+02:00  INFO 19600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:08:08.704+02:00  INFO 6368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 6368 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:08:08.706+02:00  INFO 6368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:08:09.118+02:00  INFO 6368 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:08:09.194+02:00  INFO 6368 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:08:09.515+02:00  INFO 6368 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:08:09.572+02:00  INFO 6368 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:08:09.610+02:00  INFO 6368 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:08:09.866+02:00  INFO 6368 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:08:09.886+02:00  INFO 6368 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:08:09.890+02:00  WARN 6368 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:08:10.274+02:00  INFO 6368 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c545b94
+2024-05-02T12:08:10.275+02:00  INFO 6368 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:08:10.358+02:00  WARN 6368 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:08:11.013+02:00  INFO 6368 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:08:11.143+02:00  INFO 6368 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:08:11.631+02:00  INFO 6368 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.263 seconds (process running for 3.768)
+2024-05-02T12:08:12.100+02:00  WARN 6368 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:08:12.105+02:00  WARN 6368 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:09:06.295+02:00  INFO 6368 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:09:06.297+02:00  INFO 6368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:09:06.303+02:00  INFO 6368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:09:09.420+02:00  INFO 9496 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 9496 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:09:09.422+02:00  INFO 9496 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:09:09.805+02:00  INFO 9496 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:09:09.881+02:00  INFO 9496 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:09:10.209+02:00  INFO 9496 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:09:10.270+02:00  INFO 9496 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:09:10.304+02:00  INFO 9496 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:09:10.559+02:00  INFO 9496 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:09:10.582+02:00  INFO 9496 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:09:10.585+02:00  WARN 9496 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:09:10.962+02:00  INFO 9496 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d90af9
+2024-05-02T12:09:10.964+02:00  INFO 9496 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:09:11.052+02:00  WARN 9496 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:09:11.713+02:00  INFO 9496 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:09:11.828+02:00  INFO 9496 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:09:12.334+02:00  INFO 9496 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.264 seconds (process running for 3.778)
+2024-05-02T12:09:12.783+02:00  WARN 9496 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:09:12.788+02:00  WARN 9496 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:10:01.108+02:00  INFO 9496 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:10:01.110+02:00  INFO 9496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T12:10:01.115+02:00  INFO 9496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T12:10:04.251+02:00  INFO 12140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 12140 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T12:10:04.253+02:00  INFO 12140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T12:10:04.640+02:00  INFO 12140 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T12:10:04.717+02:00  INFO 12140 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 7 JPA repository interfaces.
+2024-05-02T12:10:05.062+02:00  INFO 12140 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T12:10:05.123+02:00  INFO 12140 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T12:10:05.155+02:00  INFO 12140 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T12:10:05.410+02:00  INFO 12140 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T12:10:05.433+02:00  INFO 12140 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T12:10:05.436+02:00  WARN 12140 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T12:10:05.815+02:00  INFO 12140 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47fc28ff
+2024-05-02T12:10:05.817+02:00  INFO 12140 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T12:10:05.898+02:00  WARN 12140 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T12:10:06.578+02:00  INFO 12140 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T12:10:06.689+02:00  INFO 12140 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T12:10:07.186+02:00  INFO 12140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.272 seconds (process running for 3.779)
+2024-05-02T12:10:07.669+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:10:07.674+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T12:10:12.028+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@59e09f4e with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T12:10:29.269+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@75970f04 with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T12:10:32.161+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@3d0add1e with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T12:10:38.473+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@3a1c1c91 with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T12:10:50.695+02:00  WARN 12140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@675765ba with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T13:01:59.165+02:00  INFO 12140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T13:01:59.168+02:00  INFO 12140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T13:01:59.171+02:00  INFO 12140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T13:16:25.916+02:00  INFO 17140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 17140 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T13:16:25.918+02:00  INFO 17140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T13:16:26.310+02:00  INFO 17140 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T13:16:26.386+02:00  INFO 17140 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 7 JPA repository interfaces.
+2024-05-02T13:16:26.709+02:00  INFO 17140 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T13:16:26.767+02:00  INFO 17140 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T13:16:26.802+02:00  INFO 17140 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T13:16:27.067+02:00  INFO 17140 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T13:16:27.096+02:00  INFO 17140 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T13:16:27.101+02:00  WARN 17140 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T13:16:27.493+02:00  INFO 17140 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@490560b4
+2024-05-02T13:16:27.495+02:00  INFO 17140 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T13:16:27.586+02:00  WARN 17140 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T13:16:28.260+02:00  INFO 17140 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T13:16:28.435+02:00  INFO 17140 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T13:16:28.945+02:00  INFO 17140 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.369 seconds (process running for 3.869)
+2024-05-02T13:16:29.489+02:00  WARN 17140 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:16:29.496+02:00  WARN 17140 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:16:34.633+02:00  WARN 17140 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@a7210c1 with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T13:16:46.285+02:00  INFO 17140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T13:16:46.290+02:00  INFO 17140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-02T13:16:46.297+02:00  INFO 17140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-02T13:16:50.538+02:00  INFO 24756 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application using Java 17.0.9 with PID 24756 (started by Miguel in C:\Users\Miguel\Desktop\noseFunciona\AplicacionIncidenciasSERGEN)
+2024-05-02T13:16:50.540+02:00  INFO 24756 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-05-02T13:16:50.930+02:00  INFO 24756 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-02T13:16:51.004+02:00  INFO 24756 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
+2024-05-02T13:16:51.335+02:00  INFO 24756 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-02T13:16:51.396+02:00  INFO 24756 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-02T13:16:51.429+02:00  INFO 24756 --- [JavaFX Application Thread] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-02T13:16:51.683+02:00  INFO 24756 --- [JavaFX Application Thread] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-02T13:16:51.707+02:00  INFO 24756 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-02T13:16:51.710+02:00  WARN 24756 --- [JavaFX Application Thread] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2024-05-02T13:16:52.076+02:00  INFO 24756 --- [JavaFX Application Thread] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67877e7b
+2024-05-02T13:16:52.078+02:00  INFO 24756 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-02T13:16:52.163+02:00  WARN 24756 --- [JavaFX Application Thread] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-02T13:16:52.809+02:00  INFO 24756 --- [JavaFX Application Thread] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-02T13:16:52.926+02:00  INFO 24756 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-02T13:16:53.410+02:00  INFO 24756 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 3.199 seconds (process running for 3.702)
+2024-05-02T13:16:53.852+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:16:53.857+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:16:55.474+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:17:00.741+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@1729f433 with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T13:17:45.960+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:17:45.961+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.css                               : Could not resolve '-Infinity' while resolving lookups for '-fx-min-width' from rule '*.nice-button' in stylesheet file:/C:/Users/Miguel/Desktop/noseFunciona/AplicacionIncidenciasSERGEN/target/classes/style.css
+2024-05-02T13:17:47.914+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@6b2740d8 with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-05-02T13:18:04.759+02:00  WARN 24756 --- [JavaFX Application Thread] javafx.scene.control                     : Can not retrieve property 'coordinadorAsignado' in PropertyValueFactory: javafx.scene.control.cell.PropertyValueFactory@177e7bfd with provided class type: class com.islacristina.aplicaciongestionincidencias.model.Incidencia
+
+java.lang.IllegalStateException: Cannot read from unreadable property coordinadorAsignado
+	at javafx.base@22/com.sun.javafx.property.PropertyReference.get(PropertyReference.java:167) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.getCellDataReflectively(PropertyValueFactory.java:183) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:153) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.cell.PropertyValueFactory.call(PropertyValueFactory.java:132) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:592) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableColumn.getCellObservableValue(TableColumn.java:577) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.updateItem(TableCell.java:674) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableCell.indexChanged(TableCell.java:478) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell$1.invalidated(IndexedCell.java:85) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.IndexedCell.updateIndex(IndexedCell.java:130) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.updateCells(TableRowSkinBase.java:525) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkinBase.<init>(TableRowSkinBase.java:155) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableRowSkin.<init>(TableRowSkin.java:81) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableRow.createDefaultSkin(TableRow.java:213) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.applyCss(Node.java:9684) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellIndex(VirtualFlow.java:1821) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getCell(VirtualFlow.java:1798) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3070) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.getOrCreateCellSize(VirtualFlow.java:3042) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow$5.invalidated(VirtualFlow.java:865) ~[javafx.controls.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.markInvalid(IntegerPropertyBase.java:113) ~[javafx.base.jar:na]
+	at javafx.base@22/javafx.beans.property.IntegerPropertyBase.set(IntegerPropertyBase.java:148) ~[javafx.base.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.VirtualFlow.setCellCount(VirtualFlow.java:912) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkinBase.updateItemCount(TableViewSkinBase.java:579) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.skin.TableViewSkin.<init>(TableViewSkin.java:123) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.TableView.createDefaultSkin(TableView.java:1671) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:910) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSSImpl(ControlHelper.java:63) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.superProcessCSS(ControlHelper.java:55) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control.doProcessCSS(Control.java:913) ~[javafx.controls.jar:na]
+	at javafx.controls@22/javafx.scene.control.Control$1.doProcessCSS(Control.java:88) ~[javafx.controls.jar:na]
+	at javafx.controls@22/com.sun.javafx.scene.control.ControlHelper.processCSSImpl(ControlHelper.java:68) ~[javafx.controls.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent.doProcessCSS(Parent.java:1401) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Parent$1.doProcessCSS(Parent.java:125) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.ParentHelper.processCSSImpl(ParentHelper.java:98) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.scene.NodeHelper.processCSS(NodeHelper.java:147) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9597) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Node.processCSS(Node.java:9590) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene.doCSSPass(Scene.java:588) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2596) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.lambda$runPulse$2(Toolkit.java:401) ~[javafx.graphics.jar:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.runPulse(Toolkit.java:400) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:430) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:598) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:578) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:571) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:352) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx.graphics.jar:na]
+	at javafx.graphics@22/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+

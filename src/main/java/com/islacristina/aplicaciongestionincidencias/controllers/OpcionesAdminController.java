@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
 
 import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication.applicationContext;
 
+/**
+ * Controlador para la ventana de opciones de administrador.
+ */
 @Controller
 public class OpcionesAdminController implements Initializable {
 
@@ -37,32 +40,38 @@ public class OpcionesAdminController implements Initializable {
     @FXML
     private Button modifyUserButton;
     @FXML
-    private Button addPlaceButton; // Nueva referencia al botón "Lugar"
+    private Button addPlaceButton; // Nuevo botón para agregar lugar
 
     private ObservableList<User> users;
 
     @Autowired
     private UserService userService;
 
+    /**
+     * Método para agregar un nuevo usuario.
+     */
     @FXML
     private void addUser() {
         loadFXML("/register_user.fxml");
     }
 
+    /**
+     * Método para agregar un nuevo lugar.
+     */
     @FXML
-    private void addPlace() { // Nuevo método para manejar el clic en el botón "Lugar"
+    private void addPlace() {
         loadFXML("/lugares_view.fxml");
     }
 
+    /**
+     * Método para modificar un usuario existente.
+     */
     @FXML
     private void modifyUser() {
         User selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning Dialog");
-            alert.setHeaderText("No se seleccionó ningún usuario");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");
             return;
         }
 
@@ -83,14 +92,15 @@ public class OpcionesAdminController implements Initializable {
 
             users.setAll(userService.getAllUsers());
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Error al cargar la vista de modificación");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            showAlert(Alert.AlertType.ERROR, "Error Dialog", "Error al cargar la vista de modificación", e.getMessage());
         }
     }
 
+    /**
+     * Método para cargar un archivo FXML.
+     *
+     * @param fxmlFile El archivo FXML a cargar.
+     */
     private void loadFXML(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -102,23 +112,19 @@ public class OpcionesAdminController implements Initializable {
 
             users.setAll(userService.getAllUsers());
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Error al cargar la vista");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            showAlert(Alert.AlertType.ERROR, "Error Dialog", "Error al cargar la vista", e.getMessage());
         }
     }
 
+    /**
+     * Método para eliminar un usuario.
+     */
     @FXML
     private void deleteUser() {
         User selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning Dialog");
-            alert.setHeaderText("No se seleccionó ningún usuario");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");
             return;
         }
 
@@ -133,6 +139,12 @@ public class OpcionesAdminController implements Initializable {
         }
     }
 
+    /**
+     * Inicializa el controlador después de que se haya cargado su elemento raíz.
+     *
+     * @param url            La ubicación para resolver rutas relativas de recursos.
+     * @param resourceBundle Los recursos localizados.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         users = FXCollections.observableArrayList(userService.getAllUsers());
@@ -145,9 +157,41 @@ public class OpcionesAdminController implements Initializable {
         addUserButton.setOnAction(event -> addUser());
         deleteUserButton.setOnAction(event -> deleteUser());
         modifyUserButton.setOnAction(event -> modifyUser());
-        addPlaceButton.setOnAction(event -> addPlace()); // Nuevo manejador de eventos para el botón "Lugar"
+        addPlaceButton.setOnAction(event -> addPlace());
 
         // Hacer el botón de Modificar Usuario invisible
         modifyUserButton.setVisible(false);
+    }
+
+    /**
+     * Muestra un diálogo de alerta con el tipo, título y mensaje especificados.
+     *
+     * @param type    El tipo de alerta.
+     * @param title   El título del diálogo.
+     * @param message El mensaje a mostrar.
+     */
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        showAlert(type, title, message, null);
+    }
+
+    /**
+     * Muestra un diálogo de alerta con el tipo, título, mensaje y detalle especificados.
+     *
+     * @param type    El tipo de alerta.
+     * @param title   El título del diálogo.
+     * @param message El mensaje a mostrar.
+     * @param detail  Los detalles adicionales.
+     */
+    private void showAlert(Alert.AlertType type, String title, String message, String detail) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        if (detail != null) {
+            alert.setResizable(true);
+            TextArea textArea = new TextArea(detail);
+            alert.getDialogPane().setExpandableContent(textArea);
+        }
+        alert.showAndWait();
     }
 }

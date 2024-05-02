@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Controlador para la ventana de registro de usuarios.
+ */
 @Controller
 public class RegistrarUsuarioController {
 
@@ -38,6 +41,9 @@ public class RegistrarUsuarioController {
     @FXML
     private ComboBox<String> roleCombobox;
 
+    /**
+     * Inicializa el controlador después de que se haya cargado su elemento raíz.
+     */
     @FXML
     public void initialize() {
         // Obtén los roles de tu Enum y filtra el rol de SuperAdministrador
@@ -52,6 +58,7 @@ public class RegistrarUsuarioController {
         // Establece el texto predeterminado
         roleCombobox.setPromptText("Seleccione un rol...");
 
+        // Configura el evento de clic del botón de registro
         registerButton.setOnAction(event -> {
             String name = nameField.getText();
             String password = passwordField.getText();
@@ -71,33 +78,38 @@ public class RegistrarUsuarioController {
                 }
             }
 
+            // Validaciones de nombre de usuario, contraseña y rol
             if (userRepository.findByName(name) != null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setHeaderText("El nombre de usuario ya existe");
-                alert.showAndWait();
+                showAlert(Alert.AlertType.WARNING, "Warning Dialog", "El nombre de usuario ya existe");
             } else if (password.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setHeaderText("La contraseña no puede estar vacía");
-                alert.showAndWait();
+                showAlert(Alert.AlertType.WARNING, "Warning Dialog", "La contraseña no puede estar vacía");
             } else if (role == null || role.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setHeaderText("El rol no puede estar vacío");
-                alert.showAndWait();
-
+                showAlert(Alert.AlertType.WARNING, "Warning Dialog", "El rol no puede estar vacío");
             } else {
+                // Crear y guardar el nuevo usuario
                 User user = new User();
                 user.setName(name);
                 user.setContrasena(password);
                 user.setRole(role);
                 userRepository.save(user);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText("Usuario registrado con éxito");
-                alert.showAndWait();
+
+                showAlert(Alert.AlertType.INFORMATION, "Information Dialog", "Usuario registrado con éxito");
             }
         });
+    }
+
+    /**
+     * Muestra un diálogo de alerta con el tipo, título y mensaje especificados.
+     *
+     * @param type    El tipo de alerta.
+     * @param title   El título del diálogo.
+     * @param message El mensaje a mostrar.
+     */
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

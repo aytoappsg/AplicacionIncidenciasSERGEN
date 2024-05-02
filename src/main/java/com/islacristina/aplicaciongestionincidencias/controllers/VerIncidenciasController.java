@@ -24,6 +24,9 @@ import java.util.ResourceBundle;
 
 import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication.applicationContext;
 
+/**
+ * Controlador para visualizar incidencias.
+ */
 @Controller
 public class VerIncidenciasController implements Initializable {
 
@@ -69,8 +72,15 @@ public class VerIncidenciasController implements Initializable {
     @Autowired
     private IncidenciaService incidenciaService;
 
+    /**
+     * Inicializa el controlador después de que se haya cargado su elemento raíz.
+     *
+     * @param url            La ubicación para resolver rutas relativas de recursos.
+     * @param resourceBundle Los recursos localizados.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Configuración de las columnas de la tabla
         numOrdenColumn.setCellValueFactory(new PropertyValueFactory<>("numOrden"));
         procedenciaIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("procedenciaIncidencia"));
         nuestraIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("nuestraIncidencia"));
@@ -83,6 +93,7 @@ public class VerIncidenciasController implements Initializable {
         observacionColumn.setCellValueFactory(new PropertyValueFactory<>("observacion"));
         coordinadorAsignadoColumn.setCellValueFactory(new PropertyValueFactory<>("coordinadorAsignado"));
 
+        // Personalización de la columna de estado de la incidencia
         estadoIncidenciaColumn.setCellFactory(column -> {
             return new TableCell<Incidencia, Integer>() {
                 @Override
@@ -93,7 +104,7 @@ public class VerIncidenciasController implements Initializable {
                         setText(null);
                         setStyle("");
                     } else {
-                        // Translate the status number to a status string
+                        // Traduce el número de estado a una cadena de estado
                         String status;
                         switch (item) {
                             case 1:
@@ -118,7 +129,7 @@ public class VerIncidenciasController implements Initializable {
 
                         setText(status);
 
-                        // Style the cell based on the status
+                        // Estilo de la celda basado en el estado
                         switch (status) {
                             case "PROCEDE":
                                 setTextFill(Color.GREEN);
@@ -140,9 +151,9 @@ public class VerIncidenciasController implements Initializable {
                                 break;
                         }
 
-                        // Add double click event to cell
+                        // Agrega un evento de doble clic a la celda
                         setOnMouseClicked(e -> {
-                            if(e.getClickCount() == 2 && (! isEmpty()) ) {
+                            if (e.getClickCount() == 2 && (!isEmpty())) {
                                 String fxmlFile = "";
                                 switch (status) {
                                     case "PROCEDE":
@@ -188,10 +199,16 @@ public class VerIncidenciasController implements Initializable {
             };
         });
 
+        // Cargar las incidencias desde el servicio y agregarlas a la tabla
         ObservableList<Incidencia> incidencias = FXCollections.observableArrayList(incidenciaService.getAllIncidencias());
         incidenciasTable.setItems(incidencias);
     }
 
+    /**
+     * Actualiza la vista con el archivo FXML proporcionado.
+     *
+     * @param fxmlFile El archivo FXML que contiene la vista a mostrar.
+     */
     public void updateView(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

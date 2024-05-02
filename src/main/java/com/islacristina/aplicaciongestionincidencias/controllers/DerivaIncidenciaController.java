@@ -27,6 +27,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador para gestionar la derivación de incidencias.
+ */
 @Controller
 public class DerivaIncidenciaController implements Initializable {
 
@@ -76,6 +79,12 @@ public class DerivaIncidenciaController implements Initializable {
 
     private int destinatarioCount = 1;
 
+    /**
+     * Inicializa el controlador después de que se haya cargado su elemento raíz.
+     *
+     * @param url            La ubicación para resolver rutas relativas de recursos.
+     * @param resourceBundle Los recursos localizados.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Inicializa los campos de texto
@@ -112,6 +121,11 @@ public class DerivaIncidenciaController implements Initializable {
         destinatarioCount = 1;
     }
 
+    /**
+     * Establece la incidencia que se va a derivar.
+     *
+     * @param incidencia La incidencia a derivar.
+     */
     public void setIncidencia(Incidencia incidencia) {
         this.incidencia = incidencia;
         numOrdenField.setText(String.valueOf(incidencia.getNumOrden()));
@@ -119,8 +133,15 @@ public class DerivaIncidenciaController implements Initializable {
         resumenField.setText(incidencia.getResumen());
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón de importar.
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void importarButtonClicked(ActionEvent event) {
+        // Abre un diálogo para seleccionar un archivo PDF y lo importa
+        // a la ubicación especificada, permitiendo reemplazar archivos existentes si es necesario.
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -152,8 +173,14 @@ public class DerivaIncidenciaController implements Initializable {
         }
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón de deshacer.
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void deshacerButtonClicked(ActionEvent event) {
+        // Elimina el último archivo importado de la lista y del sistema de archivos.
         int lastIndex = listViewArchivos.getItems().size() - 1;
         if (lastIndex >= 0) {
             String fileName = (String) listViewArchivos.getItems().get(lastIndex);
@@ -167,18 +194,35 @@ public class DerivaIncidenciaController implements Initializable {
         }
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón de volver.
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
+        // Vuelve a la vista de ver incidencias.
         verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón de derivar.
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void buttonDerivarClicked(ActionEvent event) {
-        // Aquí puedes agregar la lógica para derivar la incidencia
+        // Realiza la acción de derivar la incidencia.
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón de agregar destinatario.
+     *
+     * @param event El evento de acción.
+     */
     @FXML
     private void buttonAddDestinatarioClicked(ActionEvent event) {
+        // Agrega dinámicamente un nuevo destinatario y su ComboBox correspondiente.
         if (destinatarioCount < 3) {
             // Clonar otro destinatario junto con su ComboBox
             Label nuevoLabel = new Label("Destinatario " + (destinatarioCount + 1));
