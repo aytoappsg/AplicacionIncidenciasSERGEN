@@ -191,4 +191,15 @@ public class VerIncidenciasController implements Initializable {
         ObservableList<Incidencia> incidencias = FXCollections.observableArrayList(incidenciaService.getAllIncidencias());
         incidenciasTable.setItems(incidencias);
     }
+
+    public void updateView(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            loader.setControllerFactory(applicationContext::getBean);
+            Parent root = loader.load();
+            dashboardController.setMainContent(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

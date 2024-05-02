@@ -1,5 +1,7 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,38 +17,65 @@ import java.util.ResourceBundle;
 @Controller
 public class NoProcedeIncidenciaController implements Initializable {
     @FXML
-    private ComboBox<?> ComboBoxAplicado, ComboBoxTipo, ComboBoxEstado;
+    private ComboBox<String> ComboBoxAplicadoNoProcede, ComboBoxTipoNoProcede, comboBoxEstado;
 
     @FXML
-    private DatePicker DateFechaNoti, DateFechaServGral;
+    private DatePicker DateFechaNotiNoProcede, DateFechaServGralNoProcede;
 
     @FXML
-    private TextArea TextAreaDescripcion, TextAreaObservaciones, TextAreaMotivo;
+    private TextArea TextAreaDescripcionNoProcede, TextAreaObservacionesNoProcede, TextAreaMotivoNoProcede;
 
     @FXML
-    private TextField tfNumReferencia, tfPrefijoNumRef;
+    private TextField tfNumReferenciaNoProcede, tfPrefijoNumRefNoProcede;
 
     @FXML
-    private Button ButtonVolver;
+    private Button ButtonVolverNoProcede;
     @Autowired
     private MainController mainController;
+    @Autowired
+    private VerIncidenciasController verIncidenciasController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Disable all controls
-        ComboBoxAplicado.setDisable(true);
-        ComboBoxTipo.setDisable(true);
-        ComboBoxEstado.setDisable(false);
-        DateFechaNoti.setDisable(true);
-        DateFechaServGral.setDisable(true);
-        TextAreaDescripcion.setDisable(true);
-        TextAreaObservaciones.setDisable(true);
-        tfNumReferencia.setDisable(true);
-        tfPrefijoNumRef.setDisable(true);
+        ComboBoxAplicadoNoProcede.setDisable(true);
+        ComboBoxTipoNoProcede.setDisable(true);
+        DateFechaNotiNoProcede.setDisable(true);
+        DateFechaServGralNoProcede.setDisable(true);
+        TextAreaDescripcionNoProcede.setDisable(true);
+        TextAreaObservacionesNoProcede.setDisable(true);
+        tfNumReferenciaNoProcede.setDisable(true);
+        tfPrefijoNumRefNoProcede.setDisable(true);
 
         // Enable TextAreaMotivo
-        TextAreaMotivo.setDisable(false);
-        ButtonVolver.setDisable(false);
+        TextAreaMotivoNoProcede.setDisable(false);
+        ButtonVolverNoProcede.setDisable(false);
+
+        // Inicializa los campos de texto
+        tfNumReferenciaNoProcede.setText("");
+        tfPrefijoNumRefNoProcede.setText("");
+        TextAreaDescripcionNoProcede.setText("");
+
+        // Inicializa los ComboBox
+        comboBoxEstado.setItems(FXCollections.observableArrayList("PROCEDE", "NO PROCEDE", "SUSPENDIDA", "PENDIENTE", "DERIVA"));
+
+        // Configura los manejadores de eventos de los botones
+        ButtonVolverNoProcede.setOnAction(this::buttonVolverClicked);
+
+        // Agrega un listener para cambiar la clase CSS basado en el estado seleccionado
+        comboBoxEstado.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            comboBoxEstado.getStyleClass().removeAll("combo-box-procede", "combo-box-no-procede", "combo-box-suspendido", "combo-box-pendiente", "combo-box-deriva");
+            String fxmlFile;
+            switch (newValue) {
+                case "NO PROCEDE":
+                    fxmlFile = "/noProcedeIncidencia.fxml";
+                    break;
+                default:
+                    fxmlFile = "/" + newValue.toLowerCase().replace(" ", "") + "Incidencia.fxml";
+                    break;
+            }
+            verIncidenciasController.updateView(fxmlFile);
+        });
     }
 
     public void setMainController(MainController mainController) {
@@ -61,5 +90,9 @@ public class NoProcedeIncidenciaController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void buttonVolverClicked(ActionEvent event) {
+        verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 }

@@ -1,13 +1,20 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.model.Incidencia;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
@@ -16,6 +23,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Controller
@@ -57,6 +66,12 @@ public class DerivaIncidenciaController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
 
+    @FXML
+    private ComboBox<String> comboBoxEstado;
+
+    @Autowired
+    private VerIncidenciasController verIncidenciasController;
+
     private Incidencia incidencia;
 
     private int destinatarioCount = 1;
@@ -69,7 +84,7 @@ public class DerivaIncidenciaController implements Initializable {
         resumenField.setText("");
 
         // Inicializa los ComboBox
-        // comboBoxDestinatarios.setItems(FXCollections.observableArrayList("Destinatario1", "Destinatario2", "Destinatario3")); // Ejemplo
+        comboBoxEstado.setItems(FXCollections.observableArrayList("PROCEDE", "NO PROCEDE", "SUSPENDIDA", "PENDIENTE", "DERIVA"));
 
         // Configura los manejadores de eventos de los botones
         buttonAddDestinatario.setOnAction(this::buttonAddDestinatarioClicked);
@@ -77,6 +92,21 @@ public class DerivaIncidenciaController implements Initializable {
         importarButton.setOnAction(this::importarButtonClicked);
         buttonVolver.setOnAction(this::buttonVolverClicked);
         buttonDerivar.setOnAction(this::buttonDerivarClicked);
+
+        // Agrega un listener para cambiar la clase CSS basado en el estado seleccionado
+        comboBoxEstado.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            comboBoxEstado.getStyleClass().removeAll("combo-box-procede", "combo-box-no-procede", "combo-box-suspendido", "combo-box-pendiente", "combo-box-deriva");
+            String fxmlFile;
+            switch (newValue) {
+                case "NO PROCEDE":
+                    fxmlFile = "/noProcedeIncidencia.fxml";
+                    break;
+                default:
+                    fxmlFile = "/" + newValue.toLowerCase().replace(" ", "") + "Incidencia.fxml";
+                    break;
+            }
+            verIncidenciasController.updateView(fxmlFile);
+        });
 
         // Inicializa la cuenta de destinatarios
         destinatarioCount = 1;
@@ -87,7 +117,6 @@ public class DerivaIncidenciaController implements Initializable {
         numOrdenField.setText(String.valueOf(incidencia.getNumOrden()));
         autorField.setText(incidencia.getAutor());
         resumenField.setText(incidencia.getResumen());
-        // Haz esto para cada campo de la interfaz de usuario que corresponda a una propiedad de la incidencia
     }
 
     @FXML
@@ -96,11 +125,29 @@ public class DerivaIncidenciaController implements Initializable {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            try {
-                Files.copy(selectedFile.toPath(), Paths.get("C:\\Users\\Miguel\\Desktop\\prueba guardar\\" + selectedFile.getName()));
-                listViewArchivos.getItems().add(selectedFile.getName());
-            } catch (IOException e) {
-                e.printStackTrace();
+            Path destinationPath = Paths.get("C:\\Users\\Miguel\\Desktop\\prueba guardar\\" + selectedFile.getName());
+            if (Files.exists(destinationPath)) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmación");
+                alert.setHeaderText("El archivo ya existe");
+                alert.setContentText("¿Deseas reemplazar el archivo existente?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    try {
+                        Files.copy(selectedFile.toPath(), destinationPath, StandardCopyOption.REPLACE_EXISTING);
+                        listViewArchivos.getItems().add(selectedFile.getName());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                try {
+                    Files.copy(selectedFile.toPath(), destinationPath);
+                    listViewArchivos.getItems().add(selectedFile.getName());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -122,10 +169,7 @@ public class DerivaIncidenciaController implements Initializable {
 
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
-        // Obtén la ventana actual
-        Stage stage = (Stage) buttonVolver.getScene().getWindow();
-        // Cierra la ventana
-        stage.close();
+        verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 
     @FXML
