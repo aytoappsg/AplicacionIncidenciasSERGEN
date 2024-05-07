@@ -1,6 +1,7 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import com.islacristina.aplicaciongestionincidencias.model.Incidencia;
+import com.islacristina.aplicaciongestionincidencias.services.IncidenciaService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,6 +17,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +27,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -41,6 +47,14 @@ public class DerivaIncidenciaController implements Initializable {
 
     @FXML
     private TextField resumenField;
+    @FXML
+    private ComboBox<String> ComboBoxTipo;
+    @FXML
+    private ComboBox<String> ComboBoxAplicado;
+    @FXML
+    private DatePicker DateFechaNoti;
+    @FXML
+    private DatePicker DateFechaServGral;
 
     @FXML
     private Button buttonAddDestinatario;
@@ -71,9 +85,14 @@ public class DerivaIncidenciaController implements Initializable {
 
     @FXML
     private ComboBox<String> comboBoxEstado;
+    @FXML
+    private TextArea TextAreaDescripcion;
 
     @Autowired
     private VerIncidenciasController verIncidenciasController;
+
+    @Autowired
+    private IncidenciaService incidenciaService;
 
     private Incidencia incidencia;
 
@@ -128,9 +147,28 @@ public class DerivaIncidenciaController implements Initializable {
      */
     public void setIncidencia(Incidencia incidencia) {
         this.incidencia = incidencia;
+
         numOrdenField.setText(String.valueOf(incidencia.getNumOrden()));
         autorField.setText(incidencia.getAutor());
         resumenField.setText(incidencia.getResumen());
+        TextAreaDescripcion.setText(incidencia.getDescripcionIncidencia());
+        ComboBoxTipo.setValue(incidencia.getTipo());
+        ComboBoxAplicado.setValue(incidencia.getAplicadoA());
+
+        // Asignar LocalDate directamente
+        if (incidencia.getFechaNotificacion() != null) {
+            DateFechaNoti.setValue(incidencia.getFechaNotificacion());
+        }
+
+        if (incidencia.getFechaServiciosGenerales() != null) {
+            DateFechaServGral.setValue(incidencia.getFechaServiciosGenerales());
+        }
+
+        if (incidencia.getArchivos() != null) {
+            listViewArchivos.setItems(FXCollections.observableArrayList(incidencia.getArchivos()));
+        } else {
+            listViewArchivos.setItems(FXCollections.observableArrayList());
+        }
     }
 
     /**
@@ -212,7 +250,32 @@ public class DerivaIncidenciaController implements Initializable {
      */
     @FXML
     private void buttonDerivarClicked(ActionEvent event) {
-        // Realiza la acción de derivar la incidencia.
+        incidencia.setAutor(autorField.getText());
+        incidencia.setResumen(resumenField.getText());
+        incidencia.setTipo(ComboBoxTipo.getValue());
+        incidencia.setAplicadoA(ComboBoxAplicado.getValue());
+
+        // Convertir LocalDate a Date antes de asignarlo
+        if (DateFechaNoti.getValue() != null) {
+            Date dateNoti = Date.from(DateFechaNoti.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            incidencia.setFechaNotificacion(dateNoti);
+        } else {
+            incidencia.setFechaNotificacion(null);
+        }
+
+        if (DateFechaServGral.getValue() != null) {
+            Date dateServGral = Date.from(DateFechaServGral.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            incidencia.setFechaServiciosGenerales(dateServGral);
+        } else {
+            incidencia.setFechaServiciosGenerales(null);
+        }
+
+        incidencia.setArchivos(listViewArchivos.getItems());
+
+        // Añade esta línea para guardar el contenido del TextAreaDescripcion
+        incidencia.setDescripcionIncidencia(TextAreaDescripcion.getText());
+
+        incidenciaService.saveIncidencia(incidencia);
     }
 
     /**

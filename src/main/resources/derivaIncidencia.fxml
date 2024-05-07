@@ -4,23 +4,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="727.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.DerivaIncidenciaController">
+<AnchorPane fx:id="mainAnchorPane" prefHeight="727.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.DerivaIncidenciaController">
     <children>
-        <AnchorPane layoutX="22.0" layoutY="14.0" prefHeight="311.0" prefWidth="981.0">
+        <AnchorPane fx:id="anchorPane1" layoutX="22.0" layoutY="14.0" prefHeight="311.0" prefWidth="981.0">
             <children>
-                <Label layoutX="46.0" layoutY="45.0" text="Ref:" />
-                <Label layoutX="45.0" layoutY="87.0" prefHeight="17.0" prefWidth="39.0" text="Autor: " />
-                <Label layoutX="56.0" layoutY="176.0" text="Descripción:" />
-                <Label layoutX="401.0" layoutY="49.0" text="Tipo:" />
-                <Label layoutX="405.0" layoutY="87.0" text="Fecha notif:" />
-                <Label layoutX="667.0" layoutY="49.0" text="Aplicado a:" />
-                <Label layoutX="683.0" layoutY="87.0" text="Fecha Serv. Gral:" />
-                <Label layoutX="405.0" layoutY="14.0" text="Resumen de la Incidencia">
+                <Label fx:id="labelRef" layoutX="46.0" layoutY="45.0" text="Ref:" />
+                <Label fx:id="labelAutor" layoutX="45.0" layoutY="87.0" prefHeight="17.0" prefWidth="39.0" text="Autor: " />
+                <Label fx:id="labelDescripcion" layoutX="56.0" layoutY="176.0" text="Descripción:" />
+                <Label fx:id="labelTipo" layoutX="401.0" layoutY="49.0" text="Tipo:" />
+                <Label fx:id="labelFechaNotif" layoutX="405.0" layoutY="87.0" text="Fecha notif:" />
+                <Label fx:id="labelAplicadoA" layoutX="667.0" layoutY="49.0" text="Aplicado a:" />
+                <Label fx:id="labelFechaServGral" layoutX="683.0" layoutY="87.0" text="Fecha Serv. Gral:" />
+                <Label fx:id="labelResumenIncidencia" layoutX="405.0" layoutY="14.0" text="Resumen de la Incidencia">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <Label layoutX="454.0" layoutY="176.0" text="Observaciones Generales:" />
+                <Label fx:id="labelObservacionesGenerales" layoutX="454.0" layoutY="176.0" text="Observaciones Generales:" />
                 <DatePicker fx:id="DateFechaNoti" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
                 <DatePicker fx:id="DateFechaServGral" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
                 <ComboBox fx:id="ComboBoxAplicado" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
@@ -29,14 +29,14 @@
                 <TextArea fx:id="TextAreaObservaciones" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
                 <TextField fx:id="numOrdenField" layoutX="89.0" layoutY="41.0" />
                 <TextField fx:id="autorField" layoutX="89.0" layoutY="83.0" />
-                <TextField id="numOrdenField" fx:id="resumenField" layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" />
+                <TextField id="resumenFieldId" fx:id="resumenField" layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" />
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="anchorPane" layoutX="17.0" layoutY="423.0" prefHeight="207.0" prefWidth="991.0">
+        <AnchorPane fx:id="anchorPane2" layoutX="17.0" layoutY="423.0" prefHeight="207.0" prefWidth="991.0">
             <children>
-                <Label layoutX="43.0" layoutY="50.0" text="Medio de Derivación:" />
+                <Label fx:id="labelMedioDerivacion" layoutX="43.0" layoutY="50.0" text="Medio de Derivación:" />
                 <ComboBox fx:id="ComboBoxDerivacion" layoutX="166.0" layoutY="46.0" prefWidth="150.0" />
-                <Label layoutX="43.0" layoutY="104.0" text="Fecha de Derivación:" />
+                <Label fx:id="labelFechaDerivacion" layoutX="43.0" layoutY="104.0" text="Fecha de Derivación:" />
                 <Label fx:id="labelDestinatario" layoutX="446.0" layoutY="50.0" text="Destinatario:" />
                 <ComboBox fx:id="comboBoxDestinatarios" layoutX="526.0" layoutY="46.0" prefWidth="150.0" />
                 <Button fx:id="deshacerButton" layoutX="780.0" layoutY="158.0" mnemonicParsing="false" text="Deshacer" />
@@ -45,10 +45,10 @@
                 <ListView fx:id="listViewArchivos" layoutX="780.0" layoutY="32.0" prefHeight="108.0" prefWidth="191.0" />
             </children>
         </AnchorPane>
-        <Label layoutX="23.0" layoutY="360.0" text="Estado:" />
+        <Label fx:id="labelEstado" layoutX="23.0" layoutY="360.0" text="Estado:" />
         <ComboBox fx:id="comboBoxEstado" layoutX="76.0" layoutY="356.0" prefWidth="150.0" promptText="DERIVA" styleClass="combo-box-deriva" />
         <Button fx:id="buttonVolver" layoutX="802.0" layoutY="670.0" mnemonicParsing="false" styleClass="blue-button" text="Volver" />
-        <Button fx:id="buttonDerivar" layoutX="925.0" layoutY="670.0" mnemonicParsing="false" text="Guardar" />
-          <Button fx:id="buttonAddDestinatario" layoutX="577.0" layoutY="670.0" mnemonicParsing="false" text="+ Añadir otro destinatario" />
+        <Button  fx:id="buttonDerivar" layoutX="925.0" layoutY="670.0" mnemonicParsing="false" text="Guardar" />
+        <Button fx:id="buttonAddDestinatario" layoutX="577.0" layoutY="670.0" mnemonicParsing="false" text="+ Añadir otro destinatario" />
     </children>
 </AnchorPane>
