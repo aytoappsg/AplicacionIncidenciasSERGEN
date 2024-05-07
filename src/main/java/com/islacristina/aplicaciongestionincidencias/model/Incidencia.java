@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -56,6 +59,22 @@ public class Incidencia {
     @Column(name = "resumen")
     private String resumen;
 
+    // Campos adicionales
+    private String tipo;
+    private String aplicadoA;
+    private List<String> archivos;
+
+    public LocalDate getFechaNotificacion() {
+        return fechaNotificacion.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
+    public LocalDate getFechaServiciosGenerales() {
+        return fechaServiciosGenerales.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
 
     @Override
     public String toString() {
