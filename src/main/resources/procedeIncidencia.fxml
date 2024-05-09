@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="978.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.ProcedeIncidenciaController">
+<AnchorPane prefHeight="978.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.PendienteIncidenciaController">
     <children>
         <AnchorPane layoutX="22.0" layoutY="14.0" prefHeight="311.0" prefWidth="981.0">
             <children>
@@ -30,39 +30,39 @@
                     </font>
                 </Label>
                 <Label layoutX="454.0" layoutY="176.0" text="Observaciones Generales:" />
-                <DatePicker id="DateFechaNoti" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
-                <DatePicker id="DateFechaServGral" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
-                <ComboBox id="ComboBoxAplicado" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
-                <ComboBox id="ComboBoxTipo" layoutX="447.0" layoutY="45.0" prefWidth="150.0" />
-                <TextArea id="TextAreaDescripcion" layoutX="56.0" layoutY="193.0" prefHeight="108.0" prefWidth="339.0" />
-                <TextArea id="TextAreaObservaciones" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
-                <TextField layoutX="89.0" layoutY="41.0" />
-                <TextField layoutX="89.0" layoutY="83.0" />
-                <TextField layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" text="48" />
+                <DatePicker fx:id="DateFechaNotiProcede" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
+                <DatePicker fx:id="DateFechaServGralProcede" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
+                <ComboBox fx:id="ComboBoxAplicadoProcede" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
+                <ComboBox fx:id="ComboBoxTipoProcede" layoutX="447.0" layoutY="45.0" prefWidth="150.0" />
+                <TextArea fx:id="TextAreaDescripcionProcede" layoutX="56.0" layoutY="193.0" prefHeight="108.0" prefWidth="339.0" />
+                <TextArea fx:id="TextAreaObservacionesProcede" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
+                <TextField fx:id="numOrdenFieldProcede" layoutX="89.0" layoutY="41.0" />
+                <TextField fx:id="autorFieldProcede" layoutX="89.0" layoutY="83.0" />
+                <TextField fx:id="resumenFieldProcede" layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" text="48" />
             </children>
         </AnchorPane>
         <Label layoutX="23.0" layoutY="360.0" text="Estado:" />
-        <ComboBox id="ComboBoxEstado" layoutX="76.0" layoutY="356.0" prefWidth="150.0" promptText="PROCEDE" styleClass="combo-box-no-procede" />
-        <Button id="ButtonVolver" layoutX="973.0" layoutY="939.0" mnemonicParsing="false" styleClass="blue-button" text="Volver" />
+        <ComboBox fx:id="ComboBoxEstadoProcede" layoutX="76.0" layoutY="356.0" prefWidth="150.0" promptText="PROCEDE" styleClass="combo-box-procede" />
+        <Button fx:id="ButtonVolverProcede" layoutX="973.0" layoutY="939.0" mnemonicParsing="false" styleClass="blue-button" text="Volver" />
         <Label layoutX="22.0" layoutY="402.0" text="Coordinador:" />
-      <ComboBox layoutX="106.0" layoutY="398.0" prefWidth="150.0" />
-      <ScrollPane layoutX="17.0" layoutY="485.0" prefHeight="441.0" prefWidth="981.0">
-         <content>
-            <GridPane prefHeight="440.0" prefWidth="978.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="67.0" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="46.0" minHeight="5.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
-      <Label layoutX="22.0" layoutY="452.0" text="Asignar Grupo de Trabajo" />
+        <ComboBox fx:id="ComboBoxCoordinadorProcede" layoutX="106.0" layoutY="398.0" prefWidth="150.0" />
+        <ScrollPane fx:id="ScrollPaneProcede" layoutX="17.0" layoutY="485.0" prefHeight="441.0" prefWidth="981.0">
+            <content>
+                <GridPane fx:id="GridPaneProcede" prefHeight="440.0" prefWidth="978.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="67.0" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="46.0" minHeight="5.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <Label fx:id="LabelGrupoTrabajoProcede" layoutX="22.0" layoutY="452.0" text="Asignar Grupo de Trabajo" />
     </children>
 </AnchorPane>

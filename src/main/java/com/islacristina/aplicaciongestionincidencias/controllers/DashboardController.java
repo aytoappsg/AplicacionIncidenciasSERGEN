@@ -5,9 +5,15 @@ import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -23,13 +29,56 @@ public class DashboardController implements Initializable {
     private StackPane stackPane;
 
     @FXML
-    private Usuario usuario;
+    private Button btnInicio;
+
+    @FXML
+    private Button btnInsertarIncidenciaButton;
+
+    @FXML
+    private Button verIncidenciasButton;
+
+    @FXML
+    private Button estadisticasButton;
+
+    @FXML
+    private Button opcionesAdminButton;
+
+    @FXML
+    private User user;
 
     public DashboardController(){}
 
     @FXML
-    private void cambiarContenido() {
+    private void handleInsertarIncidenciaButtonAction() {
         loadFXML("/insertar_incidencia.fxml");
+    }
+    @FXML
+    private void handleVerIncidenciasButtonAction() {
+        loadFXML("/verIncidencias.fxml");
+    }
+
+    @FXML
+    private void handleEstadisticasButtonAction() {
+        //loadFXML("/estadisticas.fxml"); TODAVIA NO SE HA ACTIVADO ESTA VISTA, POR ESO ESTÁ COMENTADA.
+    }
+
+    @FXML
+    private void handleOpcionesAdminButtonAction() {
+        // Verificar el rol del usuario
+        if (user != null && (user.getRole().equals("Administrador") || user.getRole().equals("SuperAdministrador"))) {
+            loadFXML("/adminOptions.fxml");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No eres administrador y no puedes acceder porque no tienes los permisos suficientes");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void cambiarContenido() {
+        loadFXML("/bienvenida.fxml");
     }
 
     private void loadFXML(String fxmlFile) {
@@ -47,7 +96,9 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBienvenida();
-
+        btnInicio.getStyleClass().clear();
+        btnInicio.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        btnInicio.setTextFill(Color.web("#748CF1"));
     }
 
     private void loadBienvenida() {
@@ -72,5 +123,10 @@ public class DashboardController implements Initializable {
         if (stackPane != null) {
             loadBienvenida();
         }
+    }
+
+    public void setMainContent(Parent content) {
+        stackPane.getChildren().clear();
+        stackPane.getChildren().add(content);
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -11,8 +12,13 @@
             <TableColumn fx:id="roleColumn" text="Rol" />
         </columns>
     </TableView>
-    <Button fx:id="addUserButton" layoutX="401.0" layoutY="276.0" text="Añadir usuario" />
-    <Button fx:id="deleteUserButton" layoutX="402.0" layoutY="319.0" text="Borrar usuario" />
+    <Button fx:id="addUserButton" layoutX="401.0" layoutY="276.0" styleClass="green-button" text="Añadir usuario" />
+    <Button fx:id="deleteUserButton" layoutX="402.0" layoutY="319.0" styleClass="red-button" text="Borrar usuario" />
     <Button fx:id="modifyUserButton" layoutX="393.0" layoutY="363.0" text="Modificar usuario" />
+    <Button fx:id="addPlaceButton" layoutX="347.0" layoutY="20.0" styleClass="nice-button" text="Lugares" />
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 
 </AnchorPane>

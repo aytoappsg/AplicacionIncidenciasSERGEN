@@ -3,26 +3,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="401.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.VerIncidenciasController">
+<AnchorPane prefHeight="586.0" prefWidth="1538.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.VerIncidenciasController">
     <children>
-        <ScrollPane prefHeight="434.0" prefWidth="934.0">
+        <ScrollPane prefHeight="434.0" prefWidth="934.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <TableView prefHeight="430.0" prefWidth="930.0">
+                        <TableView fx:id="incidenciasTable" prefHeight="593.0" prefWidth="1381.0" AnchorPane.bottomAnchor="-393.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1181.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn prefWidth="65.0" text="Nº Orden" />
-                                <TableColumn prefWidth="92.0" text="Referencia" />
-                                <TableColumn prefWidth="68.0" text="Tipo" />
-                                <TableColumn prefWidth="75.0" text="Aplicado A" />
-                                <TableColumn prefWidth="75.0" text="Fecha Notif." />
-                                <TableColumn prefWidth="107.0" text="Fecha Serv.Gral." />
-                                <TableColumn prefWidth="75.0" text="Descripción" />
-                                <TableColumn prefWidth="75.0" text="Creada por" />
-                                <TableColumn prefWidth="109.0" text="Coord. Asignado" />
-                                <TableColumn prefWidth="75.0" text="Estado" />
-                                <TableColumn prefWidth="111.0" text="Observaciones" />
+                                <TableColumn fx:id="numOrdenColumn" prefWidth="119.0" text="Nº Orden" />
+                                <TableColumn fx:id="procedenciaIncidenciaColumn" prefWidth="84.0" text="Referencia" />
+                                <TableColumn fx:id="nuestraIncidenciaColumn" prefWidth="54.0" text="Tipo" />
+                                <TableColumn fx:id="numRegistroAyuntamientoColumn" prefWidth="105.0" text="Aplicado A" />
+                                <TableColumn fx:id="fechaNotificacionColumn" prefWidth="102.0" text="Fecha Notif." />
+                                <TableColumn fx:id="fechaServiciosGeneralesColumn" prefWidth="109.0" text="Fecha Serv.Gral." />
+                                <TableColumn fx:id="descripcionIncidenciaColumn" prefWidth="149.0" text="Descripción" />
+                                <TableColumn fx:id="usuarioColumn" prefWidth="199.0" text="Creada por" />
+                                <TableColumn fx:id="coordinadorAsignadoColumn" prefWidth="150.0" text="Coordinador Asignado" />
+                                <TableColumn fx:id="estadoIncidenciaColumn" prefWidth="150.0" text="Estado Incidencia" />
+                                <TableColumn fx:id="observacionColumn" prefWidth="150.0" text="Observaciones" />
                             </columns>
                         </TableView>
                     </children>
@@ -30,4 +29,5 @@
             </content>
         </ScrollPane>
     </children>
+
 </AnchorPane>

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +34,10 @@ public class Incidencia {
     private Date fechaServiciosGenerales;
     @Column(name = "descripcion_incidencia")
     private String descripcionIncidencia;
+    @Column(name = "usuario")
+    private int usuario;
+    @Column(name = "estado_incidencia")
+    private Integer estadoIncidencia; // Cambiado de int a Integer
     @Column(name = "fecha_autorización")
     private Date fechaAutorizacion;
     @Column(name = "observacion")
@@ -42,17 +48,47 @@ public class Incidencia {
     private String motivoSuspendida;
     @Column(name = "motivo_pendiente")
     private String motivoPendiente;
+    @Column(name = "coordinador")
+    private Integer coordinador;
+    @Column(name= "autor")
+    private String autor;
+    @Column(name = "resumen")
+    private String resumen;
 
+    // Campos adicionales
+    private String tipo;
+    private String aplicadoA;
+    private List<String> archivos;
     @ManyToOne
     private Procedencia procedencia;
 
+    public LocalDate getFechaNotificacion() {
+        return fechaNotificacion.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
     @ManyToOne
     private EstadoIncidencia estado;
 
+    public LocalDate getFechaServiciosGenerales() {
+        return fechaServiciosGenerales.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
     @ManyToOne
     @JoinColumn(name = "tercero")
     private Tercero tercero;
 
+    @Override
+    public String toString() {
+        return "Incidencia{" +
+                "numOrden=" + numOrden +
+                ", estadoIncidencia=" + estadoIncidencia +
+                ", autor='" + autor + '\'' +
+                ", resumen='" + resumen + '\'' +
+                '}';
+    }
+    // getters and setters...
     @ManyToOne
     private Usuario usuario;
 

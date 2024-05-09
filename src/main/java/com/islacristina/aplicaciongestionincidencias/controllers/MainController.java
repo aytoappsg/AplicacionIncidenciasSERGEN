@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -45,5 +46,10 @@ public class MainController implements Initializable {
     public void addStackPaneChildren(Parent root){
         stackPane.getChildren().clear();
         stackPane.getChildren().add(root);
+    }
+
+    public void setMainScene(Parent scene) {
+        stackPane.getChildren().clear();
+        stackPane.getChildren().add(scene);
     }
 }
