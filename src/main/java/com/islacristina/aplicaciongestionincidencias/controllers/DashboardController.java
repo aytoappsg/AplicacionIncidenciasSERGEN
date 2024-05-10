@@ -1,20 +1,19 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication;
 import com.islacristina.aplicaciongestionincidencias.model.Usuario;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import org.springframework.stereotype.Component;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +21,10 @@ import java.util.ResourceBundle;
 
 import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionIncidenciasApplication.applicationContext;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Controller
 public class DashboardController implements Initializable {
 
@@ -29,87 +32,32 @@ public class DashboardController implements Initializable {
     private StackPane stackPane;
 
     @FXML
-    private Button btnInicio;
+    private Usuario usuario;
 
-    @FXML
-    private Button btnInsertarIncidenciaButton;
 
-    @FXML
-    private Button verIncidenciasButton;
-
-    @FXML
-    private Button estadisticasButton;
-
-    @FXML
-    private Button opcionesAdminButton;
-
-    @FXML
-    private User user;
-
-    public DashboardController(){}
-
-    @FXML
-    private void handleInsertarIncidenciaButtonAction() {
-        loadFXML("/insertar_incidencia.fxml");
-    }
-    @FXML
-    private void handleVerIncidenciasButtonAction() {
-        loadFXML("/verIncidencias.fxml");
-    }
-
-    @FXML
-    private void handleEstadisticasButtonAction() {
-        //loadFXML("/estadisticas.fxml"); TODAVIA NO SE HA ACTIVADO ESTA VISTA, POR ESO ESTÁ COMENTADA.
-    }
-
-    @FXML
-    private void handleOpcionesAdminButtonAction() {
-        // Verificar el rol del usuario
-        if (user != null && (user.getRole().equals("Administrador") || user.getRole().equals("SuperAdministrador"))) {
-            loadFXML("/adminOptions.fxml");
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("No eres administrador y no puedes acceder porque no tienes los permisos suficientes");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void cambiarContenido() {
-        loadFXML("/bienvenida.fxml");
-    }
-
-    private void loadFXML(String fxmlFile) {
-        try {
-            FXMLLoader loader = new FXMLLoader(AplicacionGestionIncidenciasApplication.class.getResource(fxmlFile));
-            loader.setControllerFactory(applicationContext::getBean);
-            Parent root = loader.load();
-            stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
-            stackPane.getChildren().add(root); // Agregar el nuevo contenido
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Método que inicializa la vista principal de la aplicación, por defecto
+     * carga la vista de bienvenida.
+     *
+     * @param url: ?
+     * @param resourceBundle: ?
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBienvenida();
-        btnInicio.getStyleClass().clear();
-        btnInicio.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        btnInicio.setTextFill(Color.web("#748CF1"));
     }
 
+    /**
+     * Método para cargar la vista de bienvenida en el StackPane principal.
+     */
     private void loadBienvenida() {
-
         try {
             FXMLLoader bienvenidaLoader = new FXMLLoader(getClass().getResource("/bienvenida.fxml"));
             bienvenidaLoader.setControllerFactory(applicationContext::getBean);
             AnchorPane dashboardPane = bienvenidaLoader.load();
 
             BienvenidaController bienvenidaController = bienvenidaLoader.getController();
-            bienvenidaController.setUser(usuario);
+            bienvenidaController.setUsuario(usuario);
 
             stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
             stackPane.getChildren().add(dashboardPane);
@@ -118,15 +66,60 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void setUser(Usuario usuario) {
-        this.usuario = usuario;
-        if (stackPane != null) {
-            loadBienvenida();
+    /**
+     * Método para cargar la vista de insertar incidencia en el StackPane principal.
+     */
+    @FXML
+    private void loadInsertar() {
+        try {
+            FXMLLoader insertarLoader = new FXMLLoader(getClass().getResource("/insertar_incidencia.fxml"));
+            insertarLoader.setControllerFactory(applicationContext::getBean);
+            Parent insertarPane = insertarLoader.load();
+
+            InsertarIncidenciaController insertarIncidenciaController = insertarLoader.getController();
+            insertarIncidenciaController.setUsuarioActual(usuario);
+
+            stackPane.getChildren().clear(); // Limpiar los hijos existentes del StackPane
+            stackPane.getChildren().add(insertarPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public void setMainContent(Parent content) {
+    /**
+     * Método para cargar la vista de ver incidencias en el StackPane principal.
+     */
+    @FXML
+    private void loadVerIncidencias(){
+        try {
+            FXMLLoader verIncidenciasLoader = new FXMLLoader(getClass().getResource("/ver_incidencias.fxml"));
+            verIncidenciasLoader.setControllerFactory(applicationContext::getBean);
+            Parent verIncidenciasPane = verIncidenciasLoader.load();
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(verIncidenciasPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Método para cargar la vista de administrador en el StackPane principal.
+     */
+    @FXML
+    private void loadAdministrador(){
+        try {
+            FXMLLoader verIncidenciasLoader = new FXMLLoader(getClass().getResource("/admin_options.fxml"));
+            verIncidenciasLoader.setControllerFactory(applicationContext::getBean);
+            Parent verIncidenciasPane = verIncidenciasLoader.load();
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(verIncidenciasPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setMainContent(Parent root) {
         stackPane.getChildren().clear();
-        stackPane.getChildren().add(content);
+        stackPane.getChildren().add(root);
     }
 }

@@ -23,6 +23,12 @@ public class Procedencia {
     @Column(name = "tipo_procedencia")
     private String tipoProcedencia;
 
+    @Column(name = "prefijo_procedencia")
+    private String prefijoProcedencia;
+
+    @Column(name = "metodo_validacion")
+    private String metodoValidacion;
+
     @OneToMany(mappedBy = "procedencia")
     private List<Incidencia> incidencias;
 

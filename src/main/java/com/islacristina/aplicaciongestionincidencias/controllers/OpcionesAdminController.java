@@ -42,10 +42,10 @@ public class OpcionesAdminController implements Initializable {
     @FXML
     private Button addPlaceButton; // Nuevo botón para agregar lugar
 
-    private ObservableList<Usuario> usuarios;
+    private ObservableList<Usuario> users;
 
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuarioService userService;
 
     /**
      * Método para agregar un nuevo usuario.
@@ -68,7 +68,7 @@ public class OpcionesAdminController implements Initializable {
      */
     @FXML
     private void modifyUser() {
-        Usuario selectedUsuario = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
             showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");
@@ -80,17 +80,17 @@ public class OpcionesAdminController implements Initializable {
             Parent root = loader.load();
 
             ModificarUsuariosController controller = loader.getController();
-            controller.setUser(selectedUsuario);
+            controller.setUser(selectedUser);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
             if (controller.isModified()) {
-                usuarioService.updateUser(selectedUsuario);
+                userService.updateUser(selectedUser);
             }
 
-            usuarios.setAll(usuarioService.getAllUsers());
+            users.setAll(userService.getAllUsers());
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error Dialog", "Error al cargar la vista de modificación", e.getMessage());
         }
@@ -110,7 +110,7 @@ public class OpcionesAdminController implements Initializable {
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
-            usuarios.setAll(usuarioService.getAllUsers());
+            users.setAll(userService.getAllUsers());
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error Dialog", "Error al cargar la vista", e.getMessage());
         }
@@ -121,7 +121,7 @@ public class OpcionesAdminController implements Initializable {
      */
     @FXML
     private void deleteUser() {
-        Usuario selectedUsuario = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
             showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");
@@ -130,12 +130,12 @@ public class OpcionesAdminController implements Initializable {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Estás a punto de eliminar el usuario " + selectedUsuario.getName());
+        alert.setHeaderText("Estás a punto de eliminar el usuario " + selectedUser.getName());
         alert.setContentText("¿Estás seguro de que quieres continuar?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            usuarioService.deleteUser(selectedUsuario);
-            usuarios.remove(selectedUsuario);
+            userService.deleteUser(selectedUser);
+            users.remove(selectedUser);
         }
     }
 
@@ -147,12 +147,12 @@ public class OpcionesAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        usuarios = FXCollections.observableArrayList(usuarioService.getAllUsers());
+        users = FXCollections.observableArrayList(userService.getAllUsers());
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
-        usersTable.setItems(usuarios);
+        usersTable.setItems(users);
 
         addUserButton.setOnAction(event -> addUser());
         deleteUserButton.setOnAction(event -> deleteUser());

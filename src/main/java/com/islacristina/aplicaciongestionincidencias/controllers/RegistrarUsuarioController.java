@@ -1,20 +1,16 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
+import com.islacristina.aplicaciongestionincidencias.enums.Rol;
 import com.islacristina.aplicaciongestionincidencias.model.Usuario;
-import com.islacristina.aplicaciongestionincidencias.enums.Rol; // Asegúrate de importar tu Enum de roles
 import com.islacristina.aplicaciongestionincidencias.repositories.UsuarioRepository;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.util.stream.Collectors;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Controlador para la ventana de registro de usuarios.
@@ -23,7 +19,7 @@ import java.util.List;
 public class RegistrarUsuarioController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository userRepository;
 
     @FXML
     private TextField nameField;
@@ -83,7 +79,7 @@ public class RegistrarUsuarioController {
                 showAlert(Alert.AlertType.WARNING, "Warning Dialog", "El rol no puede estar vacío");
             } else {
                 // Crear y guardar el nuevo usuario
-                User user = new User();
+                Usuario user = new Usuario();
                 user.setName(name);
                 user.setContrasena(password);
                 user.setRole(role);

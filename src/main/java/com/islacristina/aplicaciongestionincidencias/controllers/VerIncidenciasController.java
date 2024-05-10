@@ -8,13 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -82,16 +80,13 @@ public class VerIncidenciasController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Configuración de las columnas de la tabla
         numOrdenColumn.setCellValueFactory(new PropertyValueFactory<>("numOrden"));
-        procedenciaIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("procedenciaIncidencia"));
-        nuestraIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("nuestraIncidencia"));
+        procedenciaIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("procedencia"));
+        nuestraIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("nuestraReferencia"));
         numRegistroAyuntamientoColumn.setCellValueFactory(new PropertyValueFactory<>("numRegistroAyuntamiento"));
         fechaNotificacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaNotificacion"));
         fechaServiciosGeneralesColumn.setCellValueFactory(new PropertyValueFactory<>("fechaServiciosGenerales"));
         descripcionIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("descripcionIncidencia"));
         usuarioColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
-        estadoIncidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("estadoIncidencia"));
-        observacionColumn.setCellValueFactory(new PropertyValueFactory<>("observacion"));
-        coordinadorAsignadoColumn.setCellValueFactory(new PropertyValueFactory<>("coordinadorAsignado"));
 
         // Personalización de la columna de estado de la incidencia
         estadoIncidenciaColumn.setCellFactory(column -> {
