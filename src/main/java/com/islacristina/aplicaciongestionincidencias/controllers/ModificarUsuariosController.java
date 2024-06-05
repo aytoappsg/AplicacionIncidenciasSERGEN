@@ -1,15 +1,16 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.model.User;
+
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class ModificarUsuariosController {
 
-    private User user;
+    private Usuario user;
     private boolean modified = false;
 
-    public void setUser(User user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 

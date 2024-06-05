@@ -41,6 +41,11 @@
     -fx-alignment: center; /* alineación centrada */
 }
 
+.combo-box-no-procede {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+}
+
 .blue-button {
     -fx-background-color: blue;
     -fx-text-fill: white; /* Color del texto en blanco para mejor contraste */
@@ -49,26 +54,6 @@
 
 .combo-box-no-procede {
     -fx-background-color: red;
-    -fx-text-fill: black;
-}
-
-.combo-box-deriva {
-    -fx-background-color: skyblue;
-    -fx-text-fill: black;
-}
-
-.combo-box-procede {
-    -fx-background-color: green;
-    -fx-text-fill: black;
-}
-
-.combo-box-suspendido {
-    -fx-background-color: purple;
-    -fx-text-fill: black;
-}
-
-.combo-box-pendiente {
-    -fx-background-color: gray;
     -fx-text-fill: black;
 }
 

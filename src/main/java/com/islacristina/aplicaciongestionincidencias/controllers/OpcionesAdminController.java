@@ -1,7 +1,7 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
-import com.islacristina.aplicaciongestionincidencias.model.User;
-import com.islacristina.aplicaciongestionincidencias.services.UserService;
+import com.islacristina.aplicaciongestionincidencias.model.Usuario;
+import com.islacristina.aplicaciongestionincidencias.services.UsuarioService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,11 +28,13 @@ import static com.islacristina.aplicaciongestionincidencias.AplicacionGestionInc
 public class OpcionesAdminController implements Initializable {
 
     @FXML
-    private TableView<User> usersTable;
+    private TableView<Usuario> usersTable;
+
+
     @FXML
-    private TableColumn<User, String> nameColumn;
+    private TableColumn<Usuario, String> nameColumn;
     @FXML
-    private TableColumn<User, String> roleColumn;
+    private TableColumn<Usuario, String> roleColumn;
     @FXML
     private Button addUserButton;
     @FXML
@@ -42,10 +44,10 @@ public class OpcionesAdminController implements Initializable {
     @FXML
     private Button addPlaceButton; // Nuevo botón para agregar lugar
 
-    private ObservableList<User> users;
+    private ObservableList<Usuario> users;
 
     @Autowired
-    private UserService userService;
+    private UsuarioService userService;
 
     /**
      * Método para agregar un nuevo usuario.
@@ -68,7 +70,7 @@ public class OpcionesAdminController implements Initializable {
      */
     @FXML
     private void modifyUser() {
-        User selectedUser = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
             showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");
@@ -121,7 +123,7 @@ public class OpcionesAdminController implements Initializable {
      */
     @FXML
     private void deleteUser() {
-        User selectedUser = usersTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUser = usersTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser == null) {
             showAlert(Alert.AlertType.WARNING, "Warning Dialog", "No se seleccionó ningún usuario");

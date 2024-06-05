@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.VerIncidenciasController">
+    <children>
+        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="incidenciasTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn id="numOrden" fx:id="numOrdenColumn" prefWidth="81.59999996423721" text="Nº ORDEN" />
+                                <TableColumn id="nuestraReferencia" fx:id="nuestraReferenciaColumn" prefWidth="186.40005493164062" text="NUESTRA REFERENCIA" />
+                                <TableColumn id="numRegistroAyto" fx:id="numRegEntradaColumn" prefWidth="148.79998779296875" text="NUM. REG ENTRADA" />
+                                <TableColumn id="fechaNotificacion" fx:id="fechaDeNotificacionColumn" prefWidth="164.79998779296875" text="FECHA DE NOTIFICACIÓN" />
+                                <TableColumn id="fechaSerGen" fx:id="fechaSerGenColumn" prefWidth="113.5999755859375" text="FECHA SER. GEN." />
+                                <TableColumn id="tipo" fx:id="tipoColumn" prefWidth="49.5999755859375" text="TIPO" />
+                                <TableColumn id="aplicadoA" fx:id="aplicadoAColumn" prefWidth="100.79998779296875" text="APLICADO A" />
+                                <TableColumn id="estado" fx:id="estadoColumn" prefWidth="83.20001220703125" text="ESTADO" />
+                                <TableColumn id="fechaAutorizacion" fx:id="fechaAutorizacionColumn" prefWidth="145.599853515625" text="FECHA AUTORIZACIÓN" />
+                                <TableColumn id="situacion" fx:id="situacionColumn" prefWidth="96.7999267578125" text="SITUACIÓN" />
+                                <TableColumn id="descripcion" fx:id="descripcionColumn" prefWidth="204.0" text="DESCRIPCIÓN" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+
+</AnchorPane>

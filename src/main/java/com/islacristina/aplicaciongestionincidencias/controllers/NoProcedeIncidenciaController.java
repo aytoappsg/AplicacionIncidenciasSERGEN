@@ -1,7 +1,6 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,7 +84,6 @@ public class NoProcedeIncidenciaController implements Initializable {
                     fxmlFile = "/" + newValue.toLowerCase().replace(" ", "") + "Incidencia.fxml";
                     break;
             }
-            verIncidenciasController.updateView(fxmlFile);
         });
     }
 
@@ -120,6 +118,5 @@ public class NoProcedeIncidenciaController implements Initializable {
      */
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
-        verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 }

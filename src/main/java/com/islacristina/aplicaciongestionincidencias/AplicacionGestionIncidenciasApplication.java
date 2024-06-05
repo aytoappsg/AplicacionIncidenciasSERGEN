@@ -17,8 +17,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class AplicacionGestionIncidenciasApplication extends Application {
-
-	//Variables de clase.
 	public static ConfigurableApplicationContext applicationContext;
 	public static Parent rootNode;
 	public static Stage stage;
@@ -27,7 +25,6 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 		launch(args);
 	}
 
-	// Metododo para inicializar la primera ventana de nuestra aplicación.
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		applicationContext = SpringApplication.run(AplicacionGestionIncidenciasApplication.class);
@@ -38,6 +35,8 @@ public class AplicacionGestionIncidenciasApplication extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+
+		// Ahora que la ventana se ha mostrado, podemos maximizarla
 		primaryStage.setMaximized(true);
 	}
 }

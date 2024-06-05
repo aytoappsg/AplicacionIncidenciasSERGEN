@@ -1,23 +1,24 @@
 package com.islacristina.aplicaciongestionincidencias.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
+import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "tercero")
-public class Tercero {
-
+@Entity
+@Table(name = "grupo_trabajo")
+public class GrupoTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tercero")
+    @Column(name = "id_grupo_trabajo")
     private int id;
 
     @Column(name = "nombre")
@@ -26,13 +27,9 @@ public class Tercero {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "dni_cif")
-    private String dniCif;
+    @OneToMany(mappedBy = "grupoTrabajo")
+    private List<Encargado> encargados;
 
-    @Column(name = "telefono")
-    private String telefono;
 
-    @OneToMany(mappedBy = "tercero")
-    private List<Incidencia> incidencias;
 
 }

@@ -1,6 +1,5 @@
 package com.islacristina.aplicaciongestionincidencias.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,19 +10,21 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "usuario")
-public class User {
-
+@Entity
+@Table(name = "destinatario_derivada")
+public class DestinatarioDerivada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @Column(name = "id_destinatarios_derivada")
     private int id;
 
-    @Column(name = "nombre")
-    private String name;
-    @Column(name = "contrasena")
-    private String contrasena;
-    @Column(name = "rol")
-    private String role;
+    @ManyToOne
+    @JoinColumn(name = "id_destinataio")
+    private Destinatario destinatario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_historico_derivada")
+    private HistoricoDerivada historicoDerivada;
+
 
 }

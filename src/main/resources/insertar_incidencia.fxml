@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -30,6 +31,7 @@
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.0" minWidth="10.0" prefWidth="335.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="159.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.0" minWidth="10.0" prefWidth="341.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="378.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -41,8 +43,8 @@
                               <Label text="Num. Registro del Ayto:" GridPane.rowIndex="1" />
                               <Label text="Fecha de notificación:" GridPane.rowIndex="2" />
                               <ComboBox fx:id="cbProcedencia" prefHeight="25.0" prefWidth="338.0" GridPane.columnIndex="1" />
-                              <TextField fx:id="tfNumRegAyto" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="tfNumExpAyto" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNumRegAyto" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNumExpAyto" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <DatePicker fx:id="dpFechaNotificacion" prefHeight="26.0" prefWidth="353.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <DatePicker fx:id="dpFechaServGen" prefHeight="26.0" prefWidth="346.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text="Num. Referencia" GridPane.columnIndex="2">
@@ -60,7 +62,7 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField fx:id="tfPrefijoNumRef" disable="true" GridPane.columnIndex="3">
+                              <TextField fx:id="tfPrefijoNumRef" disable="false" GridPane.columnIndex="3">
                                  <GridPane.margin>
                                     <Insets right="261.0" />
                                  </GridPane.margin>
@@ -70,6 +72,21 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </TextField>
+                              <CheckBox fx:id="checkbRepetida" mnemonicParsing="false" text="Incidencia repetida" GridPane.columnIndex="4">
+                                 <padding>
+                                    <Insets left="80.0" />
+                                 </padding>
+                              </CheckBox>
+                              <TextField fx:id="txtIncidenciaOrigen" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="80.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="Introduzca el numero de orden de la incidencia origen:" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets left="80.0" />
+                                 </padding>
+                              </Label>
                            </children>
                         </GridPane>
                      </children>
@@ -97,8 +114,8 @@
                            <children>
                               <Label text="DNI / CIF:" />
                               <Label text="Nombre:" GridPane.rowIndex="1" />
-                              <TextField fx:id="txtNombreTercero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="txtTelefonoTercero" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNombreTercero" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtTelefonoTercero" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <Label text="Correo electrónico:" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets left="80.0" />
@@ -109,12 +126,12 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField fx:id="txtCorreoTercero" GridPane.columnIndex="3">
+                              <TextField fx:id="txtCorreoTercero" disable="true" GridPane.columnIndex="3">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField fx:id="tfDniCifTercero" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtDniCifTercero" disable="true" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </children>
@@ -128,7 +145,7 @@
                <content>
                   <AnchorPane>
                      <children>
-                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="gridPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="128.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.0" minWidth="10.0" prefWidth="287.0" />
@@ -163,25 +180,22 @@
                                     <Insets left="80.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox fx:id="cbUbicado3" disable="true" prefHeight="26.0" prefWidth="362.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="cbUbicado2" disable="true" prefHeight="26.0" prefWidth="362.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="cbUbicado" prefHeight="26.0" prefWidth="362.0" GridPane.columnIndex="3" />
-                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleBtnAddAction" styleClass="green-button" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addUbicacion" styleClass="green-button" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="btnEliminar" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#handleBtnEliminarAction" styleClass="red-button" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <Button fx:id="btnEliminar" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#removeUbicacion" styleClass="red-button" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="70.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="btnAdd2" mnemonicParsing="false" onAction="#handleBtnAdd2Action" styleClass="green-button" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                              <Button fx:id="btnAdd2" mnemonicParsing="false" onAction="#addUbicacion" styleClass="green-button" text="Añadir" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="btnEliminar2" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#handleBtnEliminar2Action" styleClass="red-button" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                              <Button fx:id="btnEliminar2" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#removeUbicacion" styleClass="red-button" text="Eliminar" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets left="70.0" />
                                  </GridPane.margin>
@@ -207,7 +221,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </TitledPane>
-            <Button fx:id="btnEnviar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#enviarIncidencia" styleClass="nice-button" text="Enviar Incidencia">
+            <Button fx:id="btnEnviar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validarFormulario" styleClass="nice-button" text="Enviar Incidencia">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" />
                </VBox.margin>

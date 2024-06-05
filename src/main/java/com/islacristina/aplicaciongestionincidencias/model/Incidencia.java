@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -15,33 +13,25 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "incidencia")
 public class Incidencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_orden")
     private int numOrden;
-    @Column(name = "procedencia_incidencia")
-    private int procedenciaIncidencia;
     @Column(name = "nuestra_referencia")
-    private String nuestraIncidencia;
+    private String nuestraReferencia;
     @Column(name = "num_registro_ayuntamiento")
     private String numRegistroAyuntamiento;
     @Column(name = "num_expediente_ayuntamiento")
     private String numExpedienteAyuntamiento;
-    @Column(name = "tercero")
-    private int tercero;
     @Column(name = "fecha_notificacion")
     private Date fechaNotificacion;
     @Column(name = "fecha_servicios_generales")
     private Date fechaServiciosGenerales;
     @Column(name = "descripcion_incidencia")
     private String descripcionIncidencia;
-    @Column(name = "usuario")
-    private int usuario;
-    @Column(name = "estado_incidencia")
-    private Integer estadoIncidencia; // Cambiado de int a Integer
     @Column(name = "fecha_autorización")
     private Date fechaAutorizacion;
     @Column(name = "observacion")
@@ -52,38 +42,30 @@ public class Incidencia {
     private String motivoSuspendida;
     @Column(name = "motivo_pendiente")
     private String motivoPendiente;
-    @Column(name = "coordinador")
-    private Integer coordinador;
-    @Column(name= "autor")
-    private String autor;
-    @Column(name = "resumen")
-    private String resumen;
+    @Column(name = "incidencia_origen")
+    private Integer incidenciaOrigen;
 
-    // Campos adicionales
-    private String tipo;
-    private String aplicadoA;
-    private List<String> archivos;
+    @ManyToOne
+    @JoinColumn(name = "procedencia_incidencia", nullable = false)
+    private Procedencia procedencia;
 
-    public LocalDate getFechaNotificacion() {
-        return fechaNotificacion.toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate();
-    }
+    @ManyToOne
+    @JoinColumn(name = "estado_incidencia")
+    private EstadoIncidencia estado;
 
-    public LocalDate getFechaServiciosGenerales() {
-        return fechaServiciosGenerales.toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate();
-    }
+    @ManyToOne
+    @JoinColumn(name = "tercero")
+    private Tercero tercero;
 
-    @Override
-    public String toString() {
-        return "Incidencia{" +
-                "numOrden=" + numOrden +
-                ", estadoIncidencia=" + estadoIncidencia +
-                ", autor='" + autor + '\'' +
-                ", resumen='" + resumen + '\'' +
-                '}';
-    }
-    // getters and setters...
+    @ManyToOne
+    @JoinColumn(name = "usuario", nullable = false)
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "coordinador")
+   private Usuario coordinador;
+
+
+    @OneToMany(mappedBy = "incidencia")
+    private List<UbicacionIncidencia> ubicacionesIncidencias;
 }
