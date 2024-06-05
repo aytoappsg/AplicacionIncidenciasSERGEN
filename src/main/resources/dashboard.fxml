@@ -9,13 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import com.islacristina.aplicaciongestionincidencias.model.Usuario?>
-
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.DashboardController">
    <fx:define>
       <Usuario fx:id="usuario" />
    </fx:define>
 
-   <VBox alignment="TOP_CENTER" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+   <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
          <HBox alignment="TOP_CENTER">
             <children>
@@ -24,17 +23,17 @@
                      <Insets left="10.0" right="30.0" top="10.0" />
                   </HBox.margin>
                </Button>
-               <Button  onAction="#loadVerIncidencias" styleClass="nice-button" text="Ver Incidencias">
+               <Button onAction="#loadVerIncidencias" styleClass="nice-button" text="Ver Incidencias">
                   <HBox.margin>
                      <Insets left="10.0" right="30.0" top="10.0" />
                   </HBox.margin>
                </Button>
-               <Button  styleClass="nice-button" text="Estadísticas">
+               <Button styleClass="nice-button" text="Estadísticas">
                   <HBox.margin>
                      <Insets left="10.0" right="30.0" top="10.0" />
                   </HBox.margin>
                </Button>
-               <Button  onAction="#loadAdministrador" styleClass="nice-button" text="Opciones de Administrador">
+               <Button onAction="#loadAdministrador" styleClass="nice-button" text="Opciones de Administrador">
                   <HBox.margin>
                      <Insets left="10.0" right="30.0" top="10.0" />
                   </HBox.margin>
@@ -48,7 +47,7 @@
             </padding>
          </HBox>
 
-         <StackPane fx:id="stackPane" alignment="TOP_LEFT">
+         <StackPane fx:id="stackPane" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
             <!-- Contenido se cargará aquí -->
          </StackPane>
       </children>

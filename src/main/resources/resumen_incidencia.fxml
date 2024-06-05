@@ -1,48 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="727.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.ResumenIncidenciaController">
-   <children>
-      <AnchorPane layoutX="22.0" layoutY="14.0" prefHeight="311.0" prefWidth="981.0">
-         <children>
-            <Label layoutX="46.0" layoutY="45.0" text="Ref:" />
-            <Label layoutX="45.0" layoutY="87.0" prefHeight="17.0" prefWidth="39.0" text="Autor: " />
-            <Label layoutX="56.0" layoutY="176.0" text="Descripción:" />
-            <Label layoutX="401.0" layoutY="49.0" text="Tipo:" />
-            <Label layoutX="405.0" layoutY="87.0" text="Fecha notif:" />
-            <Label layoutX="667.0" layoutY="49.0" text="Aplicado a:" />
-            <Label layoutX="683.0" layoutY="87.0" text="Fecha Serv. Gral:" />
-            <Label layoutX="405.0" layoutY="14.0" text="Resumen de la Incidencia">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="454.0" layoutY="176.0" text="Observaciones Generales:" />
-            <DatePicker id="DateFechaNoti" layoutX="480.0" layoutY="83.0" prefWidth="117.0" />
-            <DatePicker id="DateFechaServGral" layoutX="782.0" layoutY="83.0" prefHeight="25.0" prefWidth="117.0" />
-            <ComboBox id="ComboBoxAplicado" layoutX="749.0" layoutY="45.0" prefWidth="150.0" />
-            <ComboBox id="ComboBoxTipo" layoutX="447.0" layoutY="45.0" prefWidth="150.0" />
-            <TextArea id="TextAreaDescripcion" layoutX="56.0" layoutY="193.0" prefHeight="108.0" prefWidth="339.0" />
-            <TextArea id="TextAreaObservaciones" layoutX="454.0" layoutY="193.0" prefHeight="108.0" prefWidth="509.0" />
-            <TextField layoutX="89.0" layoutY="41.0" />
-            <TextField layoutX="89.0" layoutY="83.0" />
-            <TextField layoutX="558.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" text="48" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="17.0" layoutY="423.0" prefHeight="207.0" prefWidth="991.0">
-         <children>
-            <TextArea id="TextAreaMotivo" layoutX="8.0" layoutY="7.0" prefHeight="200.0" prefWidth="970.0" />
-         </children></AnchorPane>
-      <Label layoutX="23.0" layoutY="360.0" text="Estado:" />
-      <ComboBox id="ComboBoxEstado" layoutX="76.0" layoutY="356.0" prefWidth="150.0" />
-      <Button id="ButtonVolver" layoutX="940.0" layoutY="679.0" mnemonicParsing="false" text="Volver" />
-   </children>
-</AnchorPane>
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.islacristina.aplicaciongestionincidencias.controllers.ResumenIncidenciaController">
+
+
+    <content>
+                <AnchorPane>
+                    <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="63.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="217.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ComboBox id="ComboBoxEstado" prefHeight="25.0" prefWidth="231.0" GridPane.columnIndex="1" />
+                                <Label text="Estado:" GridPane.halignment="RIGHT">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding></Label>
+                            </children>
+                        </GridPane>
+                        <GridPane prefHeight="231.0" prefWidth="603.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="205.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Descripción:" GridPane.valignment="BOTTOM">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding></Label>
+                                <Label text="Observaciones Generales:" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding></Label>
+                                <TextArea id="TextAreaDescripcion" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding></TextArea>
+                                <TextArea id="TextAreaObservaciones" prefHeight="181.0" prefWidth="569.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding></TextArea>
+                            </children>
+                        </GridPane>
+                        <GridPane AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Num. Referencia:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <TextField fx:id="numReferencia" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <Label text="Fecha notificación:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <DatePicker id="DateFechaNoti" fx:id="fechaNotificacion" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <Label text="Fecha Serv. Gral:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                <DatePicker id="DateFechaServGral" fx:id="fechaServiciosGenerales" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                <Label text="Autor asignado:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                                <TextField GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                                <Label text="Tipo 1:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <Label text="Tipo 2:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <Label text="Tipo 3:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxTipo" fx:id="tipo" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxTipo" fx:id="tipo2" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxTipo" fx:id="tipo3" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                <Label text="Aplicado a:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <Label text="Aplicado a:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <Label text="Aplicado a:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxAplicado" fx:id="aplicadoA" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxAplicado" fx:id="aplicadoA2" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                <ComboBox id="ComboBoxAplicado" fx:id="aplicadoA3" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                            </children>
+                        </GridPane>
+                        <Label alignment="CENTER" text="Resumen de la Incidencia:" AnchorPane.bottomAnchor="443.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="0.0">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="numOrden" alignment="CENTER" text="48" AnchorPane.bottomAnchor="443.0" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="0.0" />
+                        <StackPane />
+                        <Button id="ButtonVolver" layoutX="550.0" layoutY="433.0" mnemonicParsing="false" text="Volver" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>

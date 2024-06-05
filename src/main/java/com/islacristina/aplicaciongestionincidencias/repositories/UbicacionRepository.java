@@ -11,10 +11,9 @@ import java.util.List;
 
 @Repository
 public interface UbicacionRepository extends JpaRepository<Ubicacion, Integer> {
-    List<Ubicacion> findByTipoLugar(TipoLugar idTipoLugar);
 
-    @Query(value = "SELECT u.* FROM ubicacion u INNER JOIN lugar l ON u.id_lugar = l.id_lugar WHERE u.id_tipo_lugar = :tipoLugar AND l.nombre_lugar LIKE CONCAT('%', :nombreLugar, '%')", nativeQuery = true)
-    List<Ubicacion> findByTipoLugarAndNombre(@Param("tipoLugar") Integer idTipoLugar, @Param("nombreLugar") String nombreLugar);
+
+    List<Ubicacion> findByTipoLugar(TipoLugar idTipoLugar);
 
     Ubicacion findByTipoLugar_IdTipoLugarAndLugar_IdLugar(Integer tipoLugarId, Integer lugarId);
 }

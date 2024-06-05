@@ -29,6 +29,8 @@ public class OpcionesAdminController implements Initializable {
 
     @FXML
     private TableView<Usuario> usersTable;
+
+
     @FXML
     private TableColumn<Usuario, String> nameColumn;
     @FXML

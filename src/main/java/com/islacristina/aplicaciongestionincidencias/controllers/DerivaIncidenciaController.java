@@ -121,7 +121,7 @@ public class DerivaIncidenciaController implements Initializable {
                     fxmlFile = "/" + newValue.toLowerCase().replace(" ", "") + "Incidencia.fxml";
                     break;
             }
-            verIncidenciasController.updateView(fxmlFile);
+            //verIncidenciasController.updateView(fxmlFile);
         });
 
         destinatarioCount = 1;
@@ -202,7 +202,7 @@ public class DerivaIncidenciaController implements Initializable {
 
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
-        verIncidenciasController.updateView("/verIncidencias.fxml");
+        //verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 
     @FXML

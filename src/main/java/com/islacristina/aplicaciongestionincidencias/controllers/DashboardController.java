@@ -1,5 +1,6 @@
 package com.islacristina.aplicaciongestionincidencias.controllers;
 
+import com.islacristina.aplicaciongestionincidencias.model.Incidencia;
 import com.islacristina.aplicaciongestionincidencias.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import javafx.scene.control.Button;
 
@@ -33,6 +36,13 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Usuario usuario;
+
+    @FXML
+    private Incidencia incidencia;
+
+    @Autowired
+    @Lazy
+    private VerIncidenciasController verIncidenciasController; // Añadir esta línea
 
 
     /**
@@ -97,6 +107,29 @@ public class DashboardController implements Initializable {
             Parent verIncidenciasPane = verIncidenciasLoader.load();
             stackPane.getChildren().clear();
             stackPane.getChildren().add(verIncidenciasPane);
+
+            VerIncidenciasController verIncidenciasController = verIncidenciasLoader.getController();
+            verIncidenciasController.setDashboardController(this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void loadResumen(Incidencia incidenciaSeleccionada){
+        try {
+
+            FXMLLoader detallesLoader = new FXMLLoader(getClass().getResource("/resumen_incidencia.fxml"));
+            detallesLoader.setControllerFactory(applicationContext::getBean);
+            Parent detallesPane = detallesLoader.load();
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(detallesPane);
+            System.out.println("Incidencia seleccionada1: " + incidenciaSeleccionada.getNumOrden());
+
+            ResumenIncidenciaController resumenIncidenciaController = detallesLoader.getController();
+            resumenIncidenciaController.setDashboardController(this);
+            resumenIncidenciaController.setIncidencia(incidenciaSeleccionada);
+            System.out.println("Incidencia seleccionada2: " + incidenciaSeleccionada.getNumOrden());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -122,4 +155,5 @@ public class DashboardController implements Initializable {
         stackPane.getChildren().clear();
         stackPane.getChildren().add(root);
     }
+
 }

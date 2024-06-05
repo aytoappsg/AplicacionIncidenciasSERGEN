@@ -84,7 +84,6 @@ public class NoProcedeIncidenciaController implements Initializable {
                     fxmlFile = "/" + newValue.toLowerCase().replace(" ", "") + "Incidencia.fxml";
                     break;
             }
-            verIncidenciasController.updateView(fxmlFile);
         });
     }
 
@@ -119,6 +118,5 @@ public class NoProcedeIncidenciaController implements Initializable {
      */
     @FXML
     private void buttonVolverClicked(ActionEvent event) {
-        verIncidenciasController.updateView("/verIncidencias.fxml");
     }
 }

@@ -21,12 +21,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.task.ThreadPoolTaskExecutorBuilder;
 import org.springframework.stereotype.Controller;
 import javafx.beans.value.ChangeListener;
+
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -43,7 +48,7 @@ public class InsertarIncidenciaController implements Initializable {
     private ComboBox<String> cbProcedencia, cbTipoUbicacion, cbTipoUbicacion2, cbTipoUbicacion3;
 
     @FXML
-    private TextField txtNumRegAyto, tfPrefijoNumRef, tfNumReferencia, txtNumExpAyto, txtDniCifTercero, txtNombreTercero, txtCorreoTercero, txtTelefonoTercero;
+    private TextField txtNumRegAyto, tfPrefijoNumRef, tfNumReferencia, txtNumExpAyto, txtDniCifTercero, txtNombreTercero, txtCorreoTercero, txtTelefonoTercero, txtIncidenciaOrigen;
 
     @FXML
     private DatePicker dpFechaServGen, dpFechaNotificacion;
@@ -53,6 +58,9 @@ public class InsertarIncidenciaController implements Initializable {
 
     @FXML
     private TextArea txtDescripcion;
+
+    @FXML
+    private CheckBox checkbRepetida;
 
     AutoCompleteTextField txtUbicacion1 = new AutoCompleteTextField();
     AutoCompleteTextField txtUbicacion2 = new AutoCompleteTextField();
@@ -65,7 +73,11 @@ public class InsertarIncidenciaController implements Initializable {
     private boolean terceroEncontrado = false;
 
     //Lista independiente con las sugerencias de lugares para cada campo de ubicación
-    private List<String> listaLugares1, listaLugares2, listaLugares3 = new ArrayList<>();
+    private List<String> listaLugares1 = new ArrayList<>();
+    private List<String> listaLugares2 = new ArrayList<>();
+    private List<String> listaLugares3 = new ArrayList<>();
+
+    private List<Ubicacion> ubicaciones = new ArrayList<>();
 
     //Atributos relacionados con la lógica de autocompletado (NO TOCAR)
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -111,53 +123,121 @@ public class InsertarIncidenciaController implements Initializable {
 
         //Listener del textfield de DNI/CIF
         txtDniCifTercero.textProperty().addListener((observable, oldValue, newValue) -> {
-            dniCifListener(newValue);
+            if (incidenciaService.getProcedenciaByTipoProcedencia(cbProcedencia.getValue()).getMetodoValidacion().equals("dni_cif")) {
+                dniCifListener(newValue);
+            }
         });
 
         //Listener del textfield de correo electrónico
         txtCorreoTercero.textProperty().addListener((observable, oldValue, newValue) -> {
-            emailListener(newValue);
+            if (incidenciaService.getProcedenciaByTipoProcedencia(cbProcedencia.getValue()).getMetodoValidacion().equals("email")) {
+                emailListener(newValue);
+            }
         });
 
         //Listener del combobox de tipo de ubicación
         cbTipoUbicacion.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                txtUbicacion1.setDisable(false);
-            } else {
-                txtUbicacion1.setDisable(true);
-            }
+            txtUbicacion1.setDisable(false);
+            listaLugares1.addAll(ubicaciones.stream()
+                    .filter(ubicacion ->
+                            ubicacion.getTipoLugar().getTipoLugar().equals(newValue))
+                    .map(ubicacion -> ubicacion.getLugar().getNombreLugar())
+                    .collect(Collectors.toCollection(ArrayList::new)));
+
+
+        });
+        cbTipoUbicacion2.valueProperty().addListener((observable, oldValue, newValue) -> {
+            listaLugares2.addAll(ubicaciones.stream()
+                    .filter(ubicacion ->
+                            ubicacion.getTipoLugar().getTipoLugar().equals(newValue))
+                    .map(ubicacion -> ubicacion.getLugar().getNombreLugar())
+                    .collect(Collectors.toCollection(ArrayList::new)));
+            txtUbicacion2.setDisable(false);
+        });
+        cbTipoUbicacion3.valueProperty().addListener((observable, oldValue, newValue) -> {
+            listaLugares3.addAll(ubicaciones.stream()
+                    .filter(ubicacion ->
+                            ubicacion.getTipoLugar().getTipoLugar().equals(newValue))
+                    .map(ubicacion -> ubicacion.getLugar().getNombreLugar())
+                    .collect(Collectors.toCollection(ArrayList::new)));
+            txtUbicacion3.setDisable(false);
         });
 
         //Listener del texfield de autocompletado del primer campo de ubicación
         //No tocar, es la lógica de autocompletado y funciona gracias a dios
         txtUbicacion1.textProperty().addListener((observable, oldValue, newValue) -> {
-            isTyping.set(true);
-            executor.schedule(() -> {
-                isTyping.set(false);
-                executeLogic(newValue, task1, txtUbicacion1, cbTipoUbicacion);
-            }, 500, TimeUnit.MILLISECONDS);
-        });
 
-        //Listener del texfield de autocompletado del segundo campo de ubicación
-        //No tocar, es la lógica de autocompletado y funciona gracias a dios
+            if (newValue.length() >= 2) {
+                txtUbicacion1.getEntries().addAll(
+                        listaLugares1.stream().
+                                filter(lugar -> lugar.contains(newValue))
+                                .collect(Collectors.toCollection(ArrayList::new)));
+            } else {
+                txtUbicacion1.getEntries().clear();
+            }
+        });
         txtUbicacion2.textProperty().addListener((observable, oldValue, newValue) -> {
-            isTyping.set(true); // El usuario está escribiendo
-            executor.schedule(() -> {
-                isTyping.set(false); // El usuario ha dejado de escribir, permite la lógica
-                executeLogic(newValue, task2, txtUbicacion2, cbTipoUbicacion2); // Llama al método para ejecutar la lógica
-            }, 500, TimeUnit.MILLISECONDS); // Espera 0.5 segundos antes de permitir la lógica
+            if (newValue.length() >= 2) {
+                txtUbicacion2.getEntries().addAll(
+                        listaLugares2.stream().
+                                filter(lugar -> lugar.contains(newValue))
+                                .collect(Collectors.toCollection(ArrayList::new)));
+            } else {
+                txtUbicacion2.getEntries().clear();
+            }
         });
-
-        //Listener del texfield de autocompletado del tercer campo de ubicación
-        //No tocar, es la lógica de autocompletado y funciona gracias a dios
         txtUbicacion3.textProperty().addListener((observable, oldValue, newValue) -> {
-            isTyping.set(true); // El usuario está escribiendo
-            executor.schedule(() -> {
-                isTyping.set(false); // El usuario ha dejado de escribir, permite la lógica
-                executeLogic(newValue, task3, txtUbicacion3, cbTipoUbicacion3); // Llama al método para ejecutar la lógica
-            }, 500, TimeUnit.MILLISECONDS); // Espera 0.5 segundos antes de permitir la lógica
+            if (newValue.length() >= 2) {
+                txtUbicacion3.getEntries().addAll(
+                        listaLugares3.stream().
+                                filter(lugar -> lugar.contains(newValue))
+                                .collect(Collectors.toCollection(ArrayList::new)));
+            } else {
+                txtUbicacion3.getEntries().clear();
+            }
         });
+        checkbRepetida.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                txtIncidenciaOrigen.setDisable(false);
+                cbTipoUbicacion.setDisable(true);
+                txtUbicacion1.setDisable(true);
+                btnAdd.setDisable(true);
+                btnEliminar.setDisable(true);
+                cbTipoUbicacion2.setDisable(true);
+                txtUbicacion2.setDisable(true);
+                btnAdd2.setDisable(true);
+                btnEliminar2.setDisable(true);
+                cbTipoUbicacion3.setDisable(true);
+                txtUbicacion3.setDisable(true);
+            } else {
+                cbTipoUbicacion.setDisable(false);
+                btnAdd.setDisable(false);
+                if (cbTipoUbicacion2.getValue() != null && !cbTipoUbicacion2.getValue().trim().isEmpty()) {
+                    txtUbicacion2.setDisable(false);
+                }
+                if (cbTipoUbicacion3.getValue() != null && !cbTipoUbicacion3.getValue().trim().isEmpty()) {
+                    txtUbicacion3.setDisable(false);
+                }
+                if (txtUbicacion1.getText() != null && !txtUbicacion1.getText().trim().isEmpty()) {
+                    txtUbicacion1.setDisable(false);
+                }
+                if (txtUbicacion2.getText() != null && !txtUbicacion2.getText().trim().isEmpty()) {
+                    txtUbicacion2.setDisable(false);
+                    btnAdd.setDisable(true);
+                    btnEliminar.setDisable(false);
+                    btnAdd2.setDisable(false);
+                    btnEliminar2.setDisable(true);
+                }
+                if (txtUbicacion3.getText() != null && !txtUbicacion3.getText().trim().isEmpty()) {
+                    txtUbicacion3.setDisable(false);
+                    btnAdd.setDisable(true);
+                    btnEliminar.setDisable(true);
+                    btnAdd2.setDisable(true);
+                    btnEliminar2.setDisable(false);
 
+                }
+            }
+        });
     }
 
     /**
@@ -165,51 +245,16 @@ public class InsertarIncidenciaController implements Initializable {
      * hilos y permite que el usuario pueda escribir sin que se ejecute la lógica de autocompletado hasta que deje
      * de escribir durante 0.5 segundos. Se recomienda no tocar este método.
      *
-     * @param newValue:     nuevo valor introducido en el campo de autocompletado
-     * @param task:         tarea que se está ejecutando
-     * @param txtUbicacion: campo de autocompletado
-     * @param cbTipo:       combobox de tipo de ubicación
+     * @param task: tarea que se está ejecutando
      */
-    private void executeLogic(String newValue, Future<?> task, AutoCompleteTextField txtUbicacion, ComboBox<String> cbTipo) {
-        if (!isTyping.get()) { // Solo ejecutar la lógica si el usuario no está escribiendo
-            if (newValue.length() >= 3) {
-                if (task != null && !task.isDone() && newValue.length() > 3) {
-                    task.cancel(true); // Cancela la tarea anterior si aún está en ejecución
-                }
-                task = executor.submit(new Task<Void>() {
-                    @Override
-                    protected Void call() throws Exception {
-                        if (cbTipo.equals(cbTipoUbicacion)) {
-                            listaLugares1 = incidenciaService.getNombreLugaresTipoLugar(cbTipo.getValue(), newValue);
-                            javafx.application.Platform.runLater(() -> {
-                                txtUbicacion.getEntries().addAll(listaLugares1);
-                            });
-                        } else if (cbTipo.equals(cbTipoUbicacion2)) {
-                            listaLugares2 = incidenciaService.getNombreLugaresTipoLugar(cbTipo.getValue(), newValue);
-                            javafx.application.Platform.runLater(() -> {
-                                txtUbicacion.getEntries().addAll(listaLugares2);
-                            });
-                        } else if (cbTipo.equals(cbTipoUbicacion3)) {
-                            listaLugares3 = incidenciaService.getNombreLugaresTipoLugar(cbTipo.getValue(), newValue);
-                            javafx.application.Platform.runLater(() -> {
-                                txtUbicacion.getEntries().addAll(listaLugares3);
-                            });
-                        }
-
-                        return null;
-                    }
-                });
-            } else {
-                if (cbTipo.equals(cbTipoUbicacion)) {
-                    listaLugares1.clear();
-                } else if (cbTipo.equals(cbTipoUbicacion2)) {
-                    listaLugares2.clear();
-                } else if (cbTipo.equals(cbTipoUbicacion3)) {
-                    listaLugares3.clear();
-                }
-                txtUbicacion.getEntries().clear();
+    private void executeLogic(Future<?> task) {
+        task = executor.submit(new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                ubicaciones = incidenciaService.getAllUbicaciones();
+                return null;
             }
-        }
+        });
     }
 
     /**
@@ -219,6 +264,8 @@ public class InsertarIncidenciaController implements Initializable {
     private void establecerDatosPrevios() {
         cargarTipoProcedencia();
         cargarTiposUbicacion(cbTipoUbicacion);
+        executeLogic(task1);
+
     }
 
     /**
@@ -289,12 +336,14 @@ public class InsertarIncidenciaController implements Initializable {
                 txtTelefonoTercero.setText(incidenciaService.getTerceroByDni(newValue).getTelefono());
             } else {
                 terceroEncontrado = false;
+                txtCorreoTercero.setText("");
+                txtTelefonoTercero.setText("");
+                txtNombreTercero.setText("");
             }
             txtCorreoTercero.setDisable(false);
             txtTelefonoTercero.setDisable(false);
             txtNombreTercero.setDisable(false);
-        }
-        else {
+        } else {
             txtCorreoTercero.setDisable(true);
             txtTelefonoTercero.setDisable(true);
             txtNombreTercero.setDisable(true);
@@ -311,14 +360,30 @@ public class InsertarIncidenciaController implements Initializable {
      * @param newValue: nuevo valor introducido en el textfield de correo electrónico.
      */
     private void emailListener(String newValue) {
-        if (newValue.length() > 8) {
+
+        if (comprobarFormatoCorreo()) {
             Tercero tercero = incidenciaService.getTerceroByEmail(newValue);
             if (tercero != null) {
                 terceroEncontrado = true;
                 txtNombreTercero.setText(incidenciaService.getTerceroByEmail(newValue).getNombre());
                 txtDniCifTercero.setText(incidenciaService.getTerceroByEmail(newValue).getDniCif());
                 txtTelefonoTercero.setText(incidenciaService.getTerceroByEmail(newValue).getTelefono());
+            } else {
+                terceroEncontrado = false;
+                txtDniCifTercero.setText("");
+                txtTelefonoTercero.setText("");
+                txtNombreTercero.setText("");
             }
+            txtDniCifTercero.setDisable(false);
+            txtTelefonoTercero.setDisable(false);
+            txtNombreTercero.setDisable(false);
+        } else {
+            txtDniCifTercero.setDisable(true);
+            txtTelefonoTercero.setDisable(true);
+            txtNombreTercero.setDisable(true);
+            txtDniCifTercero.setText("");
+            txtTelefonoTercero.setText("");
+            txtNombreTercero.setText("");
         }
     }
 
@@ -334,11 +399,13 @@ public class InsertarIncidenciaController implements Initializable {
             btnEliminar.setDisable(false);
             btnAdd2.setDisable(false);
             btnEliminar2.setDisable(true);
+            cargarTiposUbicacion(cbTipoUbicacion2);
         } else if (cbTipoUbicacion3.isDisable()) {
             cbTipoUbicacion3.setDisable(false);
             btnAdd2.setDisable(true);
             btnEliminar2.setDisable(false);
             btnEliminar.setDisable(true);
+            cargarTiposUbicacion(cbTipoUbicacion3);
         }
     }
 
@@ -373,7 +440,9 @@ public class InsertarIncidenciaController implements Initializable {
         try {
             validarDatosIncidencia();
             validarDatosTercero();
-            validarDatosUbicacion();
+            if (!checkbRepetida.isSelected()) {
+                validarDatosUbicacion();
+            }
             validarDescripcion();
             insertarIncidencia();
         } catch (InsertarIncidenciaException e) {
@@ -396,8 +465,11 @@ public class InsertarIncidenciaController implements Initializable {
 
 
         nuevaIncidencia.setNuestraReferencia(tfPrefijoNumRef.getText() + tfNumReferencia.getText());
-        if (cbProcedencia.equals("GESTIONA")) {
+
+        if (txtNumRegAyto.getText() != null && !txtNumRegAyto.getText().trim().isEmpty()) {
             nuevaIncidencia.setNumRegistroAyuntamiento(txtNumRegAyto.getText());
+        }
+        if (cbProcedencia.equals("GESTIONA")) {
             nuevaIncidencia.setNumExpedienteAyuntamiento(txtNumExpAyto.getText());
         }
 
@@ -416,37 +488,70 @@ public class InsertarIncidenciaController implements Initializable {
             Procedencia procedencia = incidenciaService.getProcedenciaByTipoProcedencia(cbProcedencia.getValue().trim());
             if (procedencia.getMetodoValidacion().equals("dni_cif")) {
                 Tercero terceroEncontrado = incidenciaService.getTerceroByDni(txtDniCifTercero.getText());
+                System.out.println("Tercero encontrado");
+                terceroEncontrado.setNombre(txtNombreTercero.getText());
+                terceroEncontrado.setTelefono(txtTelefonoTercero.getText());
+                terceroEncontrado.setEmail(txtCorreoTercero.getText());
                 incidenciaService.updateTerceroByDni(txtDniCifTercero.getText(), terceroEncontrado);
                 nuevaIncidencia.setTercero(terceroEncontrado);
             } else if (procedencia.getMetodoValidacion().equals("email")) {
+                System.out.println("Tercero encontrado");
                 Tercero terceroEncontrado = incidenciaService.getTerceroByEmail(txtCorreoTercero.getText());
-                incidenciaService.updateTerceroByEmail(txtCorreoTercero.getText(), terceroEncontrado);
+                terceroEncontrado.setNombre(txtNombreTercero.getText());
+                terceroEncontrado.setTelefono(txtTelefonoTercero.getText());
+                terceroEncontrado.setDniCif(txtDniCifTercero.getText());
+                incidenciaService.updateTerceroByEmail(terceroEncontrado);
                 nuevaIncidencia.setTercero(terceroEncontrado);
             }
         }
-        nuevaIncidencia.setFechaNotificacion(java.sql.Date.valueOf(dpFechaNotificacion.getValue()));
-        nuevaIncidencia.setFechaServiciosGenerales(java.sql.Date.valueOf(dpFechaServGen.getValue()));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        // Formatea la fecha de notificación
+        LocalDate valorFechaNotificacion = dpFechaNotificacion.getValue();
+        String fechaNotificacionFormateada = valorFechaNotificacion.format(formatter);
+        java.sql.Date fechaNotificacion = java.sql.Date.valueOf(LocalDate.parse(fechaNotificacionFormateada, formatter));
+
+        // Formatea la fecha de servicios generales
+        LocalDate valorFechaServiciosGenerales = dpFechaServGen.getValue();
+        String fechaServiciosGeneralesFormateada = valorFechaServiciosGenerales.format(formatter);
+        java.sql.Date fechaServiciosGenerales = java.sql.Date.valueOf(LocalDate.parse(fechaServiciosGeneralesFormateada, formatter));
+
+        // Establece las fechas formateadas en tu objeto nuevaIncidencia
+        nuevaIncidencia.setFechaNotificacion(fechaNotificacion);
+        nuevaIncidencia.setFechaServiciosGenerales(fechaServiciosGenerales);
+
         nuevaIncidencia.setDescripcionIncidencia(txtDescripcion.getText());
 
         nuevaIncidencia.setUsuario(usuarioActual);
 
+        nuevaIncidencia.setEstado(incidenciaService.getEstadoByNombre("PRESENTADA"));
+
+        if (checkbRepetida.isSelected()) {
+            nuevaIncidencia.setIncidenciaOrigen(Integer.parseInt(txtIncidenciaOrigen.getText()));
+        }
+
         incidenciaService.saveIncidencia(nuevaIncidencia);
 
-        List<Ubicacion> ubicaciones = new ArrayList<>();
+        if (!checkbRepetida.isSelected()){
+            List<Ubicacion> ubicaciones = new ArrayList<>();
 
-        ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion.getValue().trim(), txtUbicacion1.getText()));
-        if (!cbTipoUbicacion2.isDisable()) {
-            ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion2.getValue().trim(), txtUbicacion2.getText()));
+            ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion.getValue().trim(), txtUbicacion1.getText()));
+            if (!cbTipoUbicacion2.isDisable()) {
+                ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion2.getValue().trim(), txtUbicacion2.getText()));
+            }
+            if (!cbTipoUbicacion3.isDisable()) {
+                ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion3.getValue().trim(), txtUbicacion3.getText()));
+            }
+            for (Ubicacion u : ubicaciones) {
+                UbicacionIncidencia ubicacionIncidencia = new UbicacionIncidencia();
+                ubicacionIncidencia.setIncidencia(nuevaIncidencia);
+                ubicacionIncidencia.setUbicacion(u);
+                incidenciaService.saveUbicacionIncidencia(ubicacionIncidencia);
+            }
         }
-        if (!cbTipoUbicacion3.isDisable()) {
-            ubicaciones.add(incidenciaService.getUbicacionByTipoLugarAndNombreLugar(cbTipoUbicacion3.getValue().trim(), txtUbicacion3.getText()));
-        }
-        for (Ubicacion u : ubicaciones) {
-            UbicacionIncidencia ubicacionIncidencia = new UbicacionIncidencia();
-            ubicacionIncidencia.setIncidencia(nuevaIncidencia);
-            ubicacionIncidencia.setUbicacion(u);
-            incidenciaService.saveUbicacionIncidencia(ubicacionIncidencia);
-        }
+
+
     }
 
     /**
@@ -505,15 +610,15 @@ public class InsertarIncidenciaController implements Initializable {
             campoRelleno = true;
         }
 
-        if (!comprobarFormatoCorreo()) {
+        if (!comprobarFormatoCorreo() && !campoRelleno) {
             throw new InsertarIncidenciaException("El correo debe tener un formato válido");
         }
 
-        if (!txtTelefonoTercero.getText().matches("\\d{9}")) {
+        if (!txtTelefonoTercero.getText().matches("\\d{9}") && !campoRelleno) {
             throw new InsertarIncidenciaException("El teléfono debe tener un formato válido");
         }
 
-        if (!comprobarFormatoDniCif()) {
+        if (!comprobarFormatoDniCif() && !campoRelleno) {
             throw new InsertarIncidenciaException("El DNI/CIF debe tener un formato válido");
         }
 
@@ -578,9 +683,9 @@ public class InsertarIncidenciaController implements Initializable {
      */
     private boolean comprobarFormatoCorreo() {
         String correo = txtCorreoTercero.getText();
-        String regex = "^[\\w-]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]{2,})$";
+        String regex = "^[\\w-]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]+)$";
 
-        if ((correo == null || correo.trim().isEmpty()) || correo.matches(regex)) {
+        if ((correo != null && !correo.trim().isEmpty()) && correo.matches(regex)) {
             return true;
         } else {
             return false;

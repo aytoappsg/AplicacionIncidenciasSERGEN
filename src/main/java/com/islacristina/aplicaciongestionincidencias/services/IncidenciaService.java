@@ -32,6 +32,10 @@ public class IncidenciaService {
     @Autowired
     private final UbicacionIncidenciaRepository ubicacionIncidenciaRepository;
 
+    @Autowired
+    private EstadoIncidenciaRepository estadoIncidenciaRepository;
+
+
 
     public IncidenciaService(ProcedenciaRepository procedenciaRepository, TipoLugarRepository tipoLugarRepository, LugarRepository lugarRepository, IncidenciaRepository incidenciaRepository, TerceroRepository terceroRepository, UbicacionRepository ubicacionRepository, UbicacionIncidenciaRepository ubicacionIncidenciaRepository){
         this.procedenciaRepository = procedenciaRepository;
@@ -55,13 +59,13 @@ public class IncidenciaService {
         return tipoLugarRepository.findAll();
     }
 
-    public List<String> getNombreLugaresTipoLugar(String tipoLugar, String nombreLugar){
-        Integer idTipoLugar = tipoLugarRepository.findByTipoLugar(tipoLugar).getIdTipoLugar();
+    public List<String> getNombreLugaresTipoLugar(String tipoLugar) {
+        TipoLugar tipoLugarEncontrado = tipoLugarRepository.findByTipoLugar(tipoLugar);
+        List<Ubicacion> ubicaciones = ubicacionRepository.findByTipoLugar(tipoLugarEncontrado);
+
         List<String> nombresLugares = new ArrayList<>();
-        List<Ubicacion> ubicaciones = ubicacionRepository.findByTipoLugarAndNombre(idTipoLugar, nombreLugar);
-        for (Ubicacion u : ubicaciones){
-            nombresLugares.add(this.lugarRepository.findById(u.getLugar().getIdLugar()).get().getNombreLugar());
-        }
+        ubicaciones.forEach(ubicacion -> nombresLugares.add(ubicacion.getLugar().getNombreLugar()));
+
         return nombresLugares;
     }
 
@@ -106,4 +110,23 @@ public class IncidenciaService {
     public List<Incidencia> getAllIncidencias() {
         return incidenciaRepository.findAll();
     }
+
+    public Incidencia getIncidenciaByNumOrden(int numOrden){
+        return incidenciaRepository.findById(numOrden).get();
+    }
+
+
+    public EstadoIncidencia getEstadoByNombre(String presentado) {
+        return estadoIncidenciaRepository.findByNombre(presentado);
+    }
+
+    public List<Ubicacion> getAllUbicaciones() {
+        return ubicacionRepository.findAll();
+    }
+
+    public void updateTerceroByEmail(Tercero updatedTercero) {
+        terceroRepository.saveAndFlush(updatedTercero);
+    }
+
+
 }

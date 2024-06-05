@@ -42,6 +42,8 @@ public class Incidencia {
     private String motivoSuspendida;
     @Column(name = "motivo_pendiente")
     private String motivoPendiente;
+    @Column(name = "incidencia_origen")
+    private Integer incidenciaOrigen;
 
     @ManyToOne
     @JoinColumn(name = "procedencia_incidencia", nullable = false)
@@ -61,7 +63,7 @@ public class Incidencia {
 
     @ManyToOne
     @JoinColumn(name = "coordinador")
-    private Usuario coordinador;
+   private Usuario coordinador;
 
 
     @OneToMany(mappedBy = "incidencia")
